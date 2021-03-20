@@ -1,0 +1,7 @@
+.CardContainer{
+    height: 100%;
+    width: 75%;
+    background-color: violet;
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+}

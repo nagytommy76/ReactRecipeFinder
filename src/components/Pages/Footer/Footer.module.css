@@ -1,0 +1,12 @@
+.Footer{
+    color: #f5f3f3;
+    background-color: #242526;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+}
+
+.FooterContnent{
+    font-size: 1.1rem;
+}

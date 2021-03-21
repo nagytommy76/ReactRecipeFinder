@@ -1,7 +1,9 @@
 .CardContainer{
-    height: 100%;
-    width: 75%;
-    background-color: violet;
+    width: 80%;
+    margin: 2rem 0;
+    flex: 2;
     display: grid;
-    grid-template-columns: repeat(2, 300px);
+    gap: 2rem;
+    grid-template-columns: repeat(2, 450px);
+    justify-content: center;
 }

@@ -2,8 +2,6 @@ import axios from 'axios'
 import {SET_FOODS} from './ActionTypes'
 axios.defaults.baseURL = 'https://api.spoonacular.com/'
 
-// recipes/complexSearch?${process.env.VUE_APP_API_KEY_URL}&query=chciken&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=1
-
 export const setFoods = (payload) => {
     return {
         type: SET_FOODS,
@@ -11,11 +9,15 @@ export const setFoods = (payload) => {
     }
 }
 
-export const getFoodsBySearchParameters = (searchParameters) => {
+export const getFoodsBySearchParameters = ({ foodName, includeIngreds, numberOfResults }) => {
     return dispatch => {
-        console.log(searchParameters)
-        // axios.get(`recipes/complexSearch?${process.env.REACT_APP_API_KEY_QUERY}&query=pasta&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=1`).then(food => {
-        //     dispatch(setFoods(food.data.results))
-        // })
+        // console.log(foodName)
+        // console.log(includeIngreds)
+        // console.log(parseInt(numberOfResults))
+        axios.get(
+            `recipes/complexSearch?${process.env.REACT_APP_API_KEY_QUERY}&query=${foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${parseInt(numberOfResults)}&includeIngredients=${includeIngreds}`
+            ).then(food => {
+            dispatch(setFoods(food.data.results))
+        })
     }
 }

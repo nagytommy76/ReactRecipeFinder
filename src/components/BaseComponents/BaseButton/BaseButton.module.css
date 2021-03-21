@@ -1,0 +1,16 @@
+.Btn{
+    width: 130px;
+    height: 45px;
+    font-size: 1.1rem;
+    background-color: #36ca09;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+.Btn:focus{
+    outline: none;
+}
+.Btn:hover{
+    transform: scale(1.05);
+}

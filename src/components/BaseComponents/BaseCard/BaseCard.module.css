@@ -1,0 +1,20 @@
+.Card{
+    width: 450px;
+    min-height: 450px;
+    transition: all .15s ease;
+    cursor: pointer;
+}
+.Card:hover{
+    box-shadow: 1px 1px 20px #333;
+    transform: translateY(-8px);
+}
+
+.Image{
+    width: 100%;
+    object-fit: cover;
+}
+
+.Title{
+    margin: .5rem 0;
+    font-size: 2.3rem;
+}

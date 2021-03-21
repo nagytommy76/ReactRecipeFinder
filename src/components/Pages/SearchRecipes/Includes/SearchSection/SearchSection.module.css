@@ -1,0 +1,9 @@
+.Form{
+    height: 300px;
+    width: 400px;
+    background-color: #32343f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}

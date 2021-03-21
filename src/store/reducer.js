@@ -11,9 +11,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) =>{
     switch (action.type) {
-        case ActionTypes.GET_FOODS:
+        case ActionTypes.SET_FOODS:
             return{
-
+                ...state,
+                foods: state.foods.concat(action.payload)
             }    
         default:
             return state

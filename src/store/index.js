@@ -5,7 +5,7 @@ import thunk from 'redux-thunk'
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const logger = store => next => action => {
-    console.log(`[MIDDLAWARE DIPATCHING]: ${action}`)
+    // console.log(`[MIDDLAWARE DIPATCHING]: ${action}`)
     return next(action)
 }
 

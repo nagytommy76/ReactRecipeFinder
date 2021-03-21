@@ -1,0 +1,24 @@
+.FormControll{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Label{
+    color: #f8f8f8;
+    margin: .4rem 0;
+    font-size: 1.2rem;
+}
+
+.Input{
+    font-size: 1.2rem;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: none;
+    transition: all .2s ease;
+}
+.Input:focus{
+    outline: none;
+    box-shadow: 1px 1px 8px rgb(173, 173, 173);
+}

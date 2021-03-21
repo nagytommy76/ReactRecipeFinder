@@ -1,1 +1,1 @@
-export const GET_FOODS = 'GET_FOODS'
+export const SET_FOODS = 'SET_FOODS'

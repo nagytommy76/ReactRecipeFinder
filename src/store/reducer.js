@@ -1,6 +1,7 @@
 import * as ActionTypes from './Actions/ActionTypes'
 const initialState = {
-    foods: []
+    foods: [],
+    loading: false
 }
 
 const reducer = (state = initialState, action) =>{
@@ -10,6 +11,16 @@ const reducer = (state = initialState, action) =>{
                 ...state,
                 foods: state.foods.concat(action.payload)
             }    
+        case ActionTypes.SHOW_LOADING:
+            return{
+                ...state,
+                loading: state.loading = true
+            }
+        case ActionTypes.HIDE_LOADING:
+            return{
+                ...state,
+                loading: state.loading = false
+            }
         default:
             return state
     }

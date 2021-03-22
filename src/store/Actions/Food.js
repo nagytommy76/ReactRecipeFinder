@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {SET_FOODS} from './ActionTypes'
+import { showLoading, hideLoading } from './Loading'
 axios.defaults.baseURL = 'https://api.spoonacular.com/'
 
 export const setFoods = (payload) => {
@@ -11,13 +12,12 @@ export const setFoods = (payload) => {
 
 export const getFoodsBySearchParameters = ({ foodName, includeIngreds, numberOfResults }) => {
     return dispatch => {
-        // console.log(foodName)
-        // console.log(includeIngreds)
-        // console.log(parseInt(numberOfResults))
+        dispatch(showLoading())
         axios.get(
             `recipes/complexSearch?${process.env.REACT_APP_API_KEY_QUERY}&query=${foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${parseInt(numberOfResults)}&includeIngredients=${includeIngreds}`
             ).then(food => {
             dispatch(setFoods(food.data.results))
+            dispatch(hideLoading())
         })
     }
 }

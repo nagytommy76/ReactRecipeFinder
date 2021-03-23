@@ -29,7 +29,7 @@ function App({ loading }) {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.loading
+        loading: state.loadingReducer.loading
     }
 }
 

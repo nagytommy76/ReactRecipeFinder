@@ -22,7 +22,7 @@ const CardSection = ({ foods }) => {
 
 const mapStateToProps = (state) => {
     return {
-        foods: state.foods
+        foods: state.foodReducer.foods
     }
 }
 

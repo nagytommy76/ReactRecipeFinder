@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import classes from './CardSection.module.css'
 import { connect } from 'react-redux'
-const Card = React.lazy(() =>import('../../../BaseComponents/BaseCard/BaseCard'))
+const Card = React.lazy(() =>import(/* webpackChunkName: "Card" */'../../../BaseComponents/BaseCard/BaseCard'))
 
 const CardSection = ({ foods }) => {
     return (
@@ -9,11 +10,12 @@ const CardSection = ({ foods }) => {
             {
                 foods.length > 0 ?
                 foods.map(item => (
-                    <Card 
-                        key={item.id}
-                        title={item.title}
-                        image={item.image}
-                    />
+                    <Link to={`/details/${item.id}`} key={item.id}>
+                        <Card 
+                            title={item.title}
+                            image={item.image}
+                        />
+                    </Link>
                 )) : <h1>Nothing To show</h1>
             }
         </section>

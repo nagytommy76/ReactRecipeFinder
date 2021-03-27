@@ -19,7 +19,13 @@
 
 .ListItems{
     margin: 1rem;
-    list-style: none;
     font-size: 1.1rem;
     color: #f5f3f3;
+    padding: 1rem;
+    border-radius: 7px;
+    transition: all .2s ease;
+}
+.ListItems:hover,
+.ListItems.active{
+    background-color: #afa300;
 }

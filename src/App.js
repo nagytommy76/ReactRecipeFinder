@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Loading from './components/BaseComponents/BaseLoading/BasePageSpinner'
-
-const SearchRecipes = React.lazy(() => import('./components/Pages/SearchRecipes/SearchRecipes'))
+const SearchRecipes = React.lazy(() => import(/* webpackChunkName: "SearchRecipesPage" */'./components/Pages/SearchRecipes/SearchRecipes'))
+const RecipeDetails = React.lazy(() => import(/* webpackChunkName: "RecipeDetails" */'./components/Pages/RecipeDetails/RecipeDetails.jsx'))
 
 function App({ loading }) {
   return (
@@ -19,6 +19,7 @@ function App({ loading }) {
               <Route path="/" exact component={WelcomePage}/>
               <Suspense fallback={<Loading isLoading />}>
                 <Route path="/recipes" component={SearchRecipes}/>
+                <Route path="/details/:recipeId" component={RecipeDetails}/>
               </Suspense>
             </Switch>
           <Footer />

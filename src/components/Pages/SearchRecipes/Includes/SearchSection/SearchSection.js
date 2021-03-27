@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
-import BaseInput from '../../../../BaseComponents/BaseInputs/BaseInput'
 import classes from './SearchSection.module.css'
 import { connect } from 'react-redux'
 import { getFoodsBySearchParameters } from '../../../../../store/Actions/Food'
-import Button from '../../../../BaseComponents/BaseButton/BaseButton'
+
+const Button = React.lazy(() => import(/* webpackChunkName: "BaseButton" */ '../../../../BaseComponents/BaseButton/BaseButton'))
+const BaseInput = React.lazy(() => import(/* webpackChunkName: "BaseInput" */'../../../../BaseComponents/BaseInputs/BaseInput'))
 
 const SearchSection = ({ getFoods }) => {
     const [foodName, setFoodName] = useState('')

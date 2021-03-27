@@ -4,11 +4,11 @@
 body {
   margin: 0;
   font-family: 'Cabin', sans-serif;
-  /* background-color: #18191a; */
 }
 
 a{
   text-decoration: none;
+  color: black;
 }
 
 /* 

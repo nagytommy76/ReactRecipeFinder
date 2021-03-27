@@ -1,6 +1,9 @@
 import { SET_FOODS, RESET_FOODS } from '../Actions/ActionTypes'
 
-const initialState = { foods: [] }
+const initialState = { 
+    foods: [],
+
+}
 
 const foodReducer = (state = initialState, action) =>{
     switch (action.type) {

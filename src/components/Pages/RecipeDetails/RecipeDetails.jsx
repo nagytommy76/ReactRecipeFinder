@@ -8,7 +8,7 @@ const Summary = React.lazy(() => import(/* webpackChunkName: "Summary" */'./Incl
 
 const RecipeDetails = ({ singleFood }) => {
     return (
-        <section>
+        <section className={ classes.RecipeDetails }>
             <h1 className={ classes.Title }>{singleFood.title}</h1>
             <DetailHeader 
                 image={ singleFood.image }

@@ -2,11 +2,22 @@
     color: #f5f3f3;
     background-color: #242526;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 6rem;
+    height: 9rem;
 }
 
 .FooterContnent{
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    margin: .7rem 0;
+}
+
+.FontLink{
+    color: white;
+    margin-right: 1rem;
+    transition: color .2s ease;
+}
+.FontLink:hover{
+    color: #d14200;
 }

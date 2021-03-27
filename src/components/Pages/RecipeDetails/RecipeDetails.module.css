@@ -2,3 +2,7 @@
     font-size: 2.7rem;
     text-align: center;
 }
+
+.RecipeDetails{
+    min-height: 85vh;
+}

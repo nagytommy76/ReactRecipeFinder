@@ -5,6 +5,7 @@ import classes from './RecipeDetails.module.css'
 
 const DetailHeader = React.lazy(() => import(/* webpackChunkName: "DetailHeader" */'./Includes/Header/Header'))
 const Summary = React.lazy(() => import(/* webpackChunkName: "Summary" */'./Includes/Summary/Summary'))
+const Instructions = React.lazy(() => import(/* webpackChunkName: "AnalizedInstructions" */ './Includes/Instructions/Instructions'))
 
 const RecipeDetails = ({ singleFood }) => {
     return (
@@ -15,6 +16,12 @@ const RecipeDetails = ({ singleFood }) => {
                 ingredients={ singleFood.extendedIngredients }
             />
             <Summary summary={singleFood.summary}/>
+            { 
+                singleFood.analyzedInstructions ? 
+                <Instructions instructions={singleFood.analyzedInstructions[0]} /> 
+                : null 
+            }
+            
         </section>
     )
 }

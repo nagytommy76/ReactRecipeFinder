@@ -1,0 +1,16 @@
+.Instructions{
+    min-height: 20vh;
+}
+
+.Title{
+    text-align: center;
+    font-size: 2.6rem;
+}
+
+.EquipContainer{
+    margin: 1.5rem 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(5, 170px);
+}

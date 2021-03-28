@@ -14,6 +14,8 @@ const Header = ({ image, ingredients }) => {
                             key={ ingred.id }
                             name={ingred.name}
                             image={ingred.image}
+                            unit={ ingred.unit }
+                            amount={ ingred.amount }
                         />
                     ))
                 }

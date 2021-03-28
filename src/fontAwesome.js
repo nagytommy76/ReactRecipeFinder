@@ -1,8 +1,10 @@
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab, faReact, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faReact, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faClock } from '@fortawesome/free-regular-svg-icons'
 
-library.add(fab,
+library.add(
     faReact,
     faLinkedin,
     faGithub,
+    faClock
 )

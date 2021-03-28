@@ -1,5 +1,4 @@
 import classes from './Equipment.module.css'
-import PropTypes from 'prop-types'
 
 const Equipment = ({ equipment }) => {
     return (
@@ -8,10 +7,6 @@ const Equipment = ({ equipment }) => {
             <p>{equipment.name}</p>
         </div>
     )
-}
-
-Equipment.propTypes = {
-    equipment: PropTypes.array.isRequired
 }
 
 export default Equipment

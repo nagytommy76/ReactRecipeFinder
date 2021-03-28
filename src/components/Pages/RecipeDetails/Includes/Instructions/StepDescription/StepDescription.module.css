@@ -1,0 +1,14 @@
+.Description{
+    width: 70%;
+    text-align: justify;
+    margin: 1rem auto;
+}
+.Title{
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+.Text{
+    cursor: default;
+    line-height: 1.4rem;
+}

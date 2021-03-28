@@ -1,20 +1,20 @@
 .Header{
-    width: 100%;
+    width: 80%;
     min-height: 30vh;
     display: flex;
-    justify-content: center;
-    margin: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .Image{
-    width: 636;
-    height: 393;
-    object-fit: contain;
-    margin-right: 1rem;
+    width: 636px;
+    height: 393px;
+    margin-bottom: 2rem;
 }
 
 .Ingredients{
     display: grid;
     gap: .8rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
 }

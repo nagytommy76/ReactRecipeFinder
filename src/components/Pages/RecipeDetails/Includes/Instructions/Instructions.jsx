@@ -7,11 +7,20 @@ const StepDescription = React.lazy(() => import(/*webpackChunkName: "StepDescrip
 const Instructions = ({ steps }) => {
     const [selectedEquipments, setEquipments] = useState([])
     useEffect(() => {
-        // let allId = []
         steps.map(step => {
-            
+            if(step.equipment.length > 0) step.equipment.forEach(equip => {
+                // console.log(selectedEquipments.includes(equip.id))
+                // console.log(selectedEquipments.includes(equip.id))
+                if (!selectedEquipments.includes(equip.id)){
+                    setEquipments(selectedEquipments => [...selectedEquipments, equip.id])
+                    console.log(selectedEquipments)
+                }
+                // console.log(equip)
+            })
+            // console.log(step)
         })
-    })
+        // console.log(selectedEquipments)
+    },[])
     return (
         <section className={classes.Instructions}>
             <h1 className={classes.Title}>Equipments</h1>

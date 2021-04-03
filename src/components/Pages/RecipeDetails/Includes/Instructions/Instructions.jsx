@@ -1,38 +1,36 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import classes from './Instructions.module.css'
 
 const Equipment = React.lazy(() => import(/*webpackChunkName: "Equipments"*/ './Equipment/Equipment'))
 const StepDescription = React.lazy(() => import(/*webpackChunkName: "StepDescription"*/ './StepDescription/StepDescription'))
 
 const Instructions = ({ steps }) => {
-    const [selectedEquipments, setEquipments] = useState([])
+    const [selectedEquipments, setSelectedEquipments] = useState([])
     useEffect(() => {
-        steps.map(step => {
-            if(step.equipment.length > 0) step.equipment.forEach(equip => {
-                // console.log(selectedEquipments.includes(equip.id))
-                // console.log(selectedEquipments.includes(equip.id))
-                if (!selectedEquipments.includes(equip.id)){
-                    setEquipments(selectedEquipments => [...selectedEquipments, equip.id])
-                    console.log(selectedEquipments)
-                }
-                // console.log(equip)
-            })
-            // console.log(step)
-        })
-        // console.log(selectedEquipments)
+        if (selectedEquipments.length === 0) {
+            // Kiválogatom az összes eszközt egy Array-be
+            let templArr = []
+            for (const step of steps) {
+                if (step.equipment.length > 0) templArr.push(...step.equipment)
+            }
+            setSelectedEquipments(selectedEquipments => [
+                ...selectedEquipments,
+                // a kiválogatott arrayból egyesítem id szerint az object-eket  
+                // YOUTUBE: https://www.youtube.com/watch?v=5JFJTGZ4gHQ&ab_channel=AllThingsJavaScript%2CLLC 
+                ...templArr.reduce((map, obj) => map.set(obj.id, obj) ,new Map()).values()
+            ])            
+        }
     },[])
+
     return (
         <section className={classes.Instructions}>
             <h1 className={classes.Title}>Equipments</h1>
             <section className={classes.EquipContainer}>
                 {
-                    steps.map((step, index) => (
-                        step.equipment.length > 0 ?
-                        <section key={index} className={classes.Equipments}>
-                            {/* Később megoldani, hogy ha több tárgy szerepel itt akkor abból csak 1-et megjeleníteni! */}
-                            <Equipment equipment={step.equipment[0]} /> 
+                    selectedEquipments.map(equip => (
+                        <section key={equip.id} className={classes.Equipments}>
+                            <Equipment equipment={equip} /> 
                         </section>
-                        : null
                     ))
                 } 
             </section>

@@ -17,7 +17,7 @@ const RecipeDetails = ({ singleFood }) => {
             />
             <Summary summary={singleFood.summary}/>
             { 
-                singleFood.analyzedInstructions ? 
+                singleFood.analyzedInstructions[0] ? 
                 <Instructions steps={singleFood.analyzedInstructions[0].steps} /> 
                 : null 
             }

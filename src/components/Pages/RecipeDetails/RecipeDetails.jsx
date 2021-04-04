@@ -6,7 +6,7 @@ import classes from './RecipeDetails.module.css'
 const DetailHeader = React.lazy(() => import(/* webpackChunkName: "DetailHeader" */'./Includes/Header/Header'))
 const Summary = React.lazy(() => import(/* webpackChunkName: "Summary" */'./Includes/Summary/Summary'))
 const Instructions = React.lazy(() => import(/* webpackChunkName: "AnalizedInstructions" */ './Includes/Instructions/Instructions'))
-const Nutrients = React.lazy(() => import(/* webpackChunkName: "Nutrients" */ './Includes/Nutrients/Nutrients'))
+const Nutrients = React.lazy(() => import(/* webpackChunkName: "Nutrients" */ './Includes/Nutrients/Nutrients.jsx'))
 
 const RecipeDetails = ({ singleFood }) => {
     return (

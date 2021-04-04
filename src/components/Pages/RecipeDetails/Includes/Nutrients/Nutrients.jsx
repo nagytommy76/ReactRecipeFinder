@@ -1,35 +1,24 @@
-import React, {useState} from 'react'
-import { Transition } from 'react-transition-group';
+import React, { useState } from 'react'
+import { CSSTransition } from 'react-transition-group';
+import classes from './Nutrients.module.css'
 
-const duration = 3000;
-
-const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
-  opacity: 0,
-}
-
-const transitionStyles = {
-  entering: { opacity: 1 },
-  entered:  { opacity: 1 },
-  exiting:  { opacity: 0 },
-  exited:  { opacity: 0 },
-};
+const duration = 1000
 
 const Nutrients = () => {
-    const [inProp, setInProp] = useState(false);
+    const [isOpen, setIsOpen] = useState(false)
     return (
         <>
-        <Transition in={inProp} timeout={duration}>
-            {state => (
-            <div style={{
-                ...defaultStyle,
-                ...transitionStyles[state]
+            <CSSTransition in={isOpen} timeout={duration} classNames={{
+                appear: classes.Appear,
+                enter: classes.enter,
+                enterActive: classes.enterActive,
+                exit: classes.exit,
+                exitActive: classes.exitActive,
+                exitDone: classes.exitDone
             }}>
-                I'm a fade Transition!
-            </div>
-            )}
-        </Transition>
-        <button onClick={setInProp(!inProp)}>Nyit</button>
+                <p>HELLÓ</p>
+            </CSSTransition>
+            <button onClick={() => setIsOpen(!isOpen)}>Nyit</button>
         </>
     )
 }

@@ -14,9 +14,7 @@ const Header = ({ image, ingredients }) => {
                 ...ingredients.reduce((map, obj) => map.set(obj.id, obj) ,new Map()).values()
             ]) 
         }
-    }, [])
-
-    useEffect(() => console.log(selectedIngredients))
+    }, [ingredients, selectedIngredients])
 
     return (
         <header className={classes.Header}>

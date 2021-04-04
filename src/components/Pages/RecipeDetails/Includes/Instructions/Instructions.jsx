@@ -20,7 +20,7 @@ const Instructions = ({ steps }) => {
                 ...templArr.reduce((map, obj) => map.set(obj.id, obj) ,new Map()).values()
             ])            
         }
-    },[])
+    },[steps, selectedEquipments])
 
     return (
         <section className={classes.Instructions}>

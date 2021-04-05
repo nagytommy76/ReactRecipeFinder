@@ -7,7 +7,7 @@ const StepDescription = ({ steps }) => {
             <h1 className={classes.Title}>Istructions</h1>
             {
                 steps.map(step => (
-                       <span className={classes.Text} key={ step.number }>{step.step}</span>                 
+                       <span className={classes.Text} key={ step.number }>{step.step} </span>                 
                 ))
             }
         </section>

@@ -22,7 +22,7 @@ const RecipeDetails = ({ singleFood }) => {
                 <Instructions steps={singleFood.analyzedInstructions[0].steps} /> 
                 : null 
             }
-            <Nutrients />
+            <Nutrients nutrients={singleFood.nutrition}/>
         </section>
     )
 }

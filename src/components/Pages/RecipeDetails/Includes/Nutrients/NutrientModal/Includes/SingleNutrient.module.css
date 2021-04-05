@@ -1,0 +1,4 @@
+.SingleNutrient{
+    display: flex;
+    flex-direction: column;
+}

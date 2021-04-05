@@ -1,0 +1,29 @@
+.Background{
+    background-color: rgba(29, 29, 29, 0.6);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+}
+
+.modalEnter,
+.modalExitDone {
+    opacity: 0;
+    transform: translateY(-200%) translateX(-50%);
+  }
+.modalEnterActive{
+    opacity: 1;
+    transform: translateY(-50%) translateX(-50%);
+    transition: all 600ms;
+}
+.modalExit,
+.modalEntered {
+    opacity: 1;
+    transform: translateY(-50%) translateX(-50%);
+}
+.modalExitActive {
+    opacity: 0;
+    transform: translateY(-200%) translateX(-50%);
+    transition: all 600ms;
+}

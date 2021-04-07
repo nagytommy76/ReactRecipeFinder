@@ -5,11 +5,10 @@ import classes from './NutrientModal.module.css'
 const BaseModal = React.lazy(() => import(/* webpackChunkName: "BaseModal" */ '../../../../../BaseComponents/BaseModal/BaseModal'))
 const SingleNutrient = React.lazy(() => import(/* webpackChunkName: "SingleNutrient" */ './Includes/SingleNutrient'))
 
-const NutrientModal = ({ onClose, caloricBreakdown, foodNutrients }) => {
+const NutrientModal = ({ caloricBreakdown, foodNutrients }) => {
     return (
         <>
             <BaseModal 
-                onClose={onClose}
                 children={(
                     <section className={classes.Modal}>
                         <header className={classes.Header}>
@@ -26,7 +25,7 @@ const NutrientModal = ({ onClose, caloricBreakdown, foodNutrients }) => {
                                             amount={nutrient.amount}
                                             name={nutrient.name}
                                             percentOfDailyNeeds={nutrient.percentOfDailyNeeds}
-                                            unit={nutrient.amount}
+                                            unit={nutrient.unit}
                                         />
                                     : null                                  
                                 ))
@@ -43,7 +42,6 @@ const NutrientModal = ({ onClose, caloricBreakdown, foodNutrients }) => {
 }
 
 NutrientModal.propTypes = {
-    onClose: PropTypes.func.isRequired,
     caloricBreakdown: PropTypes.object.isRequired,
     foodNutrients: PropTypes.array.isRequired,
 }

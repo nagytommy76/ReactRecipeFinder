@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { hideModal } from '../../../store/Actions/Modal'
+
 import PropTypes from 'prop-types'
 import classes from './BaseModal.module.css'
 import { CSSTransition } from 'react-transition-group';
 
-const BaseModal = ({ onClose, children }) => {
-    const [isOpen, setIsOpen] = useState(false)
-    useEffect(() => {
-        setIsOpen(true)
-    },[])
-    const closeModal = () => {
-        onClose()
-        setIsOpen(false)
-    }
+
+const BaseModal = ({ isModalOpen, closeModal, children }) => {
     return (
         <>
             <section className={classes.Background} onClick={closeModal}></section>
             <CSSTransition
-                in={isOpen}
+                in={isModalOpen}
                 timeout={600}
                 mountOnEnter
                 unmountOnExit             
@@ -38,8 +34,19 @@ const BaseModal = ({ onClose, children }) => {
 }
 
 BaseModal.propTypes = {
-    onClose: PropTypes.func.isRequired,
     children: PropTypes.element.isRequired,
 }
 
-export default BaseModal
+const mapDipatchToProps = dispatch => {
+    return{
+        closeModal: () => dispatch(hideModal())
+    }
+}
+
+const mapStateToProps = state => {
+    return {
+        isModalOpen: state.modalReducer.isModalOpen
+    }
+}
+
+export default connect(mapStateToProps, mapDipatchToProps)(BaseModal)

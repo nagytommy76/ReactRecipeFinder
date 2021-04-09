@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef }  from 'react'
 import { connect } from 'react-redux'
 import { hideModal } from '../../../store/Actions/Modal'
 
@@ -8,10 +8,12 @@ import { CSSTransition } from 'react-transition-group';
 
 
 const BaseModal = ({ isModalOpen, closeModal, children }) => {
+    const nodeRef = useRef(null)
     return (
         <>
             <section className={classes.Background} onClick={closeModal}></section>
             <CSSTransition
+                noderef={nodeRef}
                 in={isModalOpen}
                 timeout={600}
                 mountOnEnter
@@ -25,9 +27,9 @@ const BaseModal = ({ isModalOpen, closeModal, children }) => {
                     exitDone: classes.modalExitDone  
                 }}
             >
-                <>
+                <div ref={nodeRef}>
                     {children}
-                </>
+                </div>
             </CSSTransition>
         </>
     )

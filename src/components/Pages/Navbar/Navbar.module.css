@@ -29,3 +29,20 @@
 .ListItems.active{
     background-color: #afa300;
 }
+
+@media (max-width: 815px) {
+    .Navbar{
+        flex-direction: column;
+        height: 11rem;
+    }
+    .Title{
+        font-size: 1rem;
+    }
+    .NavbarList{
+        flex-direction: column;
+    }
+    .ListItems{
+        text-align: center;
+        margin: 0;
+    }
+}

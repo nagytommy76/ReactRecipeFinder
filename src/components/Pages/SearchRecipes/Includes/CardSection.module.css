@@ -7,3 +7,20 @@
     grid-template-columns: repeat(2, 450px);
     justify-content: center;
 }
+
+@media (max-width: 1647px) {
+    .CardContainer{
+        width: 100%;
+    }
+}
+@media (max-width: 950px) {
+    .CardContainer{
+        grid-template-columns: repeat(1, 400px);
+    }
+}
+@media (max-width: 500px) {
+    .CardContainer{
+        gap: 0;
+        grid-template-columns: repeat(1, 340px);
+    }
+}

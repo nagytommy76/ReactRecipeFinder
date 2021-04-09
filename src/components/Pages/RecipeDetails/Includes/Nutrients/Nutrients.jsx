@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { connect } from 'react-redux'
 import { showModal } from '../../../../../store/Actions/Modal'
 import { CSSTransition } from 'react-transition-group';
@@ -7,9 +7,11 @@ import classes from './Nutrients.module.css'
 const NutrientModal = React.lazy(() => import(/* webpackChunkName: "NutrientModal" */ './NutrientModal/NutrientModal'))
 
 const Nutrients = ({ nutrients, isModalOpen, openModal }) => {
+    const nodeRef = useRef(null)
     return (
         <>
             <CSSTransition 
+            nodeRef={nodeRef}
             in={isModalOpen}
             timeout={400} 
             unmountOnExit
@@ -24,6 +26,7 @@ const Nutrients = ({ nutrients, isModalOpen, openModal }) => {
                 exitDone: classes.exitDone
             }}>
                 <NutrientModal 
+                    nodeRef={nodeRef}
                     caloricBreakdown={nutrients.caloricBreakdown}
                     foodNutrients={nutrients.nutrients}
                 />
@@ -33,7 +36,7 @@ const Nutrients = ({ nutrients, isModalOpen, openModal }) => {
     )
 }
 
-const mapStateToPtops = state => {
+const mapStateToProps = state => {
     return {
         isModalOpen: state.modalReducer.isModalOpen
     }
@@ -45,4 +48,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToPtops, mapDispatchToProps)(Nutrients)
+export default connect(mapStateToProps, mapDispatchToProps)(Nutrients)

@@ -31,9 +31,6 @@ const NutrientModal = ({ caloricBreakdown, foodNutrients }) => {
                                 ))
                             }
                         </section>
-                        <footer className={classes.Footer}>
-                            footer
-                        </footer>
                 </section>
                 )}
             />

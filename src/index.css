@@ -1,3 +1,7 @@
+:root{
+   --largeScreen: 1647px
+}
+
 * {
   @import url "https://fonts.googleapis.com/css2?family=Cabin&display=swap";
 }

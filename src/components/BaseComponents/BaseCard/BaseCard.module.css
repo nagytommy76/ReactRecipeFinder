@@ -19,9 +19,21 @@
     font-size: 2.3rem;
 }
 
+@media (max-width: 950px) {
+    .Card{
+        width: 400px;
+    }
+}
+
 @media (max-width: 500px) {
     .Card{
         width: 340px;
+        min-height: 390px;
+    }
+}
+@media (max-width: 330px) {
+    .Card{
+        width: 300px;
         min-height: 390px;
     }
 }

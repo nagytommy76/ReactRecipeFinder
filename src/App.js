@@ -1,3 +1,4 @@
+import './index.css';
 import React, { Suspense } from 'react'
 import Navbar from './components/Pages/Navbar/Navbar'
 import Footer from './components/Pages/Footer/Footer'

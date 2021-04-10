@@ -15,3 +15,15 @@
     justify-content: center;
     grid-template-columns: repeat(5, 170px);
 }
+
+@media (max-width: 768px) {
+    .EquipContainer{
+        grid-template-columns: repeat(3, 170px);
+    }
+}
+
+@media (max-width: 550px) {
+    .EquipContainer{
+        grid-template-columns: repeat(2, 170px);
+    }
+}

@@ -22,3 +22,9 @@
         position: relative;
     }
 }
+
+@media(max-width: 500px){
+    .Form{
+        width: 300px;
+    }
+}

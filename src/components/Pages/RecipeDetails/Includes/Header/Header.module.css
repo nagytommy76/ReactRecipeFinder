@@ -18,3 +18,28 @@
     gap: .8rem;
     grid-template-columns: repeat(6, 1fr);
 }
+
+@media (max-width: 980px) {
+    .Ingredients{
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+@media (max-width: 760px) {
+    .Image{
+        width: 312px;
+        height: 231px;
+    }
+    .Ingredients{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 550px) {
+    .Ingredients{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 480px) {
+    .Ingredients{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

@@ -11,14 +11,31 @@ const BaseModal = ({ isModalOpen, closeModal, children }) => {
     const nodeRef = useRef(null)
     return (
         <>
-            <section className={classes.Background} onClick={closeModal}></section>
-            <CSSTransition
-                noderef={nodeRef}
+            <CSSTransition 
+                nodeRef={nodeRef}
                 in={isModalOpen}
-                timeout={600}
+                timeout={1000} 
+                mountOnEnter           
+                unmountOnExit 
+                classNames={{
+                    enter: classes.BackgroundEnter,
+                    enterActive: classes.BackgroundEnterActive,
+                    // enterDone: classes.exit,
+                    exit: classes.exit,
+                    exitActive: classes.exitActive,
+                    // exitDone: classes.exitDone
+                }}
+            >
+                <section className={classes.Background} onClick={closeModal}></section>
+            </CSSTransition>
+            {/* <CSSTransition
+                nodeRef={nodeRef}
+                in={isModalOpen}
+                timeout={300}
                 mountOnEnter
                 unmountOnExit             
                 classNames={{
+                    appear: classes.modalEnter,
                     enter: classes.modalEnter,
                     enterActive: classes.modalEnterActive,
                     enterDone: classes.modalEntered,
@@ -27,10 +44,10 @@ const BaseModal = ({ isModalOpen, closeModal, children }) => {
                     exitDone: classes.modalExitDone  
                 }}
             >
-                <div ref={nodeRef}>
+                <div className={classes.Modal} ref={nodeRef}>
                     {children}
                 </div>
-            </CSSTransition>
+            </CSSTransition> */}
         </>
     )
 }

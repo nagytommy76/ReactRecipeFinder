@@ -1,45 +1,22 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { showModal } from '../../../../../store/Actions/Modal'
-import { CSSTransition } from 'react-transition-group';
-import classes from './Nutrients.module.css'
 
-const NutrientModal = React.lazy(() => import(/* webpackChunkName: "NutrientModal" */ './NutrientModal/NutrientModal'))
+const BaseModal = React.lazy(() => import(/* webpackChunkName: "BaseModal" */ '../../../../BaseComponents/BaseModal/BaseModal'))
+const NutrientModalItems = React.lazy(() => import(/* webpackChunkName: "NutrientModal" */ './NutrientModal/NutrientModal'))
 
-const Nutrients = ({ nutrients, isModalOpen, openModal }) => {
-    const nodeRef = useRef(null)
+const Nutrients = ({ nutrients, openModal }) => {
     return (
         <>
-            <CSSTransition 
-            nodeRef={nodeRef}
-            in={isModalOpen}
-            timeout={400} 
-            unmountOnExit
-            mountOnEnter
-            classNames={{
-                appear: classes.Appear,
-                enter: classes.enter,
-                enterActive: classes.enterActive,
-                enterDone: classes.exit,
-                exit: classes.exit,
-                exitActive: classes.exitActive,
-                exitDone: classes.exitDone
-            }}>
-                <NutrientModal 
-                    nodeRef={nodeRef}
-                    caloricBreakdown={nutrients.caloricBreakdown}
-                    foodNutrients={nutrients.nutrients}
-                />
-            </CSSTransition>
+            <BaseModal children={
+                <NutrientModalItems 
+                caloricBreakdown={nutrients.caloricBreakdown}
+                foodNutrients={nutrients.nutrients}
+            />
+            }/>
             <button onClick={openModal}>Nyit</button>
         </>
     )
-}
-
-const mapStateToProps = state => {
-    return {
-        isModalOpen: state.modalReducer.isModalOpen
-    }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -48,4 +25,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Nutrients)
+export default connect(null, mapDispatchToProps)(Nutrients)

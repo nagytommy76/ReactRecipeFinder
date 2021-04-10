@@ -7,6 +7,19 @@
     bottom: 0;
 }
 
+.Modal{
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 900px;
+    background-color: #ebebeb;
+    z-index: 3;
+    overflow: auto;
+}
+
 .modalEnter,
 .modalExitDone {
     opacity: 0;
@@ -26,4 +39,34 @@
     opacity: 0;
     transform: translateY(-200%) translateX(-50%);
     transition: all 600ms;
+}
+
+
+
+/* .exitDone,
+.Appear{
+    opacity: 0;
+}
+
+.enter {
+    opacity: 0;
+}
+.enterActive {
+    opacity: 1;
+    transition: opacity 400ms;
+}
+*/
+.exit {
+    opacity: 1; 
+}
+.exitActive {
+    opacity: 1;
+    transition: all 1000ms;
+} 
+
+.BackgroundEnter{
+    opacity: 0;
+}
+.BackgroundEnterActive{
+    transition: all 1000ms ease;
 }

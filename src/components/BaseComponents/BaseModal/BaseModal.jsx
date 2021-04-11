@@ -1,35 +1,37 @@
 import React, { useRef, lazy }  from 'react'
 import { connect } from 'react-redux'
-import { hideModal } from '../../../store/Actions/Modal'
 
 import PropTypes from 'prop-types'
 import classes from './BaseModal.module.css'
+import modalClasses from './ModalTransition.module.css'
 import { CSSTransition } from 'react-transition-group';
 
-// import Background from './ModalBackground/Background'
 const ModalBackground = lazy(() => import(/* webapckChunkName: "ModalBackground" */'./ModalBackground/Background'))
 
-const BaseModal = ({ isModalOpen, closeModal, children }) => {
+const BaseModal = ({ isModalOpen, children }) => {
     const nodeRef = useRef(null)
     return (
         <>
             <ModalBackground />
             <CSSTransition
+                appear={isModalOpen}
                 nodeRef={nodeRef}
                 in={isModalOpen}
-                timeout={300}
+                timeout={600}
                 mountOnEnter
                 unmountOnExit             
                 classNames={{
-                    enter: classes.modalEnter,
-                    enterActive: classes.modalEnterActive,
-                    exit: classes.modalExit,
-                    exitActive: classes.modalExitActive,   
+                    appear: modalClasses.modalAppear,
+                    appearActive: modalClasses.modalAppearActive,
+                    enter: modalClasses.modalEnter,
+                    enterActive: modalClasses.modalEnterActive,
+                    exit: modalClasses.modalExit,
+                    exitActive: modalClasses.modalExitActive,   
                 }}
             >
-                <div className={classes.Modal} ref={nodeRef}>
+                <section className={classes.Modal} ref={nodeRef}>
                     {children}
-                </div>
+                </section>
             </CSSTransition>
         </>
     )
@@ -39,16 +41,10 @@ BaseModal.propTypes = {
     children: PropTypes.element.isRequired,
 }
 
-const mapDipatchToProps = dispatch => {
-    return{
-        closeModal: () => dispatch(hideModal())
-    }
-}
-
 const mapStateToProps = state => {
     return {
         isModalOpen: state.modalReducer.isModalOpen
     }
 }
 
-export default connect(mapStateToProps, mapDipatchToProps)(BaseModal)
+export default connect(mapStateToProps)(BaseModal)

@@ -1,18 +1,36 @@
 .Header{
-    height: 30%;
+    height: 20%;
 }
 .Title{
     margin: 0;
-    font-size: 1.5rem;
-    padding: 1.5rem;
+    font-size: 1.7rem;
+    padding: 1.2rem;
     text-align: center;
+}
+
+.Calory{
+    text-align: center;
+    margin: .5rem 0 .5rem 0;
+}
+.Highlighted{
+    color: #91db19;
 }
 
 
 .Body{
-    height: 50%;
     display: grid;
     grid-template-columns: repeat(2, 45%);
     justify-content: center;
-    gap: .8rem;
+}
+
+@media (max-width: 520px) {
+    .Header{
+        height: 25%;
+    }
+    .Body{
+        grid-template-columns: repeat(1, 90%);
+    }
+    .Title{
+        font-size: 1.4rem;
+    }
 }

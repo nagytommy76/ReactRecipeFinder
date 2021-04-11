@@ -1,6 +1,7 @@
 .Btn{
-    width: 130px;
-    height: 45px;
+    min-width: 130px;
+    min-height: 45px;
+    padding: 1rem;
     font-size: 1.1rem;
     background-color: #36ca09;
     border: none;

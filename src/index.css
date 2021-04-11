@@ -1,6 +1,21 @@
 * {
   @import url "https://fonts.googleapis.com/css2?family=Cabin&display=swap";
 }
+
+html{
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar{
+  width: .5rem;
+}
+html::-webkit-scrollbar-track{
+  background: #333;
+}
+html::-webkit-scrollbar-thumb{
+  background: #91db19;
+  border-radius: 5px;
+}
+
 body {
   margin: 0;
   font-family: 'Cabin', sans-serif;

@@ -1,4 +1,44 @@
+:root{
+    --border-color: 2px solid rgba(145, 219, 25, .3); 
+}
+
 .SingleNutrient{
     display: flex;
     flex-direction: column;
+    padding: .75rem;
+    text-align: center;
 }
+
+.SingleNutrient:nth-child(odd){
+    border-right: var(--border-color);
+    border-bottom: var(--border-color);
+}
+.SingleNutrient:nth-child(even){
+    border-bottom: var(--border-color);
+}
+.SingleNutrient:last-child{
+    border-bottom: none;
+}
+
+.Title{
+    margin: .8rem 0 .8rem 0;
+}
+.Text{
+    margin: .4rem 0 .4rem 0;
+}
+
+
+.Highlighted{
+    color: #91db19;
+}
+
+@media (max-width: 520px) {
+    .SingleNutrient:nth-child(odd){
+        border-right: none;
+        border-bottom: var(--border-color);
+    }
+    .SingleNutrient:nth-child(even){
+        border-bottom: var(--border-color);
+    }
+}
+/* #91db19 */

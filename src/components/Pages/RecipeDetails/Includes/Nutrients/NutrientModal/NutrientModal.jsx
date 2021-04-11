@@ -9,9 +9,15 @@ const NutrientModal = ({ caloricBreakdown, foodNutrients }) => {
         <>
             <header className={classes.Header}>
                 <h1 className={classes.Title}>Food Nutrients</h1>
-                <h4 className={classes.Calory}>{caloricBreakdown.percentCarbs}% of daily needs</h4>
-                <h4 className={classes.Calory}>{caloricBreakdown.percentFat}% of daily needs</h4>
-                <h4 className={classes.Calory}>{caloricBreakdown.percentProtein}% of daily needs</h4>
+                <h4 className={classes.Calory}>
+                    <span className={classes.Highlighted}>{caloricBreakdown.percentCarbs}%</span> of daily carbs needs
+                </h4>
+                <h4 className={classes.Calory}>
+                    <span className={classes.Highlighted}>{caloricBreakdown.percentFat}%</span> of daily fat needs
+                </h4>
+                <h4 className={classes.Calory}>
+                    <span className={classes.Highlighted}>{caloricBreakdown.percentProtein}%</span> of daily protein needs
+                </h4>
             </header>
             <section className={classes.Body}>
                 {

@@ -5,9 +5,17 @@
     height: 100%;
     top: 0;
     bottom: 0;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(1.5px);
 }
 
+.BackgroundAppear{
+    opacity: 0;
+}
+
+.BackgroundAppearActive{
+    opacity: 1;
+    transition: all 600ms;
+}
 
 .BackgroundEnter {
     opacity: 0;

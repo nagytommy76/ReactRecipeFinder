@@ -17,10 +17,10 @@ const Instructions = ({ steps }) => {
                 ...selectedEquipments,
                 // a kiválogatott arrayból egyesítem id szerint az object-eket  
                 // YOUTUBE: https://www.youtube.com/watch?v=5JFJTGZ4gHQ&ab_channel=AllThingsJavaScript%2CLLC 
-                ...templArr.reduce((map, obj) => map.set(obj.id, obj) ,new Map()).values()
+                ...templArr.reduce((map, equipmentObj) => map.set(equipmentObj.id, equipmentObj) ,new Map()).values()
             ])            
         }
-    },[steps, selectedEquipments])
+    },[steps, selectedEquipments.length])
 
     return (
         <section className={classes.Instructions}>

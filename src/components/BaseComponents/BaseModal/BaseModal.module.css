@@ -1,12 +1,3 @@
-.Background{
-    background-color: rgba(29, 29, 29, 0.6);
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-}
-
 .Modal{
     position: fixed;
     top: 45%;
@@ -20,8 +11,7 @@
     overflow: auto;
 }
 
-.modalEnter,
-.modalExitDone {
+.modalEnter{
     opacity: 0;
     transform: translateY(-200%) translateX(-50%);
   }
@@ -30,8 +20,7 @@
     transform: translateY(-50%) translateX(-50%);
     transition: all 600ms;
 }
-.modalExit,
-.modalEntered {
+.modalExit{
     opacity: 1;
     transform: translateY(-50%) translateX(-50%);
 }
@@ -39,34 +28,4 @@
     opacity: 0;
     transform: translateY(-200%) translateX(-50%);
     transition: all 600ms;
-}
-
-
-
-/* .exitDone,
-.Appear{
-    opacity: 0;
-}
-
-.enter {
-    opacity: 0;
-}
-.enterActive {
-    opacity: 1;
-    transition: opacity 400ms;
-}
-*/
-.exit {
-    opacity: 1; 
-}
-.exitActive {
-    opacity: 1;
-    transition: all 1000ms;
-} 
-
-.BackgroundEnter{
-    opacity: 0;
-}
-.BackgroundEnterActive{
-    transition: all 1000ms ease;
 }

@@ -5,6 +5,9 @@ import modalReducer from './Reducers/Modal'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const logger = store => next => action => {
@@ -17,6 +20,15 @@ const rootReducer = combineReducers({
     modalReducer
 })
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk, logger)))
+const persistedReducer = persistReducer({ key: 'root', storage }, rootReducer)
 
-export default store
+const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk, logger)))
+const persistor = persistStore(store)
+
+const storeConfig = {
+    store,
+    persistor
+}
+
+
+export default storeConfig

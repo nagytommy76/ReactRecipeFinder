@@ -7,6 +7,10 @@ import modalClasses from './ModalTransition.module.css'
 import { CSSTransition } from 'react-transition-group';
 
 const ModalBackground = lazy(() => import(/* webapckChunkName: "ModalBackground" */'./ModalBackground/Background'))
+/**
+ * https://github.com/reactjs/react-transition-group/issues/152
+ *
+ */
 
 const BaseModal = ({ isModalOpen, children }) => {
     const nodeRef = useRef(null)
@@ -14,11 +18,10 @@ const BaseModal = ({ isModalOpen, children }) => {
         <>
             <ModalBackground />
             <CSSTransition
-                appear={isModalOpen}
+                appear={true}
                 nodeRef={nodeRef}
                 in={isModalOpen}
                 timeout={600}
-                mountOnEnter
                 unmountOnExit             
                 classNames={{
                     appear: modalClasses.modalAppear,

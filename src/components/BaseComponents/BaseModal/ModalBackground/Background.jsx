@@ -9,11 +9,10 @@ const Background = ({ isModalOpen, closeModal }) => {
     const nodeRef = useRef(null)
     return (
         <CSSTransition
-            nodeRef={nodeRef}
             appear={isModalOpen}
+            nodeRef={nodeRef}
             in={isModalOpen}
-            timeout={600} 
-            mountOnEnter           
+            timeout={600}          
             unmountOnExit 
             classNames={{
                 appear: bgClasses.BackgroundAppear,

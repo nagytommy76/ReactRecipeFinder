@@ -8,19 +8,12 @@
     backdrop-filter: blur(1.5px);
 }
 
-.BackgroundAppear{
+.BackgroundEnter,
+.BackgroundAppear {
     opacity: 0;
 }
-
+.BackgroundEnterActive,
 .BackgroundAppearActive{
-    opacity: 1;
-    transition: all 600ms;
-}
-
-.BackgroundEnter {
-    opacity: 0;
-}
-.BackgroundEnterActive {
     opacity: 1;
     transition: all 600ms;
 }

@@ -20,10 +20,12 @@ function App({ loading }) {
           <Navbar />
             <Switch>
               <Route path="/" exact component={WelcomePage}/>
+              
               <Suspense fallback={<Loading isLoading />}>
                 <Route path="/recipes" component={SearchRecipes}/>
-                <Route path="/details/:recipeId" component={RecipeDetails}/>
+                <Route path="/details/:recipeId" component={RecipeDetails} />
               </Suspense>
+
             </Switch>
           <Footer />
       </Router>

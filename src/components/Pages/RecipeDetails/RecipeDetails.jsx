@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import { lazy } from 'react'
 import { connect } from 'react-redux'
 import { makeGetSingleFoodState } from '../../../store/selectors'
 import { showModal } from '../../../store/Actions/Modal'

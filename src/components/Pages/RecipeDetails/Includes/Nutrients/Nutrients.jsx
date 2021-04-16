@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import { lazy } from 'react'
 
 const BaseModal = lazy(() => import(/* webpackChunkName: "BaseModal" */ '../../../../BaseComponents/BaseModal/BaseModal'))
 const NutrientModalItems = lazy(() => import(/* webpackChunkName: "NutrientModal" */ './NutrientModal/NutrientModal'))

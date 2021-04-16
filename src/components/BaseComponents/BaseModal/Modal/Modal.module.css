@@ -1,0 +1,20 @@
+.modalEnter,
+.modalAppear{
+    opacity: 0;
+    transform: translateY(-200%) translateX(-50%);
+  }
+.modalEnterActive,
+.modalAppearActive{
+    opacity: 1;
+    transform: translateY(-50%) translateX(-50%);
+    transition: all 600ms;
+}
+.modalExit{
+    opacity: 1;
+    transform: translateY(-50%) translateX(-50%);
+}
+.modalExitActive {
+    opacity: 0;
+    transform: translateY(-200%) translateX(-50%);
+    transition: all 600ms;
+}

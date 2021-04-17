@@ -9,26 +9,28 @@ const NutrientModal = lazy(() => import('../../../Pages/RecipeDetails/Includes/N
 const Modal = ({ isModalOpen }) => {
     const nodeRef = useRef(null)
     return (
-        <Suspense fallback={null}>
-            <CSSTransition
-                in={isModalOpen}
-                appear
-                nodeRef={nodeRef}
-                timeout={600}
-                mountOnEnter
-                unmountOnExit             
-                classNames={{
-                    appear: modalClasses.modalAppear,
-                    appearActive: modalClasses.modalAppearActive,
-                    enter: modalClasses.modalEnter,
-                    enterActive: modalClasses.modalEnterActive,
-                    exit: modalClasses.modalExit,
-                    exitActive: modalClasses.modalExitActive,   
-                }}
-            >
-                <NutrientModal />
-            </CSSTransition>
-        </Suspense>
+        <CSSTransition
+            in={isModalOpen}
+            appear
+            nodeRef={nodeRef}
+            timeout={700}
+            mountOnEnter
+            unmountOnExit            
+            classNames={{
+                appear: modalClasses.modalAppear,
+                appearActive: modalClasses.modalAppearActive,
+                enter: modalClasses.modalEnter,
+                enterActive: modalClasses.modalEnterActive,
+                exit: modalClasses.modalExit,
+                exitActive: modalClasses.modalExitActive,   
+            }}
+        >
+            <section ref={nodeRef} className={modalClasses.Modal}>
+                <Suspense fallback={null}>
+                    <NutrientModal />
+                </Suspense>  
+            </section>
+        </CSSTransition>
     )
 }
 

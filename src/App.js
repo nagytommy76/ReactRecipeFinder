@@ -18,15 +18,13 @@ function App({ loading }) {
       <Router>
           {loading ? <Loading isLoading={loading}/> : null }
           <Navbar />
-            <Switch>
-              <Route path="/" exact component={WelcomePage}/>
-              
-              <Suspense fallback={<Loading isLoading />}>
-                <Route path="/recipes" component={SearchRecipes}/>
-                <Route path="/details/:recipeId" component={RecipeDetails} />
-              </Suspense>
-
-            </Switch>
+            <Suspense fallback={<Loading isLoading />}>
+              <Switch>
+                <Route path="/" exact component={WelcomePage}/>
+                  <Route path="/recipes" component={SearchRecipes}/>
+                  <Route path="/details/:recipeId" component={RecipeDetails} />
+              </Switch>
+            </Suspense>
           <Footer />
       </Router>
     </>

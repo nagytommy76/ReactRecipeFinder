@@ -6,6 +6,12 @@ import modalClasses from './Modal.module.css'
 
 const NutrientModal = lazy(() => import('../../../Pages/RecipeDetails/Includes/Nutrients/NutrientModal/NutrientModal'))
 
+/**
+ *  CSSTransition: 
+ *      - Ha egy lazy loaded component-et akarok animálni kell a React.Suspense
+ *      - illetve kell egy section vagy div ami körülöleli ( vagy forwardRef?! ) és be lehet állítani a ref-et
+ **/
+
 const Modal = ({ isModalOpen }) => {
     const nodeRef = useRef(null)
     return (

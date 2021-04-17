@@ -1,27 +1,28 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import classes from './NutrientModal.module.css'
+import { connect } from 'react-redux'
+import { makeGetSingleFoodState } from '../../../../../../store/selectors'
 
 const SingleNutrient = React.lazy(() => import(/* webpackChunkName: "SingleNutrient" */ './Includes/SingleNutrient'))
 
-const NutrientModal = ({ caloricBreakdown, foodNutrients }) => {
+const NutrientModal = ({ singleFood }) => {
     return (
-        <>
+        <section className={classes.Modal}>
             <header className={classes.Header}>
                 <h1 className={classes.Title}>Food Nutrients</h1>
                 <h4 className={classes.Calory}>
-                    <span className={classes.Highlighted}>{caloricBreakdown.percentCarbs}%</span> of daily carbs needs
+                    <span className={classes.Highlighted}>{singleFood.nutrition.caloricBreakdown.percentCarbs}%</span> of daily carbs needs
                 </h4>
                 <h4 className={classes.Calory}>
-                    <span className={classes.Highlighted}>{caloricBreakdown.percentFat}%</span> of daily fat needs
+                    <span className={classes.Highlighted}>{singleFood.nutrition.caloricBreakdown.percentFat}%</span> of daily fat needs
                 </h4>
                 <h4 className={classes.Calory}>
-                    <span className={classes.Highlighted}>{caloricBreakdown.percentProtein}%</span> of daily protein needs
+                    <span className={classes.Highlighted}>{singleFood.nutrition.caloricBreakdown.percentProtein}%</span> of daily protein needs
                 </h4>
             </header>
             <section className={classes.Body}>
                 {
-                    foodNutrients.map((nutrient, index) => (
+                    singleFood.nutrition.nutrients.map((nutrient, index) => (
                         nutrient.amount !== 0 ? 
                             <SingleNutrient key={index} 
                                 amount={nutrient.amount}
@@ -33,13 +34,18 @@ const NutrientModal = ({ caloricBreakdown, foodNutrients }) => {
                     ))
                 }
             </section>
-        </>
+        </section>
     )
 }
 
-NutrientModal.propTypes = {
-    caloricBreakdown: PropTypes.object.isRequired,
-    foodNutrients: PropTypes.array.isRequired,
+const makeMapStateToProps = () => {
+    const getFoodState = makeGetSingleFoodState()
+    const mapStateToProps = (state) => {
+        return{
+            singleFood: getFoodState(state),
+        }
+    }
+    return mapStateToProps
 }
 
-export default NutrientModal
+export default connect(makeMapStateToProps)(NutrientModal)

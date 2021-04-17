@@ -1,7 +1,14 @@
 import axios from 'axios'
-import {SET_FOODS, RESET_FOODS} from './ActionTypes'
+import {SET_FOODS, RESET_FOODS, SET_SELECTED_FOOD_ID} from './ActionTypes'
 import { showLoading, hideLoading } from './Loading'
 axios.defaults.baseURL = 'https://api.spoonacular.com/'
+
+export const setSelectedFoodId = (id) => { 
+    return {
+        type: SET_SELECTED_FOOD_ID,
+        id 
+    }
+}
 
 const resetFoods = () => {
     return {

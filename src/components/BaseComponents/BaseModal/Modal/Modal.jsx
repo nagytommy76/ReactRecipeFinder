@@ -1,11 +1,12 @@
-import React, { useRef, Suspense } from 'react'
+import React, { useRef, Suspense, lazy } from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
 
 import modalClasses from './Modal.module.css'
-import classes from '../BaseModal.module.css'
 
-const Modal = ({ children, isModalOpen }) => {
+const NutrientModal = lazy(() => import('../../../Pages/RecipeDetails/Includes/Nutrients/NutrientModal/NutrientModal'))
+
+const Modal = ({ isModalOpen }) => {
     const nodeRef = useRef(null)
     return (
         <Suspense fallback={null}>
@@ -25,9 +26,7 @@ const Modal = ({ children, isModalOpen }) => {
                     exitActive: modalClasses.modalExitActive,   
                 }}
             >
-                <section className={classes.Modal} ref={nodeRef}>
-                    {children}
-                </section>
+                <NutrientModal />
             </CSSTransition>
         </Suspense>
     )

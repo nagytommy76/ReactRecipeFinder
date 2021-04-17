@@ -1,8 +1,8 @@
-import { SET_FOODS, RESET_FOODS } from '../Actions/ActionTypes'
+import { SET_FOODS, RESET_FOODS, SET_SELECTED_FOOD_ID} from '../Actions/ActionTypes'
 
 const initialState = { 
     foods: [],
-
+    selectedFoodId: null
 }
 
 const foodReducer = (state = initialState, action) =>{
@@ -16,6 +16,11 @@ const foodReducer = (state = initialState, action) =>{
             return{
                 ...state,
                 foods: state.foods = []
+            }
+        case SET_SELECTED_FOOD_ID:
+            return {
+                ...state,
+                selectedFoodId: state.selectedFoodId = action.id
             }
         default:
             return state

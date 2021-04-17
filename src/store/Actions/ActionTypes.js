@@ -1,6 +1,7 @@
 // Foods
 export const SET_FOODS = 'SET_FOODS'
 export const RESET_FOODS = 'RESET_FOODS'
+export const SET_SELECTED_FOOD_ID = 'SET_SELECTED_FOOD_ID'
 
 // Loading
 export const SHOW_LOADING = 'SHOW_LOADING'

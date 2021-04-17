@@ -9,7 +9,7 @@ const Button = lazy(() => import(/* webpackChunkName: "BaseButton" */ '../../Bas
 const DetailHeader = lazy(() => import(/* webpackChunkName: "DetailHeader" */'./Includes/Header/Header'))
 const Summary = lazy(() => import(/* webpackChunkName: "Summary" */'./Includes/Summary/Summary'))
 const Instructions = lazy(() => import(/* webpackChunkName: "AnalizedInstructions" */ './Includes/Instructions/Instructions'))
-const Nutrients = lazy(() => import(/* webpackChunkName: "Nutrients" */ './Includes/Nutrients/Nutrients.jsx'))
+const NutrientsModal = lazy(() => import(/* webpackChunkName: "NutrientsModal" */ './Includes/Nutrients/Nutrients.jsx'))
 
 const RecipeDetails = ({ singleFood, openModal }) => {
     return (
@@ -31,16 +31,16 @@ const RecipeDetails = ({ singleFood, openModal }) => {
                 <Instructions steps={singleFood.analyzedInstructions[0].steps} /> 
                 : null 
             }
-            <Nutrients nutrients={singleFood.nutrition}/>
+            <NutrientsModal />
         </section>
     )
 }
 
 const makeMapStateToProps = () => {
     const getFoodState = makeGetSingleFoodState()
-    const mapStateToProps = (state, { match }) => {
+    const mapStateToProps = (state) => {
         return{
-            singleFood: getFoodState(state, parseInt(match.params.recipeId)),
+            singleFood: getFoodState(state),
         }
     }
     return mapStateToProps

@@ -1,17 +1,13 @@
 import { lazy } from 'react'
 
-const BaseModal = lazy(() => import(/* webpackChunkName: "BaseModal" */ '../../../../BaseComponents/BaseModal/BaseModal'))
-const NutrientModalItems = lazy(() => import(/* webpackChunkName: "NutrientModal" */ './NutrientModal/NutrientModal'))
+const ModalBackground = lazy(() => import(/* webapckChunkName: "ModalBackground" */'../../../../BaseComponents/BaseModal/ModalBackground/Background'))
+const Modal = lazy(() => import(/* webapckChunkName: "Modal" */ '../../../../BaseComponents/BaseModal/Modal/Modal'))
 
-const Nutrients = ({ nutrients }) => {
+const Nutrients = () => {
     return (
         <>
-            <BaseModal children={
-                <NutrientModalItems 
-                    caloricBreakdown={nutrients.caloricBreakdown}
-                    foodNutrients={nutrients.nutrients}
-                />
-            }/>
+            <ModalBackground />
+            <Modal />
         </>
     )
 }

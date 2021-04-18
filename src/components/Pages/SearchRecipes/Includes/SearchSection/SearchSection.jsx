@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
-import classes from './SearchSection.module.css'
+// import classes from './SearchSection.module.css'
 import { connect } from 'react-redux'
 import { getFoodsBySearchParameters } from '../../../../../store/Actions/Food'
+
+import { Form, Title } from './StyledSearch'
 
 const Button = React.lazy(() => import(/* webpackChunkName: "BaseButton" */ '../../../../BaseComponents/BaseButton/BaseButton.jsx'))
 const BaseInput = React.lazy(() => import(/* webpackChunkName: "BaseInput" */'../../../../BaseComponents/BaseInputs/BaseInput'))
@@ -23,8 +25,8 @@ const SearchSection = ({ getFoods }) => {
     }
 
     return (
-        <form className={classes.Form} onSubmit={sendRequest}>
-        <h1 className={classes.Title}>Search</h1>
+        <Form onSubmit={sendRequest}>
+        <Title>Search</Title>
             <BaseInput 
                 labelText="Food name"
                 value={foodName}
@@ -42,7 +44,7 @@ const SearchSection = ({ getFoods }) => {
                 inputType='number'
             />
             <Button buttonText="Search Foods" />
-        </form>
+        </Form>
     )
 }
 

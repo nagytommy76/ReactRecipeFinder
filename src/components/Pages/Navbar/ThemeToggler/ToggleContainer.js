@@ -3,7 +3,7 @@ import styled from 'styled-components'
 // A theme változó az App.js, ThemeProveider-be átadott object-ből jön!
 // lightTheme egy boolean amit a ToggleContainer styled componentnek adok át
 export const ToggleContainer = styled.button`
-  background: ${({ theme }) => theme.gradient};
+  background-image: ${({ theme }) => theme.backgroundImage};
   border: 2px solid ${({ theme }) => theme.toggleBorder};
   border-radius: 30px;
   cursor: pointer;

@@ -1,43 +1,3 @@
-/* .Card{
-    width: 450px;
-    min-height: 450px;
-    transition: all .15s ease;
-    cursor: pointer;
-}
-.Card:hover{
-    box-shadow: 1px 1px 20px #333;
-    transform: translateY(-8px);
-}
-
-.Image{
-    width: 100%;
-    object-fit: cover;
-}
-
-.Title{
-    margin: .5rem 0;
-    font-size: 2.3rem;
-}
-
-@media (max-width: 950px) {
-    .Card{
-        width: 400px;
-    }
-}
-
-@media (max-width: 500px) {
-    .Card{
-        width: 340px;
-        min-height: 390px;
-    }
-}
-@media (max-width: 330px) {
-    .Card{
-        width: 300px;
-        min-height: 390px;
-    }
-} */
-
 .Card{
     background-color: #f7f5f5;
     position: relative;
@@ -87,11 +47,14 @@
     top: -25px;
     left: 15px;
     width: 400px;
+    height: 280px;
+    background-color: transparent;
     -webkit-box-shadow: 5px 10px 40px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 5px 10px 40px 0px rgba(0,0,0,0.75);
 	box-shadow: 5px 10px 40px 0px rgba(0,0,0,0.75);
 }
 .Image{
     width: 100%;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
 }

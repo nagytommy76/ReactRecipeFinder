@@ -1,7 +1,11 @@
 import './index.css';
 import React, { Suspense } from 'react'
-import Navbar from './components/Pages/Navbar/Navbar'
+import Navbar from './components/Pages/Navbar/Navbar.jsx'
 import Footer from './components/Pages/Footer/Footer'
+
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from './Theme/GlobalStyles'
+import { lightTheme, darkTheme } from './Theme/Themes'
 
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -12,11 +16,11 @@ const SearchRecipes = React.lazy(() => import(/* webpackChunkName: "SearchRecipe
 const RecipeDetails = React.lazy(() => import(/* webpackChunkName: "RecipeDetails" */'./components/Pages/RecipeDetails/RecipeDetails.jsx'))
 
 
-function App({ loading }) {
+function App({ theme }) {
   return (
-    <>
+    <ThemeProvider theme={theme ? lightTheme : darkTheme}>
       <Router>
-          {loading ? <Loading isLoading={loading}/> : null }
+        <GlobalStyles />
           <Navbar />
             <Suspense fallback={<Loading isLoading />}>
               <Switch>
@@ -27,14 +31,14 @@ function App({ loading }) {
             </Suspense>
           <Footer />
       </Router>
-    </>
+    </ThemeProvider>
   );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        loading: state.loadingReducer.loading
-    }
+const mapStateToProps = state => {
+  return {
+      theme: state.themeReducer.isLightTheme
+  }
 }
 
 export default connect(mapStateToProps)(App);

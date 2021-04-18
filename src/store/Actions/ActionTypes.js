@@ -10,3 +10,7 @@ export const HIDE_LOADING = 'HIDE_LOADING'
 // MODAL
 export const SHOW_MODAL = 'SHOW_MODAL'
 export const HIDE_MODAL = 'HIDE_MODAL'
+
+// THEME
+export const DARK_THEME = 'DARK_THEME'
+export const LIGHT_THEME = 'LIGHT_THEME'

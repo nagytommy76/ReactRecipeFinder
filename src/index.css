@@ -16,15 +16,6 @@ html::-webkit-scrollbar-thumb{
   border-radius: 5px;
 }
 
-body {
-  margin: 0;
-  font-family: 'Cabin', sans-serif;
-  /* 
-    #272c33
-  */
-  /* background-color: #283241; */
-}
-
 a{
   text-decoration: none;
   color: black;

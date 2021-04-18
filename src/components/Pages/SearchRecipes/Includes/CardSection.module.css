@@ -3,7 +3,8 @@
     margin: 3rem 0;
     flex: 2;
     display: grid;
-    gap: 3rem;
+    column-gap: 2rem;
+    row-gap: 4rem;
     grid-template-columns: repeat(2, 600px);
     justify-content: center;
 }

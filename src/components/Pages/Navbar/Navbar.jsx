@@ -1,5 +1,6 @@
 import classes from './Navbar.module.css'
 import { Link, NavLink } from 'react-router-dom'
+import Toggle from './ThemeToggler/Toggle'
 
 const Navbar = () => {
     return (
@@ -8,6 +9,7 @@ const Navbar = () => {
             <section className={classes.NavbarList}>
                 <NavLink className={classes.ListItems} to="/">Main Page</NavLink>
                 <NavLink className={classes.ListItems} to="/recipes">Search Recipes</NavLink>
+                <Toggle />
             </section>
         </nav>
     )

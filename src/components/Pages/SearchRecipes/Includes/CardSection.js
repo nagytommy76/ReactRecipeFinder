@@ -17,7 +17,7 @@ const CardSection = ({ foods, assignSelectedFoodId }) => {
                         <Card 
                             customClickEvent={() => assignSelectedFoodId(item.id)}
                             title={item.title}
-                            image={item.image.replace('312x231', '636x393')}
+                            image={item.image.replace('312x231', '480x360')}
                             caloricBreakdown={item.nutrition.nutrients[0]}
                         />
                     </Link>

@@ -19,6 +19,10 @@ html::-webkit-scrollbar-thumb{
 body {
   margin: 0;
   font-family: 'Cabin', sans-serif;
+  /* 
+    #272c33
+  */
+  /* background-color: #283241; */
 }
 
 a{

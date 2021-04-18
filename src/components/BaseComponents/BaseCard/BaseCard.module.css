@@ -1,4 +1,4 @@
-.Card{
+/* .Card{
     width: 450px;
     min-height: 450px;
     transition: all .15s ease;
@@ -36,4 +36,62 @@
         width: 300px;
         min-height: 390px;
     }
+} */
+
+.Card{
+    background-color: #f7f5f5;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: 350px;
+    -webkit-box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
+}
+
+
+.Body{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.Title{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: .7rem;
+    text-align: right;
+    font-size: 2.1rem;
+}
+.Calory{
+    position: absolute;
+    width: 170px;
+    top: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.1rem;
+}
+.PercentName{
+    margin-bottom: 0;
+}
+.PercentValue{
+    margin: .4rem 0 0 0;
+    font-weight: 600;
+}
+
+
+/* 636x393 */
+.ImageContainer{
+    position: absolute;
+    top: -25px;
+    left: 15px;
+    width: 400px;
+    -webkit-box-shadow: 5px 10px 40px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 5px 10px 40px 0px rgba(0,0,0,0.75);
+	box-shadow: 5px 10px 40px 0px rgba(0,0,0,0.75);
+}
+.Image{
+    width: 100%;
+    object-fit: contain;
 }

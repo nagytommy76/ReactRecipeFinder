@@ -1,10 +1,10 @@
 .CardContainer{
     width: 80%;
-    margin: 2rem 0;
+    margin: 3rem 0;
     flex: 2;
     display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(2, 450px);
+    gap: 3rem;
+    grid-template-columns: repeat(2, 600px);
     justify-content: center;
 }
 

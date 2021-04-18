@@ -5,7 +5,7 @@ import classes from './CardSection.module.css'
 import { connect } from 'react-redux'
 import { setSelectedFoodId } from '../../../../store/Actions/Food'
 
-const Card = React.lazy(() =>import(/* webpackChunkName: "Card" */'../../../BaseComponents/BaseCard/BaseCard'))
+const Card = React.lazy(() =>import(/* webpackChunkName: "Card" */'../../../BaseComponents/BaseCard/BaseCard.jsx'))
 
 const CardSection = ({ foods, assignSelectedFoodId }) => {
     return (
@@ -17,7 +17,8 @@ const CardSection = ({ foods, assignSelectedFoodId }) => {
                         <Card 
                             customClickEvent={() => assignSelectedFoodId(item.id)}
                             title={item.title}
-                            image={item.image}
+                            image={item.image.replace('312x231', '636x393')}
+                            caloricBreakdown={item.nutrition.nutrients[0]}
                         />
                     </Link>
                 )) : <h1>Nothing To show</h1>

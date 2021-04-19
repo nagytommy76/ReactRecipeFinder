@@ -1,16 +1,3 @@
-.Card{
-    background-color: #f7f5f5;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    width: 600px;
-    height: 350px;
-    -webkit-box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
-	box-shadow: 10px 10px 93px 0px rgba(0,0,0,0.75);
-}
-
-
 .Body{
     position: relative;
     height: 100%;

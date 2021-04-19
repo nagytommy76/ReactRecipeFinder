@@ -5,12 +5,13 @@ export const Form = styled.form`
     top: 30%;
     min-height: 390px;
     width: 350px;
-    background-color: #32343f;
+    background-color: ${({ lightTheme }) => lightTheme ? '#32343f' : '#4e5163'};
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
+    transition: background-color .3s linear; 
 
     @media(max-width: 1647px){
         margin: 2rem auto 1rem auto;

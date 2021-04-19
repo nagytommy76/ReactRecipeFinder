@@ -1,10 +1,12 @@
-import React from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import classes from './BaseCard.module.css'
 
-const BaseCard = ({ customClickEvent, title, image, id, caloricBreakdown }) => {
+import { Card } from './CardStyle'
+
+const BaseCard = ({ customClickEvent, title, image, id, caloricBreakdown, isLightTheme}) => {
     return (
-        <article onClick={customClickEvent} className={classes.Card}>
+        <Card lightTheme={isLightTheme} onClick={customClickEvent}>
             <header className={classes.ImageContainer}>
                 <img className={classes.Image} srcSet={image} alt={id}/>
             </header>
@@ -19,7 +21,7 @@ const BaseCard = ({ customClickEvent, title, image, id, caloricBreakdown }) => {
                     </p>
                 </div>
             </section>
-        </article>
+        </Card>
     )
 }
 
@@ -30,4 +32,10 @@ BaseCard.propTypes = {
     customClickEvent: PropTypes.func
 }
 
-export default BaseCard
+const mapStateToProps = state => {
+    return {
+        isLightTheme: state.themeReducer.isLightTheme
+    }
+}
+
+export default connect(mapStateToProps)(BaseCard)

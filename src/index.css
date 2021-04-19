@@ -12,7 +12,7 @@ html::-webkit-scrollbar-track{
   background: #333;
 }
 html::-webkit-scrollbar-thumb{
-  background: #91db19;
+  background: #dbbe19;
   border-radius: 5px;
 }
 

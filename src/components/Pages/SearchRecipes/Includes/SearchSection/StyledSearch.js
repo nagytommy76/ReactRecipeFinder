@@ -4,7 +4,7 @@ export const Form = styled.form`
     position: absolute;
     top: 30%;
     min-height: 390px;
-    width: 350px;
+    width: 330px;
     background-color: ${({ lightTheme }) => lightTheme ? '#32343f' : '#4e5163'};
     flex: 1;
     display: flex;
@@ -13,9 +13,10 @@ export const Form = styled.form`
     border-radius: 10px;
     transition: background-color .3s linear; 
 
-    @media(max-width: 1647px){
+    @media(max-width: 1900px){
         margin: 2rem auto 1rem auto;
         position: relative;
+        width: 400px;
     }
     
     @media(max-width: 500px){

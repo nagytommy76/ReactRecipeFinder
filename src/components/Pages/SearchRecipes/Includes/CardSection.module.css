@@ -9,19 +9,19 @@
     justify-content: center;
 }
 
-@media (max-width: 1647px) {
+@media (max-width: 1900px) {
     .CardContainer{
         width: 100%;
     }
 }
-@media (max-width: 950px) {
+@media (max-width: 1250px) {
     .CardContainer{
-        grid-template-columns: repeat(1, 400px);
+        grid-template-columns: repeat(1, 600px);
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 607px) {
     .CardContainer{
-        gap: 0;
+        column-gap: 1.6rem;
         grid-template-columns: repeat(1, 340px);
     }
 }

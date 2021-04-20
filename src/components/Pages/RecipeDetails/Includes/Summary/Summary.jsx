@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classes from './Summary.module.css'
+import { connect } from 'react-redux'
+import { Summary as StyledSummary } from './SummaryStyle'
 
-const Summary = ({ summary }) => {
+const Summary = ({ summary, isLightTheme }) => {
     return (
-        <p className={ classes.Summary } dangerouslySetInnerHTML={{__html: summary}}></p>
+        <StyledSummary lightTheme={isLightTheme} dangerouslySetInnerHTML={{__html: summary}}></StyledSummary>
     )
 }
 
@@ -12,4 +13,10 @@ Summary.propTypes = {
     summary: PropTypes.string.isRequired
 }
 
-export default Summary
+const mapStateToProps = state => {
+    return {
+        isLightTheme: state.themeReducer.isLightTheme
+    }
+}
+
+export default connect(mapStateToProps)(Summary)

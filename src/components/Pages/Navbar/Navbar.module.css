@@ -34,7 +34,7 @@
 @media (max-width: 815px) {
     .Navbar{
         flex-direction: column;
-        height: 11rem;
+        height: 16rem;
     }
     .Title{
         font-size: 1rem;

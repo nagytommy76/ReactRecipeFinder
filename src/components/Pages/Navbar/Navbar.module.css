@@ -10,6 +10,11 @@
 .Title{
     color: #f5f3f3;
     font-size: 2rem;
+    transition: color .2s linear;
+}
+
+.Title:hover{
+    color: #d14200;
 }
 
 .NavbarList{

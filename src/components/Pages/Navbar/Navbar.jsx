@@ -7,8 +7,8 @@ const Navbar = () => {
         <nav className={classes.Navbar}>
             <Link className={classes.Title} to="/"><h1>React Recipe Finder</h1></Link>
             <section className={classes.NavbarList}>
-                <NavLink className={classes.ListItems} to="/">Main Page</NavLink>
-                <NavLink className={classes.ListItems} to="/recipes">Search Recipes</NavLink>
+                <NavLink className={classes.ListItems} to="/recipes">Recipes</NavLink>
+                <NavLink className={classes.ListItems} to="/videos">Videos</NavLink>
                 <Toggle />
             </section>
         </nav>

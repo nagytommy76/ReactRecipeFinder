@@ -13,6 +13,7 @@ const SearchSection = ({ getFoods, isLightTheme }) => {
     const [numberOfResults, setNumberOfResults] = useState(15)
 
     const sendRequest = (event) =>{
+        event.preventDefault()
         if (foodName !== '') {
             getFoods({
                 foodName,
@@ -20,7 +21,8 @@ const SearchSection = ({ getFoods, isLightTheme }) => {
                 numberOfResults
             })            
         }
-        event.preventDefault()
+        setIncludeIngreds('')
+        setFoodName('')
     }
 
     return (

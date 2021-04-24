@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Loading from './components/BaseComponents/BaseLoading/BasePageSpinner'
-import WelcomePage from './components/Pages/Welcome/Welcome'
+import WelcomePage from './components/Pages/Welcome/Welcome.jsx'
 const SearchRecipes = React.lazy(() => import(/* webpackChunkName: "SearchRecipesPage" */'./components/Pages/SearchRecipes/SearchRecipes'))
 const RecipeDetails = React.lazy(() => import(/* webpackChunkName: "RecipeDetails" */'./components/Pages/RecipeDetails/RecipeDetails.jsx'))
 const SearchVideos = React.lazy(() => import(/* webpackChunkName: "SearchVideos" */'./components/Pages/SearchVideos/SearchVideos'))

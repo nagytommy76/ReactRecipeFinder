@@ -1,12 +1,15 @@
 import { lazy } from 'react'
+import { Container } from './VideosStyle'
 
 const SearchForm = lazy(() => import(/* webpackChunkName: "SearchForm" */ './SearchForm/SearchForm'))
+const CardContainer = lazy(() => import(/* webpackChunkName: "CardContainer" */ './CardContainer/CardContainer'))
 
 const SearchVideos = () => {
     return (
-        <section>
-            <SearchForm/>
-        </section>
+        <Container>
+            <SearchForm />
+            <CardContainer />
+        </Container>
     )
 }
 

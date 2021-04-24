@@ -2,7 +2,7 @@ import { useState, lazy } from 'react'
 import { connect } from 'react-redux'
 import { getVideosBySearchParameters } from '../../../../store/Actions/Video'
 
-import { Form, Title } from '../../SearchRecipes/Includes/SearchSection/StyledSearch'
+import { Form, Title } from './StyledSearch'
 
 const BaseInput = lazy(() => import(/* webpackChunkName: "BaseInput" */ '../../../BaseComponents/BaseInputs/BaseInput'))
 
@@ -16,8 +16,6 @@ const SearchForm = ({ getVideos, isLightTheme }) => {
             videoName,
             numberPerPage
         })
-        console.log(videoName)
-        console.log(numberPerPage)
     }
 
     return (

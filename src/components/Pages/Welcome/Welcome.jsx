@@ -8,7 +8,7 @@ const Welcome = () => {
     return (
         <section className={classes.Contanier}>
             <Header/> 
-            <About />        
+            <About />     
         </section>
     )
 }

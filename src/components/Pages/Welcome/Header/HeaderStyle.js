@@ -23,7 +23,7 @@ export const H1 = styled(animated.h1)`
     margin: 0;
 `
 
-export const CucumberImg = styled(animated.img)`
+export const BasilLeaf = styled(animated.img)`
     position: absolute;
     top: 45%;
     right: 100px;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BackgroundImage, H1, CucumberImg, RedPepperImgStyle, BlackPepperImgStyle } from './HeaderStyle'
+import { BackgroundImage, H1, BasilLeaf, RedPepperImgStyle, BlackPepperImgStyle } from './HeaderStyle'
 import { useSpring } from 'react-spring'
 
 import BasilLeafImg from '../images/basil-leaf2.png'
@@ -34,7 +34,7 @@ const Header = () => {
     return (
         <BackgroundImage>
             <H1 style={H1Styles}>Welcome to my Recipe Finder app.</H1>
-            <CucumberImg style={BasilStyles} src={BasilLeafImg} alt="BasilLeaf"/>
+            <BasilLeaf style={BasilStyles} src={BasilLeafImg} alt="BasilLeaf"/>
             <RedPepperImgStyle style={RedPepperStyles} src={RedPepperImg}/>
             <BlackPepperImgStyle style={BlackPepperStyles} src={BlackPepperImg}/>
         </BackgroundImage>

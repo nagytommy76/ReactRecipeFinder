@@ -5,6 +5,7 @@ import { getVideosBySearchParameters } from '../../../../store/Actions/Video'
 import { Form, Title } from './StyledSearch'
 
 const BaseInput = lazy(() => import(/* webpackChunkName: "BaseInput" */ '../../../BaseComponents/BaseInputs/BaseInput'))
+const Button = lazy(() => import(/* webpackChunkName: "Button" */ '../../../BaseComponents/BaseButton/BaseButton'))
 
 const SearchForm = ({ getVideos, isLightTheme }) => {
     const [videoName, setVideoName] = useState('')
@@ -32,7 +33,7 @@ const SearchForm = ({ getVideos, isLightTheme }) => {
                 inputType="number"
                 eventOnChange={event => setNumberPerPage(event.target.value)}
             />
-            <button>Teszt</button>
+            <Button>Search Videos</Button>
         </Form>
     )
 }

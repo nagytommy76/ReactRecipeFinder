@@ -22,15 +22,10 @@ const RecipeDetails = ({ singleFood, openModal }) => {
             <section className={classes.ButtonContainer}>
                 <Button 
                     openClickEvent={openModal}
-                    buttonText="Show food nutrients"
-                />
+                >Show food nutrients</Button>
             </section>
             <Summary summary={singleFood.summary}/>
-            { 
-                singleFood.analyzedInstructions[0] ? 
-                <Instructions steps={singleFood.analyzedInstructions[0].steps} /> 
-                : null 
-            }
+            {singleFood.analyzedInstructions[0] && <Instructions steps={singleFood.analyzedInstructions[0].steps} /> }
             <NutrientsModal />
         </section>
     )

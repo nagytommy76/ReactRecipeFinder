@@ -1,21 +1,19 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import classes from './BaseButton.module.css'
 
-const BaseButton = ({ buttonText, openClickEvent }) => {
+const BaseButton = ({ children, openClickEvent }) => {
     return (
         <button
             className={classes.Btn}
             onClick={openClickEvent}
         >
-            {buttonText}
+            {children}
         </button>
     )
 }
 
 BaseButton.propTypes = {
-    openClickEvent: PropTypes.func,
-    buttonText: PropTypes.string.isRequired
+    openClickEvent: PropTypes.func
 }
 
 export default BaseButton

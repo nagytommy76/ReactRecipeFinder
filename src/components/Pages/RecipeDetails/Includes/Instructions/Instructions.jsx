@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect, lazy } from 'react'
 import classes from './Instructions.module.css'
 
-const Equipment = React.lazy(() => import(/*webpackChunkName: "Equipments"*/ './Equipment/Equipment'))
-const StepDescription = React.lazy(() => import(/*webpackChunkName: "StepDescription"*/ './StepDescription/StepDescription'))
+const Equipment = lazy(() => import(/*webpackChunkName: "Equipments"*/ './Equipment/Equipment'))
+const StepDescription = lazy(() => import(/*webpackChunkName: "StepDescription"*/ './StepDescription/StepDescription'))
 
 const Instructions = ({ steps }) => {
     const [selectedEquipments, setSelectedEquipments] = useState([])
@@ -21,7 +21,6 @@ const Instructions = ({ steps }) => {
             ])            
         }
     },[steps, selectedEquipments.length])
-
     return (
         <section className={classes.Instructions}>
             <h1 className={classes.Title}>Equipments</h1>

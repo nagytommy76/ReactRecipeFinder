@@ -10,7 +10,7 @@ export const StyledArticle = styled.article`
     transition: all .2s linear;
     &:hover{
         transform: translateY(-5px);
-        box-shadow: 3px 3px 22px 1px #555;
+        box-shadow: 1px 1px 20px #111;
     }
 
     @media(max-width: 500px){

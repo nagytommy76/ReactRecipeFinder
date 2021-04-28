@@ -12,8 +12,10 @@ export const CardContainer = styled.section`
     }
     @media(max-width: 940px){
         grid-template-columns: repeat(1, 450px);
+        row-gap: 2.5rem;
     }
     @media(max-width: 500px){
         grid-template-columns: repeat(1, 330px);
+        row-gap: 2.5rem;
     }
 `

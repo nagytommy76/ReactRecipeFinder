@@ -44,7 +44,7 @@ const SearchSection = ({ getFoods, isLightTheme }) => {
                 eventOnChange={event => setNumberOfResults(event.target.value)}
                 inputType='number'
             />
-            <Button buttonText="Search Foods" />
+            <Button>Search Foods</Button>
         </Form>
     )
 }

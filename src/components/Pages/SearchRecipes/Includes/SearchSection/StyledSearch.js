@@ -18,6 +18,10 @@ export const Form = styled.form`
         position: relative;
         width: 400px;
     }
+    @media(min-width: 1900px){
+        position: fixed;
+        width: 330px;
+    }
     
     @media(max-width: 500px){
         width: 300px;

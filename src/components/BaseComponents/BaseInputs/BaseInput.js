@@ -7,6 +7,7 @@ const TextInput = ({ labelText, eventOnChange, value, inputType }) => {
         <div className={classes.FormControll}>
             <label className={classes.Label} htmlFor={labelText}>{labelText}</label>
             <input 
+                data-testid="input"
                 className={classes.Input}
                 id={labelText}
                 value={value}

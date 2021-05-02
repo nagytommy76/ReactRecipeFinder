@@ -14,6 +14,6 @@ test('Display the <VideoForm /> component', () => {
     const onChange = jest.fn();
     
     const { getByTestId } = render(connect(<VideoForm />))
-    screen.debug()
+    // screen.debug()
     // expect(getByTestId('video')).toBeInTheDocument()
 })

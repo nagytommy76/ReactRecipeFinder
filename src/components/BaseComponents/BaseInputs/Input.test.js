@@ -26,24 +26,8 @@ describe('<BaseInput> testing', () => {
         userEvent.type(screen.getByTestId('input'), enteredText)
         // 25 mert 25 karakterleütés a szöveg!!!
         expect(onChange).toHaveBeenCalledTimes(enteredText.length)
-    
         
         expect(screen.getByTestId('input')).toHaveValue(enteredText)
-        // screen.debug()
-    })
-    test('Testing input field not empty', () => {
-        const onChange = jest.fn()
-        const enteredText = 'Entered testing text.....'
-        render(<Input 
-            labelText="Test text2"
-            eventOnChange={onChange}
-        />)
-        
-        userEvent.type(screen.getByTestId('input'), enteredText)
-        // 25 mert 25 karakterleütés a szöveg!!!
-        expect(onChange).toHaveBeenCalledTimes(enteredText.length)
-    
-        expect(screen.getByTestId('input')).not.toHaveValue('')
     })
     test('Label text and id is correct', () => {
         const onChange = jest.fn()
@@ -58,5 +42,4 @@ describe('<BaseInput> testing', () => {
     
 })
 
-
-// afterEach(cleanup)
+afterEach(cleanup)

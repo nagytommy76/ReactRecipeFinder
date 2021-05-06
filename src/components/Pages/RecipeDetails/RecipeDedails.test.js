@@ -2,7 +2,7 @@ import React from 'react'
 import  configureStore from 'redux-mock-store'
 import { Provider } from 'react-redux'
 
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import RecipeDetails from './RecipeDetails'
 
 describe('<RecipeDetails />', () => {
@@ -23,9 +23,8 @@ describe('<RecipeDetails />', () => {
         expect(componentContainer.length).toEqual(1)
     })
 
-    it('renders the child components', () => {
-        // expect(wrapper.find(''))
-        // console.log(componentContainer.props().value.store.getState())
-        console.log(componentContainer.find(RecipeDetails).debug())
-    })
+    // it('renders the child components', () => {
+    //     console.log(componentContainer.props())
+    //     console.log(componentContainer.debug())
+    // })
 })

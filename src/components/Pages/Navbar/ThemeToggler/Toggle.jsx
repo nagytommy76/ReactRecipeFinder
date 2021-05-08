@@ -1,4 +1,5 @@
-import { ToggleContainer } from './ToggleContainer'
+import React from 'react'
+import { StyledToggle } from './ToggleContainer'
 import { setDarkTheme, setLightTheme } from '../../../../store/Actions/Theme'
 import { connect } from 'react-redux'
 
@@ -11,10 +12,10 @@ const Toggle = ({ currentTheme, darkTheme, lightTheme }) => {
     }
 
     return (
-        <ToggleContainer lightTheme={currentTheme} onClick={toggleTheme} >
+        <StyledToggle data-testid="toggler" lightTheme={currentTheme} onClick={toggleTheme} >
             <Sun />
-            <Moon />
-        </ToggleContainer>
+            <Moon/>
+        </StyledToggle>
     )
 }
 

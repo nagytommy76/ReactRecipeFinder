@@ -20,4 +20,6 @@ module.exports = {
         '/shared/vendor/modules',
       ],
     },
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
   };

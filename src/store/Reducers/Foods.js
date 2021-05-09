@@ -1,6 +1,6 @@
 import { SET_FOODS, RESET_FOODS, SET_SELECTED_FOOD_ID} from '../Actions/ActionTypes'
 
-const initialState = { 
+export const initialState = { 
     foods: [],
     selectedFoodId: null
 }

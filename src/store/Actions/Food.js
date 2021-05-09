@@ -27,11 +27,11 @@ export const getFoodsBySearchParameters = ({ foodName, includeIngreds, numberOfR
     return dispatch => {
         dispatch(showLoading())
         dispatch(resetFoods())
-        axios.get(
-            `recipes/complexSearch?${process.env.REACT_APP_API_KEY_QUERY}&query=${foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${parseInt(numberOfResults)}&includeIngredients=${includeIngreds}`
+        return axios.get(
+            `recipes/complexSearch?apiKey=820c397d13094ee6a0e1780f715b0558&query=${foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${parseInt(numberOfResults)}&includeIngredients=${includeIngreds}`
             ).then(food => {
-            dispatch(setFoods(food.data.results))
-            dispatch(hideLoading())
-        })
+                dispatch(setFoods(food.data.results))
+                dispatch(hideLoading())
+            })
     }
 }

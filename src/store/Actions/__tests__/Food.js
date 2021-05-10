@@ -1,22 +1,28 @@
 import thunk from 'redux-thunk'
-import configureMockStore from 'redux-mock-store'
+import configureStore from 'redux-mock-store'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
+import 'regenerator-runtime'
+
+
+
+import moxios from 'moxios'
+
+
+
 
 import { SET_SELECTED_FOOD_ID, SET_FOODS, RESET_FOODS, SHOW_LOADING, HIDE_LOADING } from '../ActionTypes'
-import { setSelectedFoodId, getFoodsBySearchParameters } from '../Food'
+import { setSelectedFoodId, getFoodsBySearchParameters, setFoods } from '../Food'
 
 const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
+const mockStore = configureStore(middlewares)
 const mockAxios = new MockAdapter(axios)
-const store = mockStore()
+const store = mockStore({})
+
 
 describe('Testing food action', () => {
-    beforeEach(() => {
-        store.clearActions()
-        mockAxios.reset()
-    })
-    afterEach(() => mockAxios.restore())
+    beforeEach(() => moxios.install())
+    afterEach(() => moxios.uninstall())
 
     it('should create an action to set the selected food id', () => {
         const id = 322332
@@ -27,26 +33,52 @@ describe('Testing food action', () => {
         expect(setSelectedFoodId(id)).toEqual(expectedAction)
     })
 
-    // apiKey=820c397d13094ee6a0e1780f715b0558
-    it('should get the recipes from the given url ', () => {
+    it('should get the recipes from the given url ', async () => {
+        const responseData = {
+            food: {
+                data: {
+                    results: {
+                        foodName: 'semmi',
+                        id: 34343
+                    }
+                }
+            }
+        }
         const excpectedActions = [
-            // { type: SET_FOODS },
-            // { type: SHOW_LOADING },
+            { type: SHOW_LOADING },
             { type: RESET_FOODS },
+            { type: SET_FOODS, payload: [responseData] },
             { type: HIDE_LOADING }
         ]
         const data = {
-            foodName: 'pasta',
-            numberOfResults: 15,
+            foodName: '',
+            numberOfResults: 1,
             includeIngreds: ''
         }
-        // mockAxios.onGet(`/recipes/complexSearch?apiKey=820c397d13094ee6a0e1780f715b0558&query=${data.foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${data.numberOfResults}&includeIngredients=${data.includeIngreds}`)
-        // .reply(200, {response: [{ item: 'item1' }, { item: 'item2' }] })
 
-        return store.dispatch(getFoodsBySearchParameters(data))
-        expect(store.getActions()).toEqual(excpectedActions)
-        /*.then(() => {*/
-            // console.log(store.getActions())
-        //})
+        moxios.wait(() => {
+            const request = moxios.requests.mostRecent()
+            request.respondWith({
+                status: 200,
+                response: responseData
+            })
+        })
+        
+        await store.dispatch(getFoodsBySearchParameters(data))
+        .then(() => {
+            console.log(store.getActions())
+            // expect(store.getActions()[2]).toEqual(setFoods(responseData))
+        })
+        /**
+         * complexSearch?apiKey=820c397d13094ee6a0e1780f715b0558&query=${data.foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${data.numberOfResults}&includeIngredients=${data.includeIngreds}
+         */
+        // await mockAxios.onGet(`/semmi`).reply(200, responseData)
+        // done()
+        // await store.dispatch(getFoodsBySearchParameters(data))
+        // .then(() => {
+        //     console.log(store.getActions())
+        //     expect(store.getActions()[2]).toEqual(setFoods(responseData))
+        // }).catch(error => console.log(error))
+        // done()
     })
 })

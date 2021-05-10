@@ -1,5 +1,5 @@
 import { SHOW_MODAL, HIDE_MODAL } from '../Actions/ActionTypes'
-const initialState ={
+export const initialState ={
     isModalOpen: false
 }
 

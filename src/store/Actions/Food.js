@@ -16,7 +16,7 @@ const resetFoods = () => {
     }
 }
 
-const setFoods = (payload) => {
+export const setFoods = (payload) => {
     return {
         type: SET_FOODS,
         payload
@@ -24,11 +24,11 @@ const setFoods = (payload) => {
 }
 
 export const getFoodsBySearchParameters = ({ foodName, includeIngreds, numberOfResults }) => {
-    return dispatch => {
+    return async dispatch => {
         dispatch(showLoading())
         dispatch(resetFoods())
-        return axios.get(
-            `recipes/complexSearch?apiKey=820c397d13094ee6a0e1780f715b0558&query=${foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${parseInt(numberOfResults)}&includeIngredients=${includeIngreds}`
+        await axios.get(
+            `recipes/complexSearch?${process.env.REACT_APP_API_KEY_QUERY}&query=${foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${parseInt(numberOfResults)}&includeIngredients=${includeIngreds}`
             ).then(food => {
                 dispatch(setFoods(food.data.results))
                 dispatch(hideLoading())

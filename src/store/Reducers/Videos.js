@@ -1,6 +1,6 @@
 import { GET_VIDEOS } from '../Actions/ActionTypes'
 
-const initialState = {
+export const initialState = {
     videos: []
 }
 

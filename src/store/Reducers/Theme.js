@@ -1,6 +1,6 @@
 import { DARK_THEME, LIGHT_THEME } from '../Actions/ActionTypes'
 
-const initialState = {
+export const initialState = {
     isLightTheme: true
 }
 

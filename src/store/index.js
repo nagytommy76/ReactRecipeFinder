@@ -16,7 +16,7 @@ const logger = store => next => action => {
     return next(action)
 }
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
     foodReducer,
     loadingReducer,
     modalReducer,

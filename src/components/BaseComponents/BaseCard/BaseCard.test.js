@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, screen } from '../../../test-utils'
+import { render, fireEvent, screen, cleanup } from '../../../test-utils'
 import Card from './BaseCard'
 
 const props = {
@@ -12,6 +12,8 @@ const props = {
     }
 }
 
+afterEach(cleanup)
+
 it('renders card component', () => {
     render(
         <Card 
@@ -22,7 +24,7 @@ it('renders card component', () => {
             customClickEvent={() => {}}
         />
     )
-    expect(screen.getByText(props.title))
+    screen.getByText(props.title)
 })
 
 it('renders card component', () => {

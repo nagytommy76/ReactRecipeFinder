@@ -1,46 +1,54 @@
 import React from 'react'
-import  configureStore from 'redux-mock-store'
-import { Provider } from 'react-redux'
 import 'regenerator-runtime'
-
-import { shallow, mount } from 'enzyme'
+import userEvent from '@testing-library/user-event'
+// .toBeInTheDocument()
+import '@testing-library/jest-dom'
+import { render, screen, create} from '../../../../test-utils'
 import SearchForm from './SearchForm'
+import { getVideosBySearchParameters } from '../../../../store/Actions/Video'
 
 // https://github.com/enzymejs/enzyme/issues/1917
 // Megoldani, hogy lazy load-dal is működjön.
 
 describe('<SearchForm />', () => {
-    const mockStore = configureStore()
-    let store, searchFormContainer
-    const initialState = {
-        themeReducer: {
-            isLightTheme: true
-        }
-    }
+    let dispatch = jest.fn()
     beforeEach(() => {
-        store = mockStore(initialState)
-        searchFormContainer = mount(
-            <Provider store={store}>
-                <React.Suspense fallback={null}>
-                    <SearchForm />
-                </React.Suspense> 
-            </Provider>       
-        )  
+        render(
+            <React.Suspense fallback={<h1>Loading..</h1>}>
+                <SearchForm />
+            </React.Suspense>
+        )       
+    })
+    it('have a title with text: "Search Videos"', () => {              
+        screen.getByText(/Search Recipe Videos/i)
+    })
+    it('renders the first input field', async () => {
+        expect(await screen.findByRole('label', { name: /Video name/i })).toBeInTheDocument()
+    })
+    it('renders the second input field', async () => {
+        expect(await screen.findByRole('label', { name: /Results per page/i })).toBeInTheDocument()
+    })
+    it('renders the Button component', async () => {
+        expect(await screen.findByRole('button', { name: /Search Videos/i })).toBeInTheDocument()     
+    })
+    it('dispatches the right action', async () => {
+        // console.log(create())
+        const videoNameInput = await screen.findByRole('label', { name: /Video name/i })
+        userEvent.type(
+            videoNameInput,
+            'Test video name'
+        )
+        screen.debug()
+        // expect(videoNameInput).toHaveValue('Test video name')
         
-    })
-    
-    it('renders the component correctly', async () => {               
-        expect(searchFormContainer.length).toEqual(1)
-    })
-    it('renders the 2 input field', () => {
-        expect(searchFormContainer.find('BaseInput')).toHaveLength(2)
-        // console.log(searchFormContainer.debug())
-    })
-    it('renders the Button component', () => {
-        expect(searchFormContainer.find('BaseButton')).toHaveLength(1)
-        // console.log(searchFormContainer.state())
-        // searchFormContainer.find('BaseInput').at(0).simulate('change', { target: { value: 'Semmi sem biztos' } });
-        
+        // userEvent.click(await screen.findByRole('button', { name: /Search Videos/i }))
+
+        // const { invoke } = create()
+        // invoke(getVideosBySearchParameters('Test video name' ))
+
+
+        // https://robertcooper.me/post/testing-redux-apps
+
     })
 })
 

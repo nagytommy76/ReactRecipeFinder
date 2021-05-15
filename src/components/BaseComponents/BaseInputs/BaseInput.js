@@ -5,8 +5,9 @@ import classes from './BaseInput.module.css'
 const BaseInput = ({ labelText, eventOnChange, value, inputType }) => {
     return (
         <div className={classes.FormControll}>
-            <label className={classes.Label} htmlFor={labelText}>{labelText}</label>
+            <label role="label" className={classes.Label} htmlFor={labelText}>{labelText}</label>
             <input 
+                role="input"
                 data-testid="input"
                 className={classes.Input}
                 id={labelText}

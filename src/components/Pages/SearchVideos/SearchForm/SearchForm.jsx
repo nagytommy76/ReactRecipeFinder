@@ -5,10 +5,8 @@ import { getVideosBySearchParameters } from '../../../../store/Actions/Video'
 
 import { Form, Title } from './StyledSearch'
 
-// const BaseInput = lazy(() => import(/* webpackChunkName: "BaseInput" */ '../../../BaseComponents/BaseInputs/BaseInput'))
-// const Button = lazy(() => import(/* webpackChunkName: "Button" */ '../../../BaseComponents/BaseButton/BaseButton'))
-import Button from '../../../BaseComponents/BaseButton/BaseButton'
-import BaseInput from '../../../BaseComponents/BaseInputs/BaseInput'
+const BaseInput = lazy(() => import(/* webpackChunkName: "BaseInput" */ '../../../BaseComponents/BaseInputs/BaseInput'))
+const Button = lazy(() => import(/* webpackChunkName: "Button" */ '../../../BaseComponents/BaseButton/BaseButton'))
 
 const SearchForm = ({ getVideos, isLightTheme }) => {
     const [videoName, setVideoName] = useState('')
@@ -24,7 +22,7 @@ const SearchForm = ({ getVideos, isLightTheme }) => {
 
     return (
         <Form lightTheme={isLightTheme} onSubmit={sendRequest}>
-            <Title>Search Videos</Title>
+            <Title role="heading">Search Recipe Videos</Title>
             <BaseInput 
                 labelText="Video name:"
                 value={videoName}

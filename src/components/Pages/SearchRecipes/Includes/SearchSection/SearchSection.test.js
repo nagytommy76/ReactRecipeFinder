@@ -1,32 +1,31 @@
 import React from 'react'
-import { render, screen, waitFor } from '../../../../../test-utils'
+import { render, screen } from '../../../../../test-utils'
 import 'regenerator-runtime'
 import '@testing-library/jest-dom'
 
 import SearchSection from './SearchSection'
 
 describe('<SearchSection />', () => {
-    it('renders the button element asynchronously', async () => {
+    beforeEach(() => {
         render(
             <React.Suspense fallback={<h1>Loading.....</h1>}>
                 <SearchSection />
             </React.Suspense>
         )
-        const button = await screen.findByRole('button', { name: /Search Foods/i })
-        expect(button).toBeInTheDocument()
     })
-    it('renders the input fields asynchronously', async () => {
-        render(
-            <React.Suspense fallback={<h1>Loading.....</h1>}>
-                <SearchSection />
-            </React.Suspense>
-        )
-        screen.debug()
-        await screen.findByRole('label', { name: 'Food name' })
-        // const input2 = await screen.findByLabelText(/Include ingredient/i)
-        // const input3 = await screen.findByLabelText(/Number of results/i)
-        // expect(input1).toBeInTheDocument()
-        // expect(input2).toBeInTheDocument()
-        // expect(input3).toBeInTheDocument()
+    it('should render a title with "Search" text', () => {
+        screen.getByText('Search')
+    })
+    it('renders the button element asynchronously', async () => {
+        expect(await screen.findByRole('button', { name: /Search Foods/i })).toBeInTheDocument()
+    })
+    it('renders the first input field asynchronously (Food name)', async () => {
+        expect(await screen.findByRole('label', { name: 'Food name' })).toBeInTheDocument()
+    })
+    it('renders the second input field asynchronously (Include ingredient)', async () => {
+        expect(await screen.findByRole('label', { name: /Include ingredient/i })).toBeInTheDocument()
+    })
+    it('renders the third input field asynchronously (Number of results)', async () => {
+        expect(await screen.findByRole('label', { name: /Number of results/i })).toBeInTheDocument()
     })
 })

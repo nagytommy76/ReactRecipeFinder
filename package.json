@@ -55,14 +55,9 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
-    "axios-mock-adapter": "^1.19.0",
     "css-loader": "^4.3.0",
-    "enzyme": "^3.11.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.0",
-    "jest-enzyme": "^7.1.2",
-    "moxios": "^0.4.0",
     "react-test-renderer": "^17.0.2",
     "redux-mock-store": "^1.5.4"
   },
@@ -71,10 +66,6 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
       "\\.svg": "<rootDir>/__mocks__/svgrMock.js"
-    },
-    "setupFilesAfterEnv": [
-      "./node_modules/jest-enzyme/lib/index.js",
-      "<rootDir>/test-setup.js"
-    ]
+    }
   }
 }

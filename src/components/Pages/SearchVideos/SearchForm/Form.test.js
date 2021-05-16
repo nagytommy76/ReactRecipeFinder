@@ -38,7 +38,7 @@ describe('<SearchForm />', () => {
             videoNameInput,
             'Test video name'
         )
-        screen.debug()
+        // screen.debug()
         // expect(videoNameInput).toHaveValue('Test video name')
         
         // userEvent.click(await screen.findByRole('button', { name: /Search Videos/i }))

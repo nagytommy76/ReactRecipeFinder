@@ -27,7 +27,7 @@ const SearchSection = ({ getFoods, isLightTheme }) => {
 
     return (
         <Form lightTheme={isLightTheme} onSubmit={sendRequest}>
-        <Title>Search</Title>
+        <Title>Search Recipes</Title>
             <BaseInput 
                 labelText="Food name"
                 value={foodName}

@@ -1,3 +1,4 @@
+import React from 'react'
 import { lazy } from 'react'
 import { connect } from 'react-redux'
 import { makeGetSingleFoodState } from '../../../store/selectors'
@@ -12,6 +13,7 @@ const Instructions = lazy(() => import(/* webpackChunkName: "AnalizedInstruction
 const NutrientsModal = lazy(() => import(/* webpackChunkName: "NutrientsModal" */ './Includes/Nutrients/Nutrients.jsx'))
 
 const RecipeDetails = ({ singleFood, openModal }) => {
+    console.log(singleFood)
     return (
         <section className={ classes.RecipeDetails }>
             <h1 className={ classes.Title }>{singleFood.title}</h1>

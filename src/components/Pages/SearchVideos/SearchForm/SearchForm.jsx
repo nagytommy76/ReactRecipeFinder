@@ -14,10 +14,13 @@ const SearchForm = ({ getVideos, isLightTheme }) => {
 
     const sendRequest = event => {
         event.preventDefault()
-        getVideos({
-            videoName,
-            numberPerPage
-        })
+        if (videoName !== "") {
+            getVideos({
+                videoName,
+                numberPerPage
+            })
+            setVideoName('')
+        }
     }
 
     return (

@@ -1,8 +1,9 @@
 // https://redux.js.org/recipes/writing-tests#connected-components
 import React from 'react'
 import { render as rtlRender } from '@testing-library/react'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 // Import your own reducer
 import { rootReducer } from './store/index'
 
@@ -10,7 +11,7 @@ function render(
   ui,
   {
     initialState,
-    store = createStore(rootReducer, initialState),
+    store = createStore(rootReducer, initialState, applyMiddleware(thunk)),
     ...renderOptions
   } = {}
 ) {
@@ -24,26 +25,3 @@ function render(
 export * from '@testing-library/react'
 // override render method
 export { render }
-
-const thunk =
-  ({ dispatch, getState }) =>
-  next =>
-  action => {
-    if (typeof action === 'function') {
-      return action(dispatch, getState)
-    }
-
-    return next(action)
-  }
-
-export const create = () => {
-  const store = {
-    getState: jest.fn(() => ({})),
-    dispatch: jest.fn()
-  }
-  const next = jest.fn()
-
-  const invoke = action => thunk(store)(next)(action)
-
-  return { store, next, invoke }
-}

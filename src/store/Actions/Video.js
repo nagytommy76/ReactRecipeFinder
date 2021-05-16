@@ -2,6 +2,8 @@ import axios from 'axios'
 import { GET_VIDEOS } from './ActionTypes'
 axios.defaults.baseURL = 'https://api.spoonacular.com/'
 
+// RESET FOODS
+
 const getVideos = (incomingData) => {
     return {
         type: GET_VIDEOS,

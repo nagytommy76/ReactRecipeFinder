@@ -1,4 +1,4 @@
-import { lazy } from 'react'
+import React, { lazy } from 'react'
 import classes from './NutrientModal.module.css'
 import { connect } from 'react-redux'
 import { makeGetSingleFoodState } from '../../../../../../store/selectors'

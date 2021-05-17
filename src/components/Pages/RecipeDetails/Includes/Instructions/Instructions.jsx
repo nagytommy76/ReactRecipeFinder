@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy } from 'react'
+import React, { useState, useEffect, lazy } from 'react'
 import classes from './Instructions.module.css'
 
 const Equipment = lazy(() => import(/*webpackChunkName: "Equipments"*/ './Equipment/Equipment'))

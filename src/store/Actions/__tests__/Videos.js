@@ -5,7 +5,7 @@ import 'regenerator-runtime'
 import axios from 'axios'
 jest.mock('axios')
 
-import { GET_VIDEOS } from '../ActionTypes'
+import { GET_VIDEOS, RESET_VIDEOS, HIDE_LOADING, SHOW_LOADING } from '../ActionTypes'
 import { getVideosBySearchParameters } from '../Video'
 
 const mockStore = configureStore([thunk])
@@ -25,10 +25,12 @@ describe('Test Videos action creators', () => {
                 length: 425
             }
         ]
-        const expectedAction = [{
-            type: GET_VIDEOS,
-            payload: responseData
-        }]
+        const expectedAction = [
+            { type: SHOW_LOADING },
+            { type: RESET_VIDEOS },
+            { type: GET_VIDEOS, payload: responseData },
+            { type: HIDE_LOADING }
+        ]
 
         axios.get.mockResolvedValue({ data: { videos: responseData }})
 

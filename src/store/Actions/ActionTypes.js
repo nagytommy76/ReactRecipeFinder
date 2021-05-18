@@ -5,6 +5,7 @@ export const SET_SELECTED_FOOD_ID = 'SET_SELECTED_FOOD_ID'
 
 // Videos
 export const GET_VIDEOS = 'GET_VIDEOS'
+export const RESET_VIDEOS = 'RESET_VIDEOS'
 
 // Loading
 export const SHOW_LOADING = 'SHOW_LOADING'

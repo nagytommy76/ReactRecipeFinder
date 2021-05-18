@@ -1,5 +1,5 @@
 import React, { lazy } from 'react'
-import { createPortal } from 'react-dom'
+// import { createPortal } from 'react-dom'
 
 const ModalBackground = lazy(() => import(/* webapckChunkName: "ModalBackground" */'../../../../BaseComponents/BaseModal/ModalBackground/Background'))
 const Modal = lazy(() => import(/* webapckChunkName: "Modal" */ '../../../../BaseComponents/BaseModal/Modal/Modal'))

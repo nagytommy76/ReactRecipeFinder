@@ -22,12 +22,7 @@ const mockVideoData = [
         youTubeId: "81bn4p8H3Kg"
     }
 ]
-/**
- * Teszt esetek:
- *  1. amíg nem keres, egy üzenet fogadja
- *  2. form validációt kell csinálni, ha üres a text akkor kiírja-e
- *  3. 
- */
+
 // https://robertcooper.me/post/testing-redux-apps
 
 describe('test <SearchVideos />', () => {
@@ -58,7 +53,7 @@ describe('test <SearchVideos />', () => {
         const defaultHeading = await screen.findByRole('heading', { name: /No videos found yet/i })
 
         // There's nothing in the page initially
-        expect(defaultHeading)
+        expect(defaultHeading).toBeInTheDocument()
 
         // if nothing typed into the video name input, the request not send
         userEvent.click(button)
@@ -80,8 +75,6 @@ describe('test <SearchVideos />', () => {
         await screen.findByText(mockVideoData[1].shortTitle)
 
         expect(videoNameInputField).not.toHaveValue(inputText)
-
-        // screen.debug()
     })
 })
 

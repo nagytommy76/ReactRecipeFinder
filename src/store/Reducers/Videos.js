@@ -1,4 +1,4 @@
-import { GET_VIDEOS } from '../Actions/ActionTypes'
+import { GET_VIDEOS, RESET_VIDEOS } from '../Actions/ActionTypes'
 
 export const initialState = {
     videos: []
@@ -11,6 +11,11 @@ const videoReducer = (state = initialState, actions) => {
                ...state,
                videos: state.videos.concat(actions.payload)
            }    
+        case RESET_VIDEOS:
+            return{
+                ...state,
+                videos: state.videos = []
+            }
         default:
             return state
     }

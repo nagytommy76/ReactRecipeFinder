@@ -15,6 +15,7 @@ import WelcomePage from './components/Pages/Welcome/Welcome.jsx'
 const SearchRecipes = React.lazy(() => import(/* webpackChunkName: "SearchRecipesPage" */'./components/Pages/SearchRecipes/SearchRecipes'))
 const RecipeDetails = React.lazy(() => import(/* webpackChunkName: "RecipeDetails" */'./components/Pages/RecipeDetails/RecipeDetails.jsx'))
 const SearchVideos = React.lazy(() => import(/* webpackChunkName: "SearchVideos" */'./components/Pages/SearchVideos/SearchVideos'))
+const MenuItems = React.lazy(() => import(/* webpackChunkName: "MenuItems" */'./components/Pages/MenuItems/MenuItems'))
 
 
 function App({ theme }) {
@@ -28,6 +29,7 @@ function App({ theme }) {
                 <Route path="/" exact component={WelcomePage}/>
                   <Route path="/recipes" component={SearchRecipes}/>
                   <Route path="/videos" component={SearchVideos} />
+                  <Route path="/menu-items" component={MenuItems} />
                   <Route path="/details/:recipeId" component={RecipeDetails} />
               </Switch>
             </Suspense>

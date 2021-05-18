@@ -10,6 +10,7 @@ const Navbar = () => {
             <section className={classes.NavbarList}>
                 <NavLink className={classes.ListItems} to="/recipes">Recipes</NavLink>
                 <NavLink className={classes.ListItems} to="/videos">Videos</NavLink>
+                <NavLink className={classes.ListItems} to="/menu-items">Menu Items</NavLink>
                 <Toggle />
             </section>
         </nav>

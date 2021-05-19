@@ -3,6 +3,7 @@ import loadingReducer from './Reducers/Loading'
 import modalReducer from './Reducers/Modal'
 import themeReducer from './Reducers/Theme'
 import videoReducer from './Reducers/Videos'
+import menuItemReducer from './Reducers/MenuItems'
 
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
@@ -21,10 +22,11 @@ export const rootReducer = combineReducers({
     loadingReducer,
     modalReducer,
     themeReducer,
-    videoReducer
+    videoReducer,
+    menuItemReducer
 })
 
-const persistedReducer = persistReducer({ key: 'root', storage }, rootReducer)
+const persistedReducer = persistReducer({ key: 'root', storage, blacklist: ['menuItemReducer'] }, rootReducer)
 
 const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk, logger)))
 const persistor = persistStore(store)

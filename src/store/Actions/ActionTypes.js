@@ -7,6 +7,9 @@ export const SET_SELECTED_FOOD_ID = 'SET_SELECTED_FOOD_ID'
 export const GET_VIDEOS = 'GET_VIDEOS'
 export const RESET_VIDEOS = 'RESET_VIDEOS'
 
+// Menu items
+export const GET_MENU_ITEMS = 'GET_MENU_ITEMS'
+
 // Loading
 export const SHOW_LOADING = 'SHOW_LOADING'
 export const HIDE_LOADING = 'HIDE_LOADING'

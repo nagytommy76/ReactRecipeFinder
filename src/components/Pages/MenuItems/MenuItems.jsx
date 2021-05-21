@@ -13,7 +13,7 @@ const MenuItems = () => {
             <Title>Menu items</Title>
             <SearchForm />
             <CardContainer>
-                {
+                {   menuItem.length > 0 ?
                     menuItem.map(item => (
                         <MenuCard
                             key={item.id}
@@ -21,7 +21,7 @@ const MenuItems = () => {
                             restaurantChain={item.restaurantChain}
                             image={item.image}
                         />
-                    ))
+                    )) : <h1>Nothing to show</h1>
                 }
             </CardContainer>
         </MenuItemsContainer>

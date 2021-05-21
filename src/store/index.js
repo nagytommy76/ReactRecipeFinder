@@ -13,10 +13,6 @@ import storage from 'redux-persist/lib/storage'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const logger = store => next => action => {
-    return next(action)
-}
-
 export const rootReducer = combineReducers({
     foodReducer,
     loadingReducer,
@@ -28,7 +24,7 @@ export const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer({ key: 'root', storage, blacklist: ['menuItemReducer'] }, rootReducer)
 
-const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk, logger)))
+const store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk)))
 const persistor = persistStore(store)
 
 const storeConfig = {

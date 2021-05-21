@@ -13,7 +13,10 @@ describe('<MenuItems>', () => {
             </React.Suspense>
         )
     })
-    it('should display the menu cards', async () => {
+    it('should display the search form with 2 input fields and a button', async () => {
+        await screen.findByRole('input', { name: /Menu Item/i })
+        await screen.findByRole('input', { name: 'Number/page' })
+        await screen.findByRole('button', { name: /Find Menu Items/i })
         screen.debug()
     })
     

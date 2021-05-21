@@ -7,3 +7,7 @@ export const getMenuItems = (payload) => {
         payload
     }
 }
+
+export const fetchMenuItems = async (dispatch, getState) => {
+    
+}

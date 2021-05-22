@@ -1,13 +1,15 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import classes from './CardSection.module.css'
 
-import { connect } from 'react-redux'
-import { setSelectedFoodId } from '../../../../store/Actions/Food'
+import { setSelectedFoodId } from '../../../../store/Slices/FoodSlice'
 
 const Card = React.lazy(() =>import(/* webpackChunkName: "Card" */'../../../BaseComponents/BaseCard/BaseCard.jsx'))
 
-const CardSection = ({ foods, assignSelectedFoodId }) => {
+const CardSection = () => {
+    const dispatch = useDispatch()
+    const foods = useSelector(state => state.foodReducer.foods)
     return (
         <section className={classes.CardContainer}>
             {
@@ -15,7 +17,7 @@ const CardSection = ({ foods, assignSelectedFoodId }) => {
                 foods.map(item => (
                     <Link to={`/details/${item.id}`} key={item.id}>
                         <Card 
-                            customClickEvent={() => assignSelectedFoodId(item.id)}
+                            customClickEvent={() => dispatch(setSelectedFoodId(item.id))}
                             title={item.title}
                             image={item.image.replace('312x231', '480x360')}
                             caloricBreakdown={item.nutrition.nutrients[0]}
@@ -27,16 +29,4 @@ const CardSection = ({ foods, assignSelectedFoodId }) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        foods: state.foodReducer.foods
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        assignSelectedFoodId: (id) => dispatch(setSelectedFoodId(id))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardSection)
+export default CardSection

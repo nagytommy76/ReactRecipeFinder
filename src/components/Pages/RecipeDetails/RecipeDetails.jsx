@@ -1,7 +1,8 @@
 import React, { lazy } from 'react'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { makeGetSingleFoodState } from '../../../store/selectors'
-import { showModal } from '../../../store/Actions/Modal'
+import { showModal } from '../../../store/Slices/ModalSlice'
 
 import classes from './RecipeDetails.module.css'
 
@@ -11,7 +12,10 @@ const Summary = lazy(() => import(/* webpackChunkName: "Summary" */'./Includes/S
 const Instructions = lazy(() => import(/* webpackChunkName: "AnalizedInstructions" */ './Includes/Instructions/Instructions'))
 const NutrientsModal = lazy(() => import(/* webpackChunkName: "NutrientsModal" */ './Includes/Nutrients/Nutrients.jsx'))
 
-const RecipeDetails = ({ singleFood, openModal }) => {
+const RecipeDetails = () => {
+    const dispatch = useDispatch()
+    const singleFood = useSelector(makeGetSingleFoodState())
+
     return (
         <section className={ classes.RecipeDetails }>
             <h1 className={ classes.Title }>{singleFood.title}</h1>
@@ -21,7 +25,7 @@ const RecipeDetails = ({ singleFood, openModal }) => {
             />
             <section className={classes.ButtonContainer}>
                 <Button 
-                    openClickEvent={openModal}
+                    openClickEvent={() => dispatch(showModal())}
                 >Show food nutrients</Button>
             </section>
             <Summary summary={singleFood.summary}/>
@@ -31,20 +35,4 @@ const RecipeDetails = ({ singleFood, openModal }) => {
     )
 }
 
-const makeMapStateToProps = () => {
-    const getFoodState = makeGetSingleFoodState()
-    const mapStateToProps = (state) => {
-        return{
-            singleFood: getFoodState(state),
-        }
-    }
-    return mapStateToProps
-}
-
-const mapDispatchToProps = dispatch => {
-    return{
-        openModal: () => dispatch(showModal())
-    }
-}
-
-export default connect(makeMapStateToProps, mapDispatchToProps)(RecipeDetails)
+export default RecipeDetails

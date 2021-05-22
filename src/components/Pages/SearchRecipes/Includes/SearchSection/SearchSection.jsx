@@ -1,15 +1,14 @@
 import React, {useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setFoods } from '../../../../../store/Slices/FoodSlice'
+import { getFoodsBySearchParameters } from '../../../../../store/Slices/FoodSlice'
 
 import { Form, Title } from './StyledSearch'
 
 const Button = React.lazy(() => import(/* webpackChunkName: "BaseButton" */ '../../../../BaseComponents/BaseButton/BaseButton.jsx'))
 const BaseInput = React.lazy(() => import(/* webpackChunkName: "BaseInput" */'../../../../BaseComponents/BaseInputs/BaseInput'))
 
-const SearchSection = ({ getFoods }) => {
+const SearchSection = () => {
     const dispatch = useDispatch()
-
     const isLightTheme = useSelector(state => state.themeReducer.isLightTheme)
 
     const [foodName, setFoodName] = useState('')
@@ -19,11 +18,11 @@ const SearchSection = ({ getFoods }) => {
     const sendRequest = (event) =>{
         event.preventDefault()
         if (foodName !== '') {
-            getFoods({
+            dispatch(getFoodsBySearchParameters({
                 foodName,
                 includeIngreds,
                 numberOfResults
-            })            
+            }))       
         }
         setIncludeIngreds('')
         setFoodName('')
@@ -52,17 +51,5 @@ const SearchSection = ({ getFoods }) => {
         </Form>
     )
 }
-
-// const mapStateToProps = (state) => {
-//     return {
-//         isLightTheme: state.themeReducer.isLightTheme
-//     }
-// }
-
-// const mapDispatchToProps = dispatch =>{
-//     return {
-//         getFoods: (payload) => dispatch(getFoodsBySearchParameters(payload))
-//     }
-// }
 
 export default SearchSection

@@ -1,5 +1,5 @@
 import React, { useRef, Suspense, lazy } from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
 
 import modalClasses from './Modal.module.css'
@@ -12,8 +12,9 @@ const NutrientModal = lazy(() => import('../../../Pages/RecipeDetails/Includes/N
  *      - illetve kell egy section vagy div ami körülöleli ( vagy forwardRef?! ) és be lehet állítani a ref-et
  **/
 
-const Modal = ({ isModalOpen }) => {
+const Modal = () => {
     const nodeRef = useRef(null)
+    const isModalOpen = useSelector(state => state.modalReducer.isModalOpen)
     return (
         <CSSTransition
             in={isModalOpen}
@@ -40,10 +41,4 @@ const Modal = ({ isModalOpen }) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        isModalOpen: state.modalReducer.isModalOpen
-    }
-}
-
-export default connect(mapStateToProps)(Modal)
+export default Modal

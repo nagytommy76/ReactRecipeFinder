@@ -1,12 +1,13 @@
 import React from 'react'
 import { lazy } from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import { CardContainer as ContainerStyle } from './ContainerStyle'
 
 const Card = lazy(() => import('./Card/Card'))
 
-const CardContainer = ({ videos }) => {
+const CardContainer = () => {
+    const videos = useSelector(state => state.videoReducer.videos)
     return (
         <ContainerStyle>
             {
@@ -28,10 +29,4 @@ const CardContainer = ({ videos }) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        videos: state.videoReducer.videos
-    }
-}
-
-export default connect(mapStateToProps)(CardContainer)
+export default CardContainer

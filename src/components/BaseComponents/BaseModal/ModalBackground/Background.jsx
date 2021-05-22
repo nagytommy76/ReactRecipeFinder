@@ -1,12 +1,14 @@
 import React, { useRef } from 'react'
-import { connect } from 'react-redux'
-import { hideModal } from '../../../../store/Actions/Modal'
+import { useDispatch, useSelector } from 'react-redux'
+import { hideModal } from '../../../../store/Slices/ModalSlice'
 
 import { CSSTransition } from 'react-transition-group';
 import bgClasses from './Background.module.css'
 
-const Background = ({ isModalOpen, closeModal }) => {
+const Background = () => {
     const nodeRef = useRef(null)
+    const dispatch = useDispatch()
+    const isModalOpen = useSelector(state => state.modalReducer.isModalOpen)
     return (
         <CSSTransition
             in={isModalOpen}
@@ -24,21 +26,9 @@ const Background = ({ isModalOpen, closeModal }) => {
                 exitActive: bgClasses.BackgroundExitActive,
             }}
         >
-            <section ref={nodeRef} className={bgClasses.Background} onClick={closeModal}></section>
+            <section ref={nodeRef} className={bgClasses.Background} onClick={() => dispatch(hideModal())}></section>
         </CSSTransition>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        isModalOpen: state.modalReducer.isModalOpen
-    }
-}
-
-const mapDipatchToProps = dispatch => {
-    return{
-        closeModal: () => dispatch(hideModal())
-    }
-}
-
-export default connect(mapStateToProps, mapDipatchToProps)(Background)
+export default Background

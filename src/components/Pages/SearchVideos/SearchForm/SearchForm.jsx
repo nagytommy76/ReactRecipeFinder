@@ -1,24 +1,27 @@
 import React from 'react'
 import { useState, lazy } from 'react'
-import { connect } from 'react-redux'
-import { getVideosBySearchParameters } from '../../../../store/Actions/Video'
+import { useDispatch, useSelector } from 'react-redux'
+import { getVideosBySearchParameters } from '../../../../store/Slices/VideoSlice'
 
 import { Form, Title } from './StyledSearch'
 
 const BaseInput = lazy(() => import(/* webpackChunkName: "BaseInput" */ '../../../BaseComponents/BaseInputs/BaseInput'))
 const Button = lazy(() => import(/* webpackChunkName: "Button" */ '../../../BaseComponents/BaseButton/BaseButton'))
 
-const SearchForm = ({ getVideos, isLightTheme }) => {
+const SearchForm = () => {
+    const dispatch = useDispatch()
+    const isLightTheme = useSelector(state => state.themeReducer.isLightTheme)
+
     const [videoName, setVideoName] = useState('')
     const [numberPerPage, setNumberPerPage] = useState(10)
 
     const sendRequest = event => {
         event.preventDefault()
         if (videoName !== "") {
-            getVideos({
+            dispatch(getVideosBySearchParameters({
                 videoName,
                 numberPerPage
-            })
+            }))
             setVideoName('')
         }
     }
@@ -42,16 +45,4 @@ const SearchForm = ({ getVideos, isLightTheme }) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        isLightTheme: state.themeReducer.isLightTheme
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        getVideos: (payload) => dispatch(getVideosBySearchParameters(payload))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchForm)
+export default SearchForm

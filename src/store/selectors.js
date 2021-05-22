@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect'
+import { createSelector } from '@reduxjs/toolkit'
 
 const getSingleFoodById = (state) => {
     return state.foodReducer.foods.filter(item => item.id === state.foodReducer.selectedFoodId)[0]

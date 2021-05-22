@@ -1,11 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import classes from './BaseCard.module.css'
 
 import { Card } from './CardStyle'
 
-const BaseCard = ({ customClickEvent, title, image, id, caloricBreakdown, isLightTheme}) => {
+const BaseCard = ({ customClickEvent, title, image, id, caloricBreakdown }) => {
+    const isLightTheme = useSelector(state => state.themeReducer.isLightTheme)
     return (
         <Card lightTheme={isLightTheme} onClick={customClickEvent}>
             <header className={classes.ImageContainer}>
@@ -33,10 +34,4 @@ BaseCard.propTypes = {
     customClickEvent: PropTypes.func
 }
 
-const mapStateToProps = state => {
-    return {
-        isLightTheme: state.themeReducer.isLightTheme
-    }
-}
-
-export default connect(mapStateToProps)(BaseCard)
+export default BaseCard

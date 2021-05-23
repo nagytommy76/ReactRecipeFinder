@@ -6,7 +6,8 @@ export const Title = styled.h1`
 `
 
 export const CardContainer = styled.section`
-    
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr); */
 `
 
 export const MenuItemsContainer = styled.section`

@@ -27,7 +27,6 @@ export const rootReducer = combineReducers({
     })
 
 const persistedReducer = persistReducer({ key: 'root', storage, blacklist: [
-    'menuItemReducer',
     'loadingReducer',
     'modalReducer'
 ] }, rootReducer)

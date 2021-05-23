@@ -8,6 +8,6 @@ export const lightTheme = {
 export const darkTheme = {
     body: '#272c33',
     text: '#FFF',
-    toggleBorder: '#18191a',
+    toggleBorder: '#BBB',
     backgroundImage: 'linear-gradient(to right, #091236, #1E215D)'
 }

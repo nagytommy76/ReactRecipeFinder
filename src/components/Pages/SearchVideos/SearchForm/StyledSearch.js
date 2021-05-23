@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Form = styled.form`
     position: relative;
-    min-height: 390px;
+    min-height: 350px;
     width: 400px;
     margin: 10rem auto 3rem auto;
     background-color: ${({ lightTheme }) => lightTheme ? '#32343f' : '#4e5163'};

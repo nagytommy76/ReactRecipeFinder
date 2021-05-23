@@ -1,13 +1,17 @@
 import React from 'react'
-import { StyledCard } from './MenuCard'
+import { StyledCard, StyledImg, ImgContainer, TitleContainer, Title, SubTitle } from './MenuCardStyle'
 import PropTypes from 'prop-types'
 
 const MenuCard = ({ title, restaurantChain, image }) => {
     return (
         <StyledCard>
-            <h1>{title}</h1>
-            <h5>{restaurantChain}</h5>
-            <img src={image} alt={title} />
+            <ImgContainer>
+                <StyledImg src={image} alt={title} />
+            </ImgContainer>
+            <TitleContainer>
+                <Title>{title}</Title>
+                <SubTitle>{restaurantChain}</SubTitle>
+            </TitleContainer>
         </StyledCard>
     )
 }

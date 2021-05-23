@@ -6,7 +6,7 @@ import Toggle from './ThemeToggler/Toggle'
 const Navbar = () => {
     return (
         <nav data-testid="navbar" className={classes.Navbar}>
-            <Link className={classes.Title} to="/"><h1>React Recipe Finder</h1></Link>
+            <Link to="/"><h1 className={classes.Title}>React Recipe Finder</h1></Link>
             <section className={classes.NavbarList}>
                 <NavLink className={classes.ListItems} to="/recipes">Recipes</NavLink>
                 <NavLink className={classes.ListItems} to="/videos">Videos</NavLink>

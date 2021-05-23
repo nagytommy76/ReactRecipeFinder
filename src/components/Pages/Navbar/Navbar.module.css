@@ -1,19 +1,25 @@
 .Navbar{
-    background: transparent;
-    background-color: rgba(31, 31, 37, 0.658);
+    background-color: rgba(5, 5, 5, 0.7);
     width: 100%;
-    height: 7.5rem;
+    height: 7rem;
     display: flex;
     position: absolute;
+    top: 0;
     justify-content: space-around;
     align-items: center;
     z-index: 5;
+    transition: all .25s;
+}
+.Navbar:hover{
+    box-shadow: #222 1px 1px 30px;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .Title{
-    color: #f5f3f3;
-    font-size: 2rem;
-    transition: color .2s linear;
+    color: #FFF;
+    font-size: 3rem;
+    margin: 0;
+    transition: color .25s linear;
 }
 
 .Title:hover{
@@ -27,25 +33,27 @@
 }
 
 .ListItems{
-    margin: 1rem;
-    font-size: 1.1rem;
-    color: #f5f3f3;
+    margin: 0 1.2rem 0 1.2rem;
+    font-size: 1.3rem;
+    color: #FFF;
     padding: 1rem;
     border-radius: 7px;
     transition: all .2s ease;
 }
 .ListItems:hover,
 .ListItems.active{
-    background-color: #afa300;
+    background-color: #d14200;
 }
 
 @media (max-width: 815px) {
     .Navbar{
+        background-color: rgba(0, 0, 0, 0.9);
         flex-direction: column;
-        height: 16rem;
+        height: 22rem;
     }
     .Title{
-        font-size: 1rem;
+        font-size: 2rem;
+        margin-bottom: 0;
     }
     .NavbarList{
         flex-direction: column;

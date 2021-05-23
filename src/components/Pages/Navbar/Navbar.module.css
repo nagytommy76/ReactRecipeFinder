@@ -1,8 +1,10 @@
 .Navbar{
-    background-color: #242526;
+    background: transparent;
+    background-color: rgba(31, 31, 37, 0.658);
     width: 100%;
-    height: 7rem;
+    height: 7.5rem;
     display: flex;
+    position: absolute;
     justify-content: space-around;
     align-items: center;
     z-index: 5;

@@ -14,7 +14,7 @@ export const Form = styled.form`
     transition: background-color .3s linear; 
 
     @media(max-width: 1900px){
-        margin: 2rem auto 1rem auto;
+        margin: 10rem auto 1rem auto;
         position: relative;
         width: 400px;
     }

@@ -10,5 +10,5 @@ export const CardContainer = styled.section`
 `
 
 export const MenuItemsContainer = styled.section`
-    min-height: 80vh;
+    min-height: 100vh;
 `

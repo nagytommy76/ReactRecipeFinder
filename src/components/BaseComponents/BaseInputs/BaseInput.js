@@ -8,6 +8,7 @@ const BaseInput = ({ labelText, eventOnChange, value, inputType }) => {
             <label role="label" className={classes.Label} htmlFor={labelText}>{labelText}</label>
             <input 
                 role="input"
+                placeholder={labelText}
                 data-testid="input"
                 className={classes.Input}
                 id={labelText}

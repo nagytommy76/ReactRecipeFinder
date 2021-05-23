@@ -26,7 +26,11 @@ export const rootReducer = combineReducers({
         videoReducer: videoSlice
     })
 
-const persistedReducer = persistReducer({ key: 'root', storage, blacklist: ['menuItemReducer'] }, rootReducer)
+const persistedReducer = persistReducer({ key: 'root', storage, blacklist: [
+    'menuItemReducer',
+    'loadingReducer',
+    'modalReducer'
+] }, rootReducer)
 
 const store = configureStore({
     reducer: persistedReducer,

@@ -5,7 +5,7 @@ import bgImage from '../images/Veggies2.jpg'
 
 export const BackgroundImage = styled.section`
     color: white;
-    height: 95vh;
+    height: 100vh;
     width: 100%;
     background-image: url(${bgImage});
     background-repeat: no-repeat;

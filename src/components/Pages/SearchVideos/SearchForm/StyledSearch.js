@@ -4,7 +4,7 @@ export const Form = styled.form`
     position: relative;
     min-height: 390px;
     width: 400px;
-    margin: 2rem auto 3rem auto;
+    margin: 10rem auto 3rem auto;
     background-color: ${({ lightTheme }) => lightTheme ? '#32343f' : '#4e5163'};
     display: flex;
     flex-direction: column;

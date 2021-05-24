@@ -1,0 +1,17 @@
+.BackgroundEnter,
+.BackgroundAppear {
+    opacity: 0;
+}
+.BackgroundEnterActive,
+.BackgroundAppearActive{
+    opacity: 1;
+    transition: all 600ms;
+}
+.BackgroundExit {
+    opacity: 1;
+}
+.BackgroundExitActive {
+    opacity: 0;
+    transition: all 600ms;
+    
+}

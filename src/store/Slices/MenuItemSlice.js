@@ -3,8 +3,7 @@ import { showLoading, hideLoading } from './LoadingSlice'
 import axios from 'axios'
 
 const initialState = {
-    menuItems: [],
-    selectedMenuItem: null
+    menuItems: []
 }
 
 export const menuItemSlice = createSlice({

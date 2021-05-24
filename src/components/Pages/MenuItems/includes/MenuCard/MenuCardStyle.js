@@ -5,24 +5,29 @@ export const StyledCard = styled.article`
     height: 231px;
     display: flex;
     flex-direction: row;
+    transition: transform .2s linear;
+    position: relative;
+    /* &:hover{
+        cursor: pointer;
+        transform: translateY(-10px);
+    } */
 `
 // Image
 
 export const StyledImg = styled.img`
-    
+    width: 100%;
+    height: 100%;
 `
 
 export const ImgContainer = styled.aside`
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 60%;
 `
 
 // Title
 
 export const TitleContainer = styled.section`
-    flex: 1;
+    width: 40%;
+    padding-left: .7rem;
 `
 
 export const Title = styled.h1`

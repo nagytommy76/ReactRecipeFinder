@@ -11,7 +11,6 @@ const MenuCard = ({ id, title, restaurantChain, image }) => {
     const getNutrients = async (itemId) => {
         if (menuItemNutrition === null) {
             await axios.get(`food/menuItems/${itemId}?${process.env.REACT_APP_API_KEY_QUERY}`).then(menuItem => {
-                console.log(menuItem)
                 setmMenuItemNutrition(menuItem.data.nutrition)
                 setIsDropOpen(true)
             })

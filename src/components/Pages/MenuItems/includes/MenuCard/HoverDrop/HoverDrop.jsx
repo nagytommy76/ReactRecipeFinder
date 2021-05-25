@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 
 import classes from './HoverDrop.module.css'
-import { Drop, Title, UnorderedList } from './HoverDropStyle'
+import { Drop, StyledParagraph, UnorderedList, Note } from './HoverDropStyle'
 
 const HoverDrop = ({dropOpen, nutrition}) => {
     const isLightTheme = useSelector(state => state.themeReducer.isLightTheme)
@@ -26,17 +26,24 @@ const HoverDrop = ({dropOpen, nutrition}) => {
             }}
         >
         <Drop lightTheme={isLightTheme} ref={nodeRef}>
-            <Title>Nutrients</Title>
             <UnorderedList>
                 {   nutrition &&
                     nutrition.nutrients.map(nutrient => 
-                        {
-                            /*(nutrient.name == "Fat" || nutrient.name == "Carbohydrates") &&*/
-                            <li key={nutrient.name}>{nutrient.name}: {nutrient.amount}{nutrient.unit}</li>
-                        }
+                        (
+                            (nutrient.name == "Protein" ||
+                            nutrient.name == "Cholesterol" ||
+                            nutrient.name == "Sugar") &&
+                            <li key={nutrient.name}>
+                                {nutrient.name}: {nutrient.amount}{nutrient.unit} ({nutrient.percentOfDailyNeeds}%)*
+                            </li>
+                        )
                     )
                 }
-            </UnorderedList>
+            </UnorderedList>   
+            { nutrition && <StyledParagraph>Calories: { nutrition.calories }kcal</StyledParagraph> }
+            { nutrition &&   <StyledParagraph>Fat: { nutrition.fat }g</StyledParagraph> }
+            { nutrition && <StyledParagraph>Carbohydrates: { nutrition.carbs }g</StyledParagraph> }
+            <Note>*percent of daily needs</Note>
         </Drop>
         </CSSTransition>
     )

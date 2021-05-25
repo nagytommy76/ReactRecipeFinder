@@ -10,7 +10,8 @@ export const CardContainer = styled.section`
     display: grid;
     margin: auto;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    column-gap: 1rem;
+    row-gap: 3rem;
 `
 
 export const MenuItemsContainer = styled.section`

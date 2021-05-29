@@ -30,9 +30,9 @@ const HoverDrop = ({dropOpen, nutrition}) => {
                 {   nutrition &&
                     nutrition.nutrients.map(nutrient => 
                         (
-                            (nutrient.name == "Protein" ||
-                            nutrient.name == "Cholesterol" ||
-                            nutrient.name == "Sugar") &&
+                            (nutrient.name === "Protein" ||
+                            nutrient.name === "Cholesterol" ||
+                            nutrient.name === "Sugar") &&
                             <li key={nutrient.name}>
                                 {nutrient.name}: {nutrient.amount}{nutrient.unit} ({nutrient.percentOfDailyNeeds}%)*
                             </li>
@@ -41,8 +41,8 @@ const HoverDrop = ({dropOpen, nutrition}) => {
                 }
             </UnorderedList>   
             { nutrition && <StyledParagraph>Calories: { nutrition.calories }kcal</StyledParagraph> }
-            { nutrition &&   <StyledParagraph>Fat: { nutrition.fat }g</StyledParagraph> }
-            { nutrition && <StyledParagraph>Carbohydrates: { nutrition.carbs }g</StyledParagraph> }
+            { nutrition &&   <StyledParagraph>Fat: { nutrition.fat }</StyledParagraph> }
+            { nutrition && <StyledParagraph>Carbohydrates: { nutrition.carbs }</StyledParagraph> }
             <Note>*percent of daily needs</Note>
         </Drop>
         </CSSTransition>

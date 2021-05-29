@@ -11,7 +11,11 @@ export const Drop = styled.section`
     width: 100%;
     height: 100%;
     backdrop-filter: blur(6px);
+    transition: all .2s linear;
     color: ${({lightTheme}) => lightTheme ? textLightThemeColor : textDarkThemeColor};
+    &:hover{
+        transform: scale(1.04);
+    }
 `
 
 export const UnorderedList = styled.ul`

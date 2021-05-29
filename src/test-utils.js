@@ -16,7 +16,13 @@ function render(
   } = {}
 ) {
   function Wrapper({ children }) {
-    return <Provider store={store}>{children}</Provider>
+    return (
+      <Provider store={store}>
+          <React.Suspense fallback={<h1>Loading...</h1>}>
+            {children}
+          </React.Suspense>
+      </Provider>
+    )
   }
   return rtlRender(ui, { wrapper: Wrapper, ...renderOptions })
 }

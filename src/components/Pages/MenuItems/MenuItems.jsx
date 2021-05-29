@@ -21,7 +21,7 @@ const MenuItems = () => {
                             restaurantChain={item.restaurantChain}
                             image={item.image}
                         />
-                    )) : <h1>Nothing to show</h1>
+                    )) : <h1>No results yet.</h1>
                 }
             </CardContainer>
         </MenuItemsContainer>

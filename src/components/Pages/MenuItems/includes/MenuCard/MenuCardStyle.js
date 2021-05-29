@@ -10,9 +10,8 @@ export const StyledCard = styled.article`
     cursor: pointer;
     /* https://www.google.com/search?q=css+blur+scale+bug&oq=css+blur+scale+bug&aqs=chrome..69i57j69i64.7809j0j7&sourceid=chrome&ie=UTF-8 */
     &:hover{
-        transform: scale(1.02);
-        box-shadow: .4px .4px 35px #000;
-    }
+        box-shadow: 1px 1px 35px #000;
+    } 
 `
 // Image
 

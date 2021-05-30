@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router} from 'react-router-dom'
+// import { BrowserRouter as Router} from 'react-router-dom'
 import 'regenerator-runtime'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
@@ -41,13 +41,7 @@ const mockRecipeData = [
 ]
 describe('<SearhRecipes />', () => {
     beforeEach(() => {
-        render(
-            <Router>
-                <React.Suspense fallback={<h1>Loading...</h1>}>
-                    <SearchRecipes />
-                </React.Suspense>
-            </Router>
-        )
+        render(<SearchRecipes />)
     })
     it('should display the Search form with 3 input fields and 1 button', async () => {
         expect(await screen.findByRole('button', { name: /Search Foods/i })).toBeInTheDocument()
@@ -61,6 +55,7 @@ describe('<SearhRecipes />', () => {
 
         const foodNameInput = await screen.findByRole('input', { name: /Food name/i })
         const ingredInput = await screen.findByRole('input', { name: /Include ingredient/i })
+        const numberOfResultsInput = await screen.findByRole('input', { name: /Number of results/i })
         const button = await screen.findByRole('button', { name: /Search Foods/i })
         const initialTextHeader = await screen.findByRole('heading', { name: /Nothing To show/i })
         // initially nothing in the screen, only this text
@@ -75,8 +70,12 @@ describe('<SearhRecipes />', () => {
         userEvent.type(ingredInput, includeIng)
 
         // the default number/page is 15
-        expect(await screen.findByRole('input', { name: /Number of results/i })).toHaveValue(15)
-        
+        expect(numberOfResultsInput).toHaveValue(15)
+        // The user rewrites the number field's default (15) value to 2
+        userEvent.clear(numberOfResultsInput)
+        userEvent.type(numberOfResultsInput, '2')
+        expect(numberOfResultsInput).toHaveValue(2)
+
         axios.get.mockResolvedValue({ data: { results: mockRecipeData }})
         userEvent.click(button)
         expect(await screen.findByText(/Loading.../i))

@@ -27,23 +27,13 @@ const mockVideoData = [
 
 describe('test <SearchVideos />', () => {
     beforeEach(() => {
-        render(
-            <React.Suspense fallback={<h2>Loading...</h2>}>
-                <SearchVideos />
-            </React.Suspense>
-        )
+        render(<SearchVideos />)
     })
-    it('should have a default text initially', async () => {              
-        expect(await screen.findByRole('heading', { name: /No videos found yet/i }))
-    })
-    it('renders the first input field', async () => {
+    it('should have a default text initially and 2 input fields and a button', async () => {              
+        expect(await screen.findByRole('heading', { name: /No videos found yet/i })).toBeInTheDocument()
         expect(await screen.findByRole('input', { name: /Video name:/i })).toBeInTheDocument()
-    })
-    it('renders the second input field', async () => {
         expect(await screen.findByRole('input', { name: /Results per page/i })).toBeInTheDocument()
-    })
-    it('renders the Button component', async () => {
-        expect(await screen.findByRole('button', { name: /Search Videos/i })).toBeInTheDocument()     
+        expect(await screen.findByRole('button', { name: /Search Videos/i })).toBeInTheDocument()
     })
 
     it('should display the videos', async () => {

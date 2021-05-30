@@ -1,5 +1,5 @@
-import './index.css';
 import React, { Suspense } from 'react'
+import './index.css';
 import Navbar from './components/Pages/Navbar/Navbar.jsx'
 import Footer from './components/Pages/Footer/Footer'
 

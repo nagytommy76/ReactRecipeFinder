@@ -21,7 +21,6 @@ export const fetchMenuItems = ({ menuItemName, numberPerPage }) => async dispatc
     await axios.get(
         `/food/menuItems/search?${process.env.REACT_APP_API_KEY_QUERY}&query=${menuItemName}&number=${numberPerPage}`
     ).then(menuItems => {
-        console.log(menuItems.data.menuItems)
         dispatch(menuItemSlice.actions.setMenuItems(menuItems.data.menuItems))
         dispatch(hideLoading())
     })

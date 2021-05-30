@@ -3,6 +3,7 @@ import React from 'react'
 import { render as rtlRender } from '@testing-library/react'
 import { createStore, applyMiddleware } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 import thunk from 'redux-thunk'
 // Import your own reducer
 import { rootReducer } from './store/store'
@@ -18,9 +19,11 @@ function render(
   function Wrapper({ children }) {
     return (
       <Provider store={store}>
+        <BrowserRouter>
           <React.Suspense fallback={<h1>Loading...</h1>}>
             {children}
           </React.Suspense>
+        </BrowserRouter>
       </Provider>
     )
   }

@@ -58,12 +58,7 @@ const initialState = {
 
 describe('<RecipeDetails />', () => {
     beforeEach(() => {
-        render(
-            <React.Suspense fallback={<h1>Loading...</h1>}>
-                <RecipeDetails />
-            </React.Suspense>,
-            { initialState }
-        )
+        render(<RecipeDetails />, { initialState })
     })
     it('should display the header section with an image', async () => {
         await screen.findByAltText(initialState.foodReducer.foods[0].image)

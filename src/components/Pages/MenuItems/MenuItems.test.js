@@ -69,17 +69,24 @@ describe('<MenuItems>', () => {
         const searchText = "burger"
 
         const textInputField = await screen.findByRole('input', { name: /Menu Item/i })
+        const numberInputField = await screen.findByRole('input', { name: 'Number/page' })
         const searchButton = await screen.findByRole('button', { name: "Find Menu Items" })
         const initialHeadingText = await screen.findByRole('heading', { name: /No results yet/i })
 
         // If the input text is empty the request not send
         userEvent.click(searchButton)
         expect(initialHeadingText).toBeInTheDocument()
-
         // type something in the text and number field
         userEvent.type(textInputField, searchText)
 
-        // Sesnding request
+        // clear the number field and enter value: 2
+        userEvent.clear(numberInputField)
+        userEvent.type(numberInputField, '2')
+
+        expect(textInputField).toHaveValue(searchText)
+        expect(numberInputField).toHaveValue(2)
+
+        // Sending request
         axios.get.mockResolvedValue({data: { menuItems: mockMenuItemData }})
         userEvent.click(searchButton)
         await screen.findByText('Loading...')
@@ -97,7 +104,5 @@ describe('<MenuItems>', () => {
         await act(async () => userEvent.click(selectedCardText))
 
         await screen.findByText(`Calories: ${mockMenuItemNutrients.calories}kcal`)
-
-        screen.debug()
     })    
 })

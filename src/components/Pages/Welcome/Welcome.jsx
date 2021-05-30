@@ -1,4 +1,4 @@
-import {lazy} from 'react'
+import React, {lazy} from 'react'
 import classes from './Welcome.module.css'
 
 const Header = lazy(() => import('./Header/Header'))

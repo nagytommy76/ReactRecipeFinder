@@ -4,6 +4,7 @@ import foodSlice from './Slices/FoodSlice'
 import loadingSlice from './Slices/LoadingSlice'
 import modalSlice from './Slices/ModalSlice'
 import videoSlice from './Slices/VideoSlice'
+import errorTextSlice from './Slices/ErrorTextSlice'
 
 import storage from 'redux-persist/lib/storage'
 import { persistStore, persistReducer,
@@ -23,12 +24,14 @@ export const rootReducer = combineReducers({
         foodReducer: foodSlice,
         loadingReducer: loadingSlice,
         modalReducer: modalSlice,
-        videoReducer: videoSlice
+        videoReducer: videoSlice,
+        errorReducer: errorTextSlice
     })
 
 const persistedReducer = persistReducer({ key: 'root', storage, blacklist: [
     'loadingReducer',
-    'modalReducer'
+    'modalReducer',
+    'errorReducer'
 ] }, rootReducer)
 
 const store = configureStore({

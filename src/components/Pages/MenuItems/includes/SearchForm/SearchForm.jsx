@@ -17,7 +17,7 @@ const SearchForm = () => {
         event.preventDefault()
 
         if (menuItem !== '') dispatch(fetchMenuItems({ menuItemName: menuItem, numberPerPage }))
-        else dispatch(toggleIsErrorAndSetTest('Please enter something in the search filed'))
+        else dispatch(toggleIsErrorAndSetTest('Search fileld is empty!'))
 
         setNumberPerPage(10)
         setMenuItem('')

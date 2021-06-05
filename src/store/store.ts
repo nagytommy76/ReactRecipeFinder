@@ -7,38 +7,47 @@ import videoSlice from './Slices/VideoSlice'
 import errorTextSlice from './Slices/ErrorTextSlice'
 
 import storage from 'redux-persist/lib/storage'
-import { persistStore, persistReducer,
+import {
+    persistStore,
+    persistReducer,
     REGISTER,
     FLUSH,
     REHYDRATE,
     PAUSE,
     PERSIST,
-    PURGE, 
+    PURGE
 } from 'redux-persist'
 
-import { configureStore, combineReducers, getDefaultMiddleware } from '@reduxjs/toolkit'
+import {
+    configureStore,
+    combineReducers,
+    getDefaultMiddleware
+} from '@reduxjs/toolkit'
 
 export const rootReducer = combineReducers({
-        menuItemReducer: menuItemSlice,
-        themeReducer: themeSlice,
-        foodReducer: foodSlice,
-        loadingReducer: loadingSlice,
-        modalReducer: modalSlice,
-        videoReducer: videoSlice,
-        errorReducer: errorTextSlice
-    })
+    menuItemReducer: menuItemSlice,
+    themeReducer: themeSlice,
+    foodReducer: foodSlice,
+    loadingReducer: loadingSlice,
+    modalReducer: modalSlice,
+    videoReducer: videoSlice,
+    errorReducer: errorTextSlice
+})
 
-const persistedReducer = persistReducer({ key: 'root', storage, blacklist: [
-    'loadingReducer',
-    'modalReducer',
-    'errorReducer'
-] }, rootReducer)
+const persistedReducer = persistReducer(
+    {
+        key: 'root',
+        storage,
+        blacklist: ['loadingReducer', 'modalReducer', 'errorReducer']
+    },
+    rootReducer
+)
 
 const store = configureStore({
     reducer: persistedReducer,
     middleware: getDefaultMiddleware({
         serializableCheck: {
-            ignoredActions: [REGISTER, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, ]
+            ignoredActions: [REGISTER, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE]
         }
     })
 })

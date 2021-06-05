@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState, lazy } from 'react'
+import React, { useState, lazy } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getVideosBySearchParameters } from '../../../../store/Slices/VideoSlice'
 

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import './index.css';
+import './index.css'
 import Navbar from './components/Pages/Navbar/Navbar.jsx'
 import Footer from './components/Pages/Footer/Footer'
 
@@ -7,38 +7,57 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './Theme/GlobalStyles'
 import { lightTheme, darkTheme } from './Theme/Themes'
 
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useAppSelector } from './app/hooks'
 
 import Loading from './components/BaseComponents/BaseLoading/BasePageSpinner'
 import WelcomePage from './components/Pages/Welcome/Welcome.jsx'
 
-const SearchRecipes = React.lazy(() => import(/* webpackChunkName: "SearchRecipesPage" */'./components/Pages/SearchRecipes/SearchRecipes'))
-const RecipeDetails = React.lazy(() => import(/* webpackChunkName: "RecipeDetails" */'./components/Pages/RecipeDetails/RecipeDetails.jsx'))
-const SearchVideos = React.lazy(() => import(/* webpackChunkName: "SearchVideos" */'./components/Pages/SearchVideos/SearchVideos'))
-const MenuItems = React.lazy(() => import(/* webpackChunkName: "MenuItems" */'./components/Pages/MenuItems/MenuItems'))
+const SearchRecipes = React.lazy(
+   () =>
+      import(
+         /* webpackChunkName: "SearchRecipesPage" */ './components/Pages/SearchRecipes/SearchRecipes'
+      )
+)
+const RecipeDetails = React.lazy(
+   () =>
+      import(
+         /* webpackChunkName: "RecipeDetails" */ './components/Pages/RecipeDetails/RecipeDetails.jsx'
+      )
+)
+const SearchVideos = React.lazy(
+   () =>
+      import(
+         /* webpackChunkName: "SearchVideos" */ './components/Pages/SearchVideos/SearchVideos'
+      )
+)
+const MenuItems = React.lazy(
+   () =>
+      import(
+         /* webpackChunkName: "MenuItems" */ './components/Pages/MenuItems/MenuItems'
+      )
+)
 
-function App() {
-  const theme = useAppSelector(state => state.themeReducer.isLightTheme)
-  return (
-    <ThemeProvider theme={theme ? lightTheme : darkTheme}>
-      <Router>
-        <GlobalStyles />
-          <Navbar />
+const App: React.FC = () => {
+   const theme = useAppSelector((state) => state.themeReducer.isLightTheme)
+   return (
+      <ThemeProvider theme={theme ? lightTheme : darkTheme}>
+         <Router>
+            <GlobalStyles />
+            <Navbar />
             <Suspense fallback={<Loading isLoading />}>
-              <Switch>
-                <Route path="/" exact component={WelcomePage}/>
-                  <Route path="/recipes" component={SearchRecipes}/>
+               <Switch>
+                  <Route path="/" exact component={WelcomePage} />
+                  <Route path="/recipes" component={SearchRecipes} />
                   <Route path="/videos" component={SearchVideos} />
                   <Route path="/menu-items" component={MenuItems} />
                   <Route path="/details/:recipeId" component={RecipeDetails} />
-              </Switch>
+               </Switch>
             </Suspense>
-          <Footer />
-      </Router>
-    </ThemeProvider>
-  );
+            <Footer />
+         </Router>
+      </ThemeProvider>
+   )
 }
 
-
-export default App;
+export default App

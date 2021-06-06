@@ -8,7 +8,7 @@ const CardContainer = lazy(() => import(/* webpackChunkName: "CardContainer" */ 
 const SearchVideos = () => {
     return (
         <Container>
-            <SearchForm />
+            <SearchForm /> 
             <CardContainer />
         </Container>
     )

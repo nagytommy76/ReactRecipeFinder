@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './SearchRecipes.module.css'
 
 const CardSection = React.lazy(() => import(/* webpackChunkName: "CardSection" */'./Includes/CardSection'))
-const SearchSection = React.lazy(() => import (/* webpackChunkName: "SearchSection" */ './Includes/SearchSection/SearchSection.jsx'))
+const SearchSection = React.lazy(() => import (/* webpackChunkName: "SearchSection" */ './Includes/SearchSection/SearchSection'))
 
 const SearchRecipes = () => {
     return (

@@ -1,6 +1,6 @@
 // https://redux.js.org/recipes/writing-tests#connected-components
-import React, { FC, ReactElement, ReactNode } from 'react'
-import { render as rtlRender, RenderOptions } from '@testing-library/react'
+import React from 'react'
+import { render as rtlRender } from '@testing-library/react'
 import { createStore, applyMiddleware } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'

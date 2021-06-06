@@ -37,11 +37,7 @@ export const getFoodsBySearchParameters =
         dispatch(showLoading())
         await axios
             .get(
-                `recipes/complexSearch?${
-                    process.env.REACT_APP_API_KEY_QUERY
-                }&query=${foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${parseInt(
-                    numberOfResults
-                )}&includeIngredients=${includeIngreds}`
+                `recipes/complexSearch?${process.env.REACT_APP_API_KEY_QUERY}&query=${foodName}&fillIngredients=true&addRecipeInformation=true&addRecipeNutrition=true&number=${numberOfResults}&includeIngredients=${includeIngreds}`
             )
             .then((food) => {
                 dispatch(foodSlice.actions.setFoods(food.data.results))

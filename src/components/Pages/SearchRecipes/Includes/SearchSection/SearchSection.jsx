@@ -4,7 +4,7 @@ import { getFoodsBySearchParameters } from '../../../../../store/Slices/FoodSlic
 
 import { Form, Title } from './StyledSearch'
 
-const Button = React.lazy(() => import(/* webpackChunkName: "BaseButton" */ '../../../../BaseComponents/BaseButton/BaseButton.jsx'))
+const Button = React.lazy(() => import(/* webpackChunkName: "BaseButton" */ '../../../../BaseComponents/BaseButton/BaseButton'))
 const BaseInput = React.lazy(() => import(/* webpackChunkName: "BaseInput" */'../../../../BaseComponents/BaseInputs/BaseInput'))
 
 const SearchSection = () => {

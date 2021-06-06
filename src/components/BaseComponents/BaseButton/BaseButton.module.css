@@ -1,4 +1,4 @@
-.Btn{
+.Btn {
     min-width: 130px;
     min-height: 45px;
     padding: 1rem;
@@ -7,11 +7,11 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 }
-.Btn:focus{
+.Btn:focus {
     outline: none;
 }
-.Btn:hover{
+.Btn:hover {
     transform: scale(1.1);
 }

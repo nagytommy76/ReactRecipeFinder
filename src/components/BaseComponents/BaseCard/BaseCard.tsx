@@ -1,16 +1,23 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import PropTypes from 'prop-types'
+import { useAppSelector } from '../../../app/hooks'
 import classes from './BaseCard.module.css'
 
 import { Card } from './CardStyle'
 
-const BaseCard = ({ customClickEvent, title, image, id, caloricBreakdown }) => {
-    const isLightTheme = useSelector(state => state.themeReducer.isLightTheme)
+const BaseCard: React.FC<Props> = ({
+    customClickEvent,
+    title,
+    image,
+    id,
+    caloricBreakdown
+}) => {
+    const isLightTheme = useAppSelector(
+        (state) => state.themeReducer.isLightTheme
+    )
     return (
         <Card lightTheme={isLightTheme} onClick={customClickEvent}>
             <header className={classes.ImageContainer}>
-                <img className={classes.Image} srcSet={image} alt={id}/>
+                <img className={classes.Image} srcSet={image} alt={id} />
             </header>
             <section className={classes.Body}>
                 <h1 className={classes.Title}>{title}</h1>
@@ -27,11 +34,12 @@ const BaseCard = ({ customClickEvent, title, image, id, caloricBreakdown }) => {
     )
 }
 
-BaseCard.propTypes = {
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    caloricBreakdown: PropTypes.object.isRequired,
-    customClickEvent: PropTypes.func
+type Props = {
+    customClickEvent: React.MouseEventHandler
+    title: string
+    image: string
+    id: string
+    caloricBreakdown: { name: string; amount: string; unit: number }
 }
 
 export default BaseCard

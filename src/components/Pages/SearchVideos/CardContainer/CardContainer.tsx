@@ -12,7 +12,7 @@ const CardContainer: React.FC = () => {
       <ContainerStyle>
          {videos.length > 0 ? (
             //  Megoldani
-            videos.map((video: any) => (
+            videos.map((video) => (
                <a
                   key={video.youTubeId}
                   target='_blank'
@@ -27,11 +27,4 @@ const CardContainer: React.FC = () => {
       </ContainerStyle>
    )
 }
-
-type Video = {
-   youTubeId: number
-   shortTitle: string
-   thumbnail: string
-}
-
 export default CardContainer

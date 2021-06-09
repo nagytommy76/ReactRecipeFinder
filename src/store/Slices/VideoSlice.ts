@@ -2,10 +2,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { AppDispatch } from '../store'
 import { showLoading, hideLoading } from './LoadingSlice'
-
 axios.defaults.baseURL = 'https://api.spoonacular.com/'
 
-const initialState: { videos: object[] } = {
+type Video = {
+   youTubeId?: number
+   shortTitle?: string
+   thumbnail?: string
+}
+
+const initialState: { videos: Video[] } = {
    videos: []
 }
 

@@ -4,10 +4,21 @@ import { AppDispatch, RootState } from '../store'
 import { showLoading, hideLoading } from './LoadingSlice'
 axios.defaults.baseURL = 'https://api.spoonacular.com/'
 
+export type IngredientTypes = {
+   id: number
+   name: string
+   image: string
+   measures: { metric: { unitLong: string; amount: string } }
+}
+
 type FoodState = {
    foods: {
       id?: number
       title?: string
+      extendedIngredients?: IngredientTypes[]
+      image?: string
+      summary?: string
+      analyzedInstructions?: { steps?: object[] }[]
    }[]
    selectedFoodId: number
 }
@@ -53,8 +64,3 @@ export const getFoodsBySearchParameters =
             dispatch(hideLoading())
          })
    }
-
-// https://www.newline.co/@bespoyasov/how-to-use-redux-toolkit-with-typescript--5d74ef28
-export const SelectSingleFoodById = (state: RootState, id: number) => {
-   state.foodReducer.foods.filter((item) => item.id === state.foodReducer.selectedFoodId)
-}

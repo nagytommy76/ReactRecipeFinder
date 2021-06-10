@@ -1,9 +1,7 @@
 import React, { lazy } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 
 import { makeGetSingleFoodState } from '../../../store/selectors'
-import { SelectSingleFoodById } from '../../../store/Slices/FoodSlice'
 import { showModal } from '../../../store/Slices/ModalSlice'
 
 import classes from './RecipeDetails.module.css'
@@ -16,7 +14,7 @@ const NutrientsModal = lazy(() => import(/* webpackChunkName: "NutrientsModal" *
 
 const RecipeDetails: React.FC = () => {
    const dispatch = useAppDispatch()
-   const singleFood = useAppSelector(SelectSingleFoodById)
+   const singleFood = useAppSelector(makeGetSingleFoodState)
 
    return (
       <section className={classes.RecipeDetails}>
@@ -26,7 +24,7 @@ const RecipeDetails: React.FC = () => {
             <Button openClickEvent={() => dispatch(showModal())}>Show food nutrients</Button>
          </section>
          <Summary summary={singleFood.summary} />
-         {singleFood.analyzedInstructions[0] && <Instructions steps={singleFood.analyzedInstructions[0].steps} />}
+         {singleFood.analyzedInstructions && <Instructions steps={singleFood.analyzedInstructions[0].steps} />}
          <NutrientsModal />
       </section>
    )

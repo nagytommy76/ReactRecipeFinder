@@ -10,7 +10,7 @@ const Button = lazy(() => import(/* webpackChunkName: "BaseButton" */ '../../Bas
 const DetailHeader = lazy(() => import(/* webpackChunkName: "DetailHeader" */ './Includes/Header/Header'))
 const Summary = lazy(() => import(/* webpackChunkName: "Summary" */ './Includes/Summary/Summary'))
 const Instructions = lazy(() => import(/* webpackChunkName: "AnalizedInstructions" */ './Includes/Instructions/Instructions'))
-const NutrientsModal = lazy(() => import(/* webpackChunkName: "NutrientsModal" */ './Includes/Nutrients/Nutrients.jsx'))
+const NutrientsModal = lazy(() => import(/* webpackChunkName: "NutrientsModal" */ './Includes/Nutrients/Nutrients'))
 
 const RecipeDetails: React.FC = () => {
    const dispatch = useAppDispatch()

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React from 'react'
 import { useAppSelector } from '../../../../../app/hooks'
 import { Summary as StyledSummary } from './SummaryStyle'
 

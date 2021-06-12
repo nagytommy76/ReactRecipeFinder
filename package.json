@@ -65,6 +65,7 @@
     "@testing-library/user-event": "^12.8.3",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
+    "@types/react-transition-group": "^4.4.1",
     "@types/styled-components": "^5.1.9",
     "css-loader": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",

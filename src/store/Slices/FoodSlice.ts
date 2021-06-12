@@ -1,27 +1,9 @@
 import axios from 'axios'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { AppDispatch, RootState } from '../store'
+import { AppDispatch } from '../store'
 import { showLoading, hideLoading } from './LoadingSlice'
+import { FoodArray, FoodState } from './Types/FoodTypes'
 axios.defaults.baseURL = 'https://api.spoonacular.com/'
-
-export type IngredientTypes = {
-   id: number
-   name: string
-   image: string
-   measures: { metric: { unitLong: string; amount: string } }
-}
-
-type FoodState = {
-   foods: {
-      id?: number
-      title?: string
-      extendedIngredients?: IngredientTypes[]
-      image?: string
-      summary?: string
-      analyzedInstructions?: { steps?: object[] }[]
-   }[]
-   selectedFoodId: number
-}
 
 const initialState: FoodState = {
    foods: [],
@@ -35,7 +17,7 @@ export const foodSlice = createSlice({
       setSelectedFoodId: (state, action: PayloadAction<number>) => {
          state.selectedFoodId = action.payload
       },
-      setFoods: (state, action: PayloadAction<object[]>) => {
+      setFoods: (state, action: PayloadAction<FoodArray[]>) => {
          state.foods = action.payload
       }
    }
@@ -45,11 +27,6 @@ export const { setSelectedFoodId } = foodSlice.actions
 
 export default foodSlice.reducer
 
-type incomingData = {
-   foodName: string
-   includeIngreds: string
-   numberOfResults: string
-}
 // https://redux-toolkit.js.org/usage/usage-guide#redux-data-fetching-patterns
 export const getFoodsBySearchParameters =
    ({ foodName, includeIngreds, numberOfResults }: incomingData) =>
@@ -64,3 +41,9 @@ export const getFoodsBySearchParameters =
             dispatch(hideLoading())
          })
    }
+
+type incomingData = {
+   foodName: string
+   includeIngreds: string
+   numberOfResults: string
+}

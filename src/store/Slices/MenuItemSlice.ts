@@ -2,11 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { showLoading, hideLoading } from './LoadingSlice'
 import axios from 'axios'
 import { AppDispatch } from '../store'
+import { MenuItemState, MenuItemType } from './Types/MenuItemTypes'
 
-type MenuState = {
-   menuItems: object[]
-}
-const initialState: MenuState = {
+const initialState: MenuItemState = {
    menuItems: []
 }
 
@@ -14,7 +12,7 @@ export const menuItemSlice = createSlice({
    name: 'menuItem',
    initialState,
    reducers: {
-      setMenuItems: (state, action: PayloadAction<object[]>) => {
+      setMenuItems: (state, action: PayloadAction<MenuItemType[]>) => {
          state.menuItems = action.payload
       }
    }
@@ -22,7 +20,7 @@ export const menuItemSlice = createSlice({
 
 type incomingParameters = {
    menuItemName: string
-   numberPerPage: string
+   numberPerPage: number
 }
 
 export const fetchMenuItems =

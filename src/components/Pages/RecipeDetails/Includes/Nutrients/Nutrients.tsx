@@ -1,15 +1,17 @@
 import React, { lazy } from 'react'
 // import { createPortal } from 'react-dom'
 
-const ModalBackground = lazy(() => import(/* webapckChunkName: "ModalBackground" */'../../../../BaseComponents/BaseModal/ModalBackground/Background'))
+const ModalBackground = lazy(
+   () => import(/* webapckChunkName: "ModalBackground" */ '../../../../BaseComponents/BaseModal/ModalBackground/Background')
+)
 const Modal = lazy(() => import(/* webapckChunkName: "Modal" */ '../../../../BaseComponents/BaseModal/Modal/Modal'))
 
-const Nutrients = () => {
-    return (
-        <>
-        <ModalBackground />
-        <Modal />
-            {/* {createPortal(
+const Nutrients: React.FC = () => {
+   return (
+      <>
+         <ModalBackground />
+         <Modal />
+         {/* {createPortal(
                 <ModalBackground />,
                 document.getElementById('modal-backdrop')
             )}
@@ -17,8 +19,8 @@ const Nutrients = () => {
                 <Modal />,
                 document.getElementById('modal')
             )} */}
-        </>
-    )
+      </>
+   )
 }
 
 export default Nutrients

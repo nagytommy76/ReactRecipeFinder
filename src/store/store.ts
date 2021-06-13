@@ -5,51 +5,40 @@ import loadingSlice from './Slices/LoadingSlice'
 import modalSlice from './Slices/ModalSlice'
 import videoSlice from './Slices/VideoSlice'
 import errorTextSlice from './Slices/ErrorTextSlice'
+import MobileSizeSlice from './Slices/MobileSizeSlice'
 
 import storage from 'redux-persist/lib/storage'
-import {
-    persistStore,
-    persistReducer,
-    REGISTER,
-    FLUSH,
-    REHYDRATE,
-    PAUSE,
-    PERSIST,
-    PURGE
-} from 'redux-persist'
+import { persistStore, persistReducer, REGISTER, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE } from 'redux-persist'
 
-import {
-    configureStore,
-    combineReducers,
-    getDefaultMiddleware
-} from '@reduxjs/toolkit'
+import { configureStore, combineReducers, getDefaultMiddleware } from '@reduxjs/toolkit'
 
 export const rootReducer = combineReducers({
-    menuItemReducer: menuItemSlice,
-    themeReducer: themeSlice,
-    foodReducer: foodSlice,
-    loadingReducer: loadingSlice,
-    modalReducer: modalSlice,
-    videoReducer: videoSlice,
-    errorReducer: errorTextSlice
+   menuItemReducer: menuItemSlice,
+   themeReducer: themeSlice,
+   foodReducer: foodSlice,
+   loadingReducer: loadingSlice,
+   modalReducer: modalSlice,
+   videoReducer: videoSlice,
+   errorReducer: errorTextSlice,
+   mobileReducer: MobileSizeSlice
 })
 
 const persistedReducer = persistReducer(
-    {
-        key: 'root',
-        storage,
-        blacklist: ['loadingReducer', 'modalReducer', 'errorReducer']
-    },
-    rootReducer
+   {
+      key: 'root',
+      storage,
+      blacklist: ['loadingReducer', 'modalReducer', 'errorReducer', 'mobileReducer']
+   },
+   rootReducer
 )
 
 const store = configureStore({
-    reducer: persistedReducer,
-    middleware: getDefaultMiddleware({
-        serializableCheck: {
-            ignoredActions: [REGISTER, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE]
-        }
-    })
+   reducer: persistedReducer,
+   middleware: getDefaultMiddleware({
+      serializableCheck: {
+         ignoredActions: [REGISTER, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE]
+      }
+   })
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

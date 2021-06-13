@@ -1,65 +1,43 @@
-.Navbar{
-    background-color: rgba(5, 5, 5, 0.7);
-    width: 100%;
-    height: 7rem;
-    display: flex;
-    position: absolute;
-    top: 0;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 5;
-    transition: all .25s;
-}
-.Navbar:hover{
-    box-shadow: #222 1px 1px 30px;
-    background-color: rgba(0, 0, 0, 0.9);
+.Title {
+   color: #fff;
+   font-size: 3rem;
+   margin: 0;
+   transition: color 0.25s linear;
 }
 
-.Title{
-    color: #FFF;
-    font-size: 3rem;
-    margin: 0;
-    transition: color .25s linear;
+.Title:hover {
+   color: #d14200;
 }
 
-.Title:hover{
-    color: #d14200;
+.NavbarList {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
 }
 
-.NavbarList{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.ListItems{
-    margin: 0 1.2rem 0 1.2rem;
-    font-size: 1.3rem;
-    color: #FFF;
-    padding: 1rem;
-    border-radius: 7px;
-    transition: all .2s ease;
+.ListItems {
+   margin: 0 1.2rem 0 1.2rem;
+   font-size: 1.3rem;
+   color: #fff;
+   padding: 1rem;
+   border-radius: 7px;
+   transition: all 0.2s ease;
 }
 .ListItems:hover,
-.ListItems.active{
-    background-color: #d14200;
+.ListItems.active {
+   background-color: #d14200;
 }
 
 @media (max-width: 815px) {
-    .Navbar{
-        background-color: rgba(0, 0, 0, 0.9);
-        flex-direction: column;
-        height: 22rem;
-    }
-    .Title{
-        font-size: 2rem;
-        margin-bottom: 0;
-    }
-    .NavbarList{
-        flex-direction: column;
-    }
-    .ListItems{
-        text-align: center;
-        margin: 0;
-    }
+   .Title {
+      font-size: 2rem;
+      margin-bottom: 0;
+   }
+   .NavbarList {
+      flex-direction: column;
+   }
+   .ListItems {
+      text-align: center;
+      margin: 0;
+   }
 }

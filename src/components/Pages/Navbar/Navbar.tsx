@@ -1,19 +1,23 @@
-import React, { useEffect } from 'react'
-import classes from './Navbar.module.css'
-import { Link, NavLink } from 'react-router-dom'
-import Toggle from './ThemeToggler/Toggle'
-import { StyledNavbar } from './NavStyle'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { StyledNavbar, Title } from './NavStyle'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { setMobileSize } from '../../../store/Slices/MobileSizeSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import NavbarList from './NavbarList/NavbarList'
 
 const Navbar: React.FC = () => {
    const dispatch = useAppDispatch()
    const isMobileSize = useAppSelector((state) => state.mobileReducer.isMobileSize)
-
+   const [navbarOpen, setNavbarOpen] = useState(false)
    const handleWindowSizeChange = () => {
-      if (window.innerWidth < 815) dispatch(setMobileSize(true))
-      else dispatch(setMobileSize(false))
+      if (window.innerWidth < 815) {
+         dispatch(setMobileSize(true))
+         setNavbarOpen(true)
+      } else {
+         dispatch(setMobileSize(false))
+         setNavbarOpen(false)
+      }
    }
    useEffect(() => {
       window.addEventListener('resize', handleWindowSizeChange)
@@ -21,24 +25,28 @@ const Navbar: React.FC = () => {
          window.removeEventListener('resize', handleWindowSizeChange)
       }
    }, [handleWindowSizeChange])
+
+   const openNavbar = () => {
+      console.log('kinyitva')
+      setNavbarOpen(true)
+   }
+   const closeNavbar = () => {
+      console.log('becsukva')
+      setNavbarOpen(false)
+   }
+
    return (
-      <StyledNavbar data-testid='navbar'>
+      <StyledNavbar navbarOpen={navbarOpen} data-testid='navbar'>
          <Link to='/'>
-            <h1 className={classes.Title}>React Recipe Finder</h1>
+            <Title>React Recipe Finder</Title>
          </Link>
-         {isMobileSize && <FontAwesomeIcon icon={['fas', 'bars']} size='2x' />}
-         <section className={classes.NavbarList}>
-            <NavLink className={classes.ListItems} to='/recipes'>
-               Recipes
-            </NavLink>
-            <NavLink className={classes.ListItems} to='/videos'>
-               Videos
-            </NavLink>
-            <NavLink className={classes.ListItems} to='/menu-items'>
-               Menu Items
-            </NavLink>
-            <Toggle />
-         </section>
+         {/* {isMobileSize && <FontAwesomeIcon onClick={openNavbar} icon={['fas', 'bars']} size='2x' />} */}
+         {navbarOpen ? (
+            <FontAwesomeIcon onClick={closeNavbar} icon={['fas', 'times']} size='2x' />
+         ) : (
+            <FontAwesomeIcon onClick={openNavbar} icon={['fas', 'bars']} size='2x' />
+         )}
+         {navbarOpen && <NavbarList />}
       </StyledNavbar>
    )
 }

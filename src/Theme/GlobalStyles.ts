@@ -1,6 +1,6 @@
-import { createGlobalStyle  } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
-export const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle<{ theme: { body: string; text: string } }>`
 body {
     font-family: 'Cabin', sans-serif;
     margin: 0;

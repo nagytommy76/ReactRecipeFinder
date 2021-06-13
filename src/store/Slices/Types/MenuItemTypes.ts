@@ -1,9 +1,10 @@
 import { CaloricBreakdownType } from './FoodTypes'
 
 export type MenuItemState = {
-   menuItems: MenuItemType[]
+   menuItems: MenuItemSearchResultType[]
 }
-export type MenuItemType = {
+
+export type MenuItemSearchResultType = {
    id: number
    title: string
    restaurantChain: string
@@ -13,9 +14,14 @@ export type MenuItemType = {
 export type MenuItemNutrition = {
    nutrients: {
       name: string
+      title?: string
       amount: number
       unit: string
       percentOfDailyNeeds: number
    }[]
+   calories: string | number
+   fat: string
+   carbs: string
+   protein?: string
    caloricBreakdown: CaloricBreakdownType
 }

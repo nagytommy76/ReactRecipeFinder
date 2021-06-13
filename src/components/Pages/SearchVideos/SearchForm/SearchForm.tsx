@@ -35,7 +35,7 @@ const SearchForm: React.FC = () => {
             labelText='Results per page'
             value={numberPerPage}
             inputType='number'
-            eventOnChange={(event) => setNumberPerPage(event.target.value)}
+            eventOnChange={(event) => setNumberPerPage(parseInt(event.target.value))}
          />
          <Button>Search Videos</Button>
       </Form>

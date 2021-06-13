@@ -11,7 +11,7 @@ const SearchForm: React.FC = () => {
    const dispatch = useAppDispatch()
    const isLightTheme = useAppSelector((state) => state.themeReducer.isLightTheme)
    const [menuItem, setMenuItem] = useState('')
-   const [numberPerPage, setNumberPerPage] = useState<number>(10)
+   const [numberPerPage, setNumberPerPage] = useState('10')
 
    const submitForm = (event: React.FormEvent) => {
       event.preventDefault()
@@ -19,7 +19,7 @@ const SearchForm: React.FC = () => {
       if (menuItem !== '') dispatch(fetchMenuItems({ menuItemName: menuItem, numberPerPage }))
       else dispatch(toggleIsErrorAndSetTest('Search fileld is empty!'))
 
-      setNumberPerPage(10)
+      setNumberPerPage('10')
       setMenuItem('')
    }
 

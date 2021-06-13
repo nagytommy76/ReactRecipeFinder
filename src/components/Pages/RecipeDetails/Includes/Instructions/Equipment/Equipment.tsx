@@ -1,5 +1,5 @@
 import React from 'react'
-import { IngredientsAndEquipmentTypes, StepsType } from '../../../../../../store/Slices/Types/FoodTypes'
+import { IngredientsAndEquipmentTypes } from '../../../../../../store/Slices/Types/FoodTypes'
 import classes from './Equipment.module.css'
 
 const Equipment: React.FC<IngredientsAndEquipmentTypes> = ({ id, image, name }) => {

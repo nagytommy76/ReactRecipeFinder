@@ -11,7 +11,6 @@ const CardContainer: React.FC = () => {
    return (
       <ContainerStyle>
          {videos.length > 0 ? (
-            //  Megoldani
             videos.map((video) => (
                <a
                   key={video.youTubeId}

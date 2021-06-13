@@ -8,7 +8,7 @@ import { Drop, StyledParagraph, UnorderedList, Note } from './HoverDropStyle'
 
 type Props = {
    dropOpen: boolean
-   nutrition: MenuItemNutrition
+   nutrition?: MenuItemNutrition
 }
 
 const HoverDrop: React.FC<Props> = ({ dropOpen, nutrition }) => {

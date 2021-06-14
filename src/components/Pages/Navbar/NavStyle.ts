@@ -7,12 +7,13 @@ export const StyledNavbar = styled.nav<Prop>`
    width: 100%;
    height: 7rem;
    display: flex;
-   position: absolute;
+   /* position: absolute; */
+   position: fixed;
    top: 0;
    justify-content: space-around;
    align-items: center;
    z-index: 5;
-   transition: all 0.3s;
+   transition: all 0.6s;
    @media (max-width: 815px) {
       background-color: rgba(0, 0, 0, 0.9);
       flex-direction: column;
@@ -33,7 +34,25 @@ export const Title = styled.h1`
       color: #d14200;
    }
    @media (max-width: 815px) {
-      font-size: 2rem;
-      margin-bottom: 0;
+      font-size: 1.7rem;
+      margin: 0 1.4rem 0 0;
+      text-align: center;
+      width: 100%;
+      top: 30px;
+   }
+`
+
+// Icon Span
+export const IconSpan = styled.span`
+   color: red;
+`
+
+export const Header = styled.header`
+   @media (max-width: 815px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 40px;
    }
 `

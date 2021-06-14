@@ -4,7 +4,7 @@ import classes from './BaseInput.module.css'
 
 const Error = React.lazy(() => import('../BaseError/BaseError'))
 
-const BaseInput: React.FC<Props> = ({ labelText, eventOnChange, value, inputType = 'text', displayError = false }) => {
+const BaseInput: React.FC<Props> = ({ labelText, eventOnChange, value, inputType = 'text' }) => {
    return (
       <div className={classes.FormControll}>
          <label role='label' className={classes.Label} htmlFor={labelText}>
@@ -20,7 +20,7 @@ const BaseInput: React.FC<Props> = ({ labelText, eventOnChange, value, inputType
             onChange={eventOnChange}
             type={inputType}
          />
-         {displayError && <Error />}
+         <Error />
       </div>
    )
 }
@@ -30,7 +30,6 @@ type Props = {
    eventOnChange: (event: ChangeEvent<HTMLInputElement>) => void
    value: string | number
    inputType?: string
-   displayError?: boolean
 }
 
 export default BaseInput

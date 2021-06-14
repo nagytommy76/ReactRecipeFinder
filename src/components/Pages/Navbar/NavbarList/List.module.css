@@ -1,0 +1,16 @@
+.ListEnter {
+   opacity: 0;
+}
+.ListEnterActive {
+   opacity: 1;
+   transform: translateY(0%);
+   transition: all 300ms;
+}
+.ListExit {
+   opacity: 1;
+}
+.ListExitActive {
+   opacity: 0;
+   transform: translateY(-20%);
+   transition: all 300ms;
+}

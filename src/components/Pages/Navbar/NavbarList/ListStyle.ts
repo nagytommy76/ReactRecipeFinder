@@ -8,6 +8,7 @@ export const NavbarListStyle = styled.ul`
    padding-left: 0;
    @media (max-width: 815px) {
       flex-direction: column;
+      margin: 0;
    }
 `
 
@@ -25,6 +26,6 @@ export const StyledLi = styled(NavLink)`
 
    @media (max-width: 815px) {
       text-align: center;
-      margin: 0;
+      margin: 0.4rem 0;
    }
 `

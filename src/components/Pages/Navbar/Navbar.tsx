@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { StyledNavbar, Title } from './NavStyle'
+import { StyledNavbar, Title, IconSpan, Header } from './NavStyle'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
 import { setMobileSize } from '../../../store/Slices/MobileSizeSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -27,26 +27,30 @@ const Navbar: React.FC = () => {
    }, [handleWindowSizeChange])
 
    const openNavbar = () => {
-      console.log('kinyitva')
       setNavbarOpen(true)
    }
    const closeNavbar = () => {
-      console.log('becsukva')
       setNavbarOpen(false)
    }
 
    return (
       <StyledNavbar navbarOpen={navbarOpen} data-testid='navbar'>
-         <Link to='/'>
-            <Title>React Recipe Finder</Title>
-         </Link>
-         {/* {isMobileSize && <FontAwesomeIcon onClick={openNavbar} icon={['fas', 'bars']} size='2x' />} */}
-         {navbarOpen ? (
-            <FontAwesomeIcon onClick={closeNavbar} icon={['fas', 'times']} size='2x' />
-         ) : (
-            <FontAwesomeIcon onClick={openNavbar} icon={['fas', 'bars']} size='2x' />
-         )}
-         {navbarOpen && <NavbarList />}
+         <Header>
+            <Link to='/'>
+               <Title>React Recipe Finder</Title>
+            </Link>
+            {isMobileSize && (
+               <IconSpan>
+                  {navbarOpen ? (
+                     <FontAwesomeIcon onClick={closeNavbar} icon={['fas', 'times']} size='2x' />
+                  ) : (
+                     <FontAwesomeIcon onClick={openNavbar} icon={['fas', 'bars']} size='2x' />
+                  )}
+               </IconSpan>
+            )}
+         </Header>
+
+         <NavbarList navbarOpen={navbarOpen} />
       </StyledNavbar>
    )
 }

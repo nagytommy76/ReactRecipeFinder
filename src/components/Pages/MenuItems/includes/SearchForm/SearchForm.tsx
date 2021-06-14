@@ -26,12 +26,7 @@ const SearchForm: React.FC = () => {
    return (
       <Form onSubmit={submitForm} lightTheme={isLightTheme}>
          <Title>Search Menu Items</Title>
-         <BaseInput
-            labelText='Menu Item'
-            eventOnChange={(event) => setMenuItem(event.target.value)}
-            value={menuItem}
-            displayError={true}
-         />
+         <BaseInput labelText='Menu Item' eventOnChange={(event) => setMenuItem(event.target.value)} value={menuItem} />
          <BaseInput
             labelText='Number/page'
             eventOnChange={(event) => setNumberPerPage(event.target.value)}

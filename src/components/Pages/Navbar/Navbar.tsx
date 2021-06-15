@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { StyledNavbar, Title, IconSpan, Header } from './NavStyle'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
-import { setMobileSize } from '../../../store/Slices/MobileSizeSlice'
+import { setMobileSize, setNavbarOpen } from '../../../store/Slices/MobileSizeSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import NavbarList from './NavbarList/NavbarList'
 
 const Navbar: React.FC = () => {
    const dispatch = useAppDispatch()
    const isMobileSize = useAppSelector((state) => state.mobileReducer.isMobileSize)
-   const [navbarOpen, setNavbarOpen] = useState(false)
+   const isNavbarOpen = useAppSelector((state) => state.mobileReducer.isNavbarOpen)
    const handleWindowSizeChange = () => {
       if (window.innerWidth < 815) {
          dispatch(setMobileSize(true))
-         setNavbarOpen(true)
+         dispatch(setNavbarOpen(true))
       } else {
          dispatch(setMobileSize(false))
-         setNavbarOpen(false)
+         dispatch(setNavbarOpen(false))
       }
    }
    useEffect(() => {
@@ -27,21 +27,21 @@ const Navbar: React.FC = () => {
    }, [handleWindowSizeChange])
 
    const openNavbar = () => {
-      setNavbarOpen(true)
+      dispatch(setNavbarOpen(true))
    }
    const closeNavbar = () => {
-      setNavbarOpen(false)
+      dispatch(setNavbarOpen(false))
    }
 
    return (
-      <StyledNavbar navbarOpen={navbarOpen} data-testid='navbar'>
+      <StyledNavbar navbarOpen={isNavbarOpen} data-testid='navbar'>
          <Header>
             <Link to='/'>
                <Title>React Recipe Finder</Title>
             </Link>
             {isMobileSize && (
                <IconSpan>
-                  {navbarOpen ? (
+                  {isNavbarOpen ? (
                      <FontAwesomeIcon onClick={closeNavbar} icon={['fas', 'times']} size='2x' />
                   ) : (
                      <FontAwesomeIcon onClick={openNavbar} icon={['fas', 'bars']} size='2x' />
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
             )}
          </Header>
 
-         <NavbarList navbarOpen={navbarOpen} />
+         <NavbarList />
       </StyledNavbar>
    )
 }

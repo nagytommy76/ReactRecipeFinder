@@ -2,7 +2,7 @@ import React from 'react'
 
 const About: React.FC = () => {
    return (
-      <div style={{ height: '50vh' }}>
+      <div style={{ minHeight: '50vh' }}>
          <h2>sdadsaasd</h2>
          <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda nihil pariatur nisi, inventore dolore harum

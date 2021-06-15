@@ -5,16 +5,17 @@ import { CSSTransition } from 'react-transition-group'
 import classes from './List.module.css'
 import { useAppSelector } from '../../../../app/hooks'
 
-const NavbarList: React.FC<{ navbarOpen?: boolean }> = ({ navbarOpen }) => {
+const NavbarList: React.FC = () => {
    const nodeRef = React.useRef(null)
    const isMobile = useAppSelector((state) => state.mobileReducer.isMobileSize)
+   const isNavbarOpen = useAppSelector((state) => state.mobileReducer.isNavbarOpen)
    return (
       <>
          {isMobile ? (
             <CSSTransition
-               in={navbarOpen}
+               in={isNavbarOpen}
                nodeRef={nodeRef}
-               timeout={300}
+               timeout={500}
                mountOnEnter
                unmountOnExit
                classNames={{

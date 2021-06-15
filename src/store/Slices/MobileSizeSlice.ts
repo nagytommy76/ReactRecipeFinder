@@ -1,6 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-const initialState = {
-   isMobileSize: false
+
+type State = {
+   isMobileSize: boolean
+   isNavbarOpen: boolean
+}
+
+const initialState: State = {
+   isMobileSize: false,
+   isNavbarOpen: false
 }
 
 export const mobileSize = createSlice({
@@ -9,10 +16,13 @@ export const mobileSize = createSlice({
    reducers: {
       setMobileSize: (state, action: PayloadAction<boolean>) => {
          state.isMobileSize = action.payload
+      },
+      setNavbarOpen: (state, action: PayloadAction<boolean>) => {
+         state.isNavbarOpen = action.payload
       }
    }
 })
 
-export const { setMobileSize } = mobileSize.actions
+export const { setMobileSize, setNavbarOpen } = mobileSize.actions
 
 export default mobileSize.reducer

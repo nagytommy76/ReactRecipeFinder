@@ -5,17 +5,18 @@ import { CSSTransition } from 'react-transition-group'
 import classes from './List.module.css'
 import { useAppSelector } from '../../../../app/hooks'
 
-const NavbarList: React.FC = () => {
+const NavbarList: React.FC<{ closeNavbar: () => void }> = ({ closeNavbar }) => {
    const nodeRef = React.useRef(null)
    const isMobile = useAppSelector((state) => state.mobileReducer.isMobileSize)
    const isNavbarOpen = useAppSelector((state) => state.mobileReducer.isNavbarOpen)
+
    return (
       <>
          {isMobile ? (
             <CSSTransition
                in={isNavbarOpen}
                nodeRef={nodeRef}
-               timeout={500}
+               timeout={300}
                mountOnEnter
                unmountOnExit
                classNames={{
@@ -27,14 +28,20 @@ const NavbarList: React.FC = () => {
                   exitActive: classes.ListExitActive
                }}>
                <NavbarListStyle ref={nodeRef}>
-                  <StyledLi to='/recipes'>Recipes</StyledLi>
-                  <StyledLi to='/videos'>Videos</StyledLi>
-                  <StyledLi to='/menu-items'>Menu Items</StyledLi>
+                  <StyledLi onClick={closeNavbar} to='/recipes'>
+                     Recipes
+                  </StyledLi>
+                  <StyledLi onClick={closeNavbar} to='/videos'>
+                     Videos
+                  </StyledLi>
+                  <StyledLi onClick={closeNavbar} to='/menu-items'>
+                     Menu Items
+                  </StyledLi>
                   <Toggle />
                </NavbarListStyle>
             </CSSTransition>
          ) : (
-            <NavbarListStyle ref={nodeRef}>
+            <NavbarListStyle>
                <StyledLi to='/recipes'>Recipes</StyledLi>
                <StyledLi to='/videos'>Videos</StyledLi>
                <StyledLi to='/menu-items'>Menu Items</StyledLi>

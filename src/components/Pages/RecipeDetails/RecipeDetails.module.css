@@ -1,29 +1,30 @@
-.Title{
-    font-size: 2.7rem;
-    text-align: center;
+.Title {
+   font-size: 2.7rem;
+   text-align: center;
 }
 
-.RecipeDetails{
-    min-height: 85vh;
+.RecipeDetails {
+   margin-top: 9rem;
+   min-height: 85vh;
 }
 
-.ButtonContainer{
-    height: 60px;
-    display: flex;
-    justify-content: center;
+.ButtonContainer {
+   height: 60px;
+   display: flex;
+   justify-content: center;
 }
 
 @media (max-width: 550px) {
-    .Title{
-        font-size: 2rem;
-    }
-    .ButtonContainer{
-        margin: 1rem 0 1rem 0;
-    }
+   .Title {
+      font-size: 2rem;
+   }
+   .ButtonContainer {
+      margin: 1rem 0 1rem 0;
+   }
 }
 
 @media (max-width: 480px) {
-    .Title{
-        font-size: 1.7rem;
-    }
+   .Title {
+      font-size: 1.7rem;
+   }
 }

@@ -11,14 +11,8 @@ const Nutrients: React.FC = () => {
       <>
          <ModalBackground />
          <Modal />
-         {/* {createPortal(
-                <ModalBackground />,
-                document.getElementById('modal-backdrop')
-            )}
-            { createPortal(
-                <Modal />,
-                document.getElementById('modal')
-            )} */}
+         {/* {createPortal(<ModalBackground />, document.getElementById('modal-backdrop'))}
+         {createPortal(<Modal />, document.getElementById('modal'))} */}
       </>
    )
 }

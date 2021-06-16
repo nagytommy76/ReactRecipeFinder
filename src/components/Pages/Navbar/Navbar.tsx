@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
    return (
       <StyledNavbar navbarOpen={isNavbarOpen} data-testid='navbar'>
          <Header>
-            <Link to='/'>
+            <Link onClick={closeNavbar} to='/'>
                <Title>React Recipe Finder</Title>
             </Link>
             {isMobileSize && (
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
             )}
          </Header>
 
-         <NavbarList />
+         <NavbarList closeNavbar={closeNavbar} />
       </StyledNavbar>
    )
 }

@@ -1,64 +1,64 @@
-.Body{
-    position: relative;
-    height: 100%;
-    width: 100%;
+.Body {
+   position: relative;
+   height: 100%;
+   width: 100%;
 }
-.Title{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: .7rem;
-    text-align: right;
-    font-size: 2.1rem;
+.Title {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   margin: 0.7rem;
+   text-align: right;
+   font-size: 2.1rem;
 }
-.Calory{
-    position: absolute;
-    width: 170px;
-    top: 0;
-    right: 0;
-    text-align: center;
-    font-size: 1.1rem;
+.Calory {
+   position: absolute;
+   width: 170px;
+   top: 0;
+   right: 0;
+   text-align: center;
+   font-size: 1.1rem;
 }
-.PercentName{
-    margin-bottom: 0;
+.PercentName {
+   margin-bottom: 0;
 }
-.PercentValue{
-    margin: .4rem 0 0 0;
-    font-weight: 600;
+.PercentValue {
+   margin: 0.4rem 0 0 0;
+   font-weight: 600;
 }
 
 /* 636x393 */
-.ImageContainer{
-    position: absolute;
-    z-index: 5;
-    top: 0;
-    left: 15px;
-    width: 400px;
-    height: 280px;
-    background-color: transparent;
-    transition:  all .25s linear;
+.ImageContainer {
+   position: absolute;
+   z-index: 1;
+   top: 0;
+   left: 15px;
+   width: 400px;
+   height: 280px;
+   background-color: transparent;
+   transition: all 0.25s linear;
 }
 
-.ImageContainer:hover{
-    -webkit-box-shadow: 5px 10px 40px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 5px 10px 40px 0px rgba(0,0,0,0.75);
-	box-shadow: 5px 10px 40px 0px rgba(0,0,0,0.75);
-    top: -25px;
+.ImageContainer:hover {
+   -webkit-box-shadow: 5px 10px 40px 0px rgba(0, 0, 0, 0.75);
+   -moz-box-shadow: 5px 10px 40px 0px rgba(0, 0, 0, 0.75);
+   box-shadow: 5px 10px 40px 0px rgba(0, 0, 0, 0.75);
+   top: -25px;
 }
 
-.Image{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.Image {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
 }
 
-@media(max-width: 607px){
-    .Calory{
-       display: none;
-    }
-    .ImageContainer{
-        width: 340px;
-        top: 0;
-        left: 0;
-    }
+@media (max-width: 607px) {
+   .Calory {
+      display: none;
+   }
+   .ImageContainer {
+      width: 340px;
+      top: 0;
+      left: 0;
+   }
 }

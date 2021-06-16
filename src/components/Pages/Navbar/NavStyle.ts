@@ -12,7 +12,7 @@ export const StyledNavbar = styled.nav<Prop>`
    justify-content: space-around;
    align-items: center;
    z-index: 5;
-   transition: all 0.5s linear;
+   transition: all 0.3s;
    @media (max-width: 815px) {
       background-color: rgba(0, 0, 0, 0.9);
       flex-direction: column;

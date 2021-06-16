@@ -1,63 +1,63 @@
-.Modal{
-    position: fixed;
-    top: 45%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 75%;
+.Modal {
+   position: fixed;
+   top: 45%;
+   left: 50%;
+   margin-right: -50%;
+   transform: translate(-50%, -50%);
+   width: 500px;
+   height: 75%;
 
-    background-color: rgba(41, 41, 48, .9);
-    color: white;
-    box-shadow: 1px 1px 25px #111;
+   background-color: rgba(41, 41, 48, 0.9);
+   color: white;
+   box-shadow: 1px 1px 25px #111;
 
-    z-index: 3;
-    overflow: auto;
+   z-index: 3;
+   overflow: auto;
 }
-.Modal::-webkit-scrollbar{
-    width: .4rem;
-    margin-right: .5rem;
+.Modal::-webkit-scrollbar {
+   width: 0.4rem;
+   margin-right: 0.5rem;
 }
-.Modal::-webkit-scrollbar-track{
-    background: rgba(41, 41, 48, .9);
+.Modal::-webkit-scrollbar-track {
+   background: rgba(41, 41, 48, 0.9);
 }
-.Modal::-webkit-scrollbar-thumb{
-    background: #91db19;
-    border-radius: 5px;
+.Modal::-webkit-scrollbar-thumb {
+   background: #91db19;
+   border-radius: 5px;
 }
 
 @media (max-width: 1440px) {
-    .Modal{
-        top: 50%;
-        height: 95%;
-    }
+   .Modal {
+      top: 50%;
+      height: 95%;
+   }
 }
 
 @media (max-width: 520px) {
-    .Modal{
-        top: 50%;
-        width: 300px;
-        height: 90%;
-    }
+   .Modal {
+      top: 56%;
+      width: 300px;
+      height: 87%;
+   }
 }
 
 .modalAppear,
-.modalEnter{
-    opacity: 0;
-    transform: translateY(-200%) translateX(-50%);
-  }
-.modalEnterActive,
-.modalAppearActive{
-    opacity: 1;
-    transform: translateY(-50%) translateX(-50%);
-    transition: all 700ms;
+.modalEnter {
+   opacity: 0;
+   transform: translateY(-200%) translateX(-50%);
 }
-.modalExit{
-    opacity: 1;
-    transform: translateY(-50%) translateX(-50%);
+.modalEnterActive,
+.modalAppearActive {
+   opacity: 1;
+   transform: translateY(-50%) translateX(-50%);
+   transition: all 700ms;
+}
+.modalExit {
+   opacity: 1;
+   transform: translateY(-50%) translateX(-50%);
 }
 .modalExitActive {
-    opacity: 0;
-    transform: translateY(-200%) translateX(-50%);
-    transition: all 700ms;
+   opacity: 0;
+   transform: translateY(-200%) translateX(-50%);
+   transition: all 700ms;
 }

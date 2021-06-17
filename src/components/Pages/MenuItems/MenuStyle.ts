@@ -21,7 +21,7 @@ export const CardContainer = styled.section`
    }
    @media (max-width: 500px) {
       row-gap: 5rem;
-      grid-template-columns: repeat(1, 450px);
+      grid-template-columns: repeat(1, 350px);
    }
 `
 

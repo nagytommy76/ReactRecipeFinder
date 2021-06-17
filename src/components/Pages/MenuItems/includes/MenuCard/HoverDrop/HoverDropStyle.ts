@@ -20,6 +20,9 @@ export const Drop = styled.section<Props>`
    &:hover {
       transform: scale(1.04);
    }
+   @media (max-width: 500px) {
+      text-align: right;
+   }
 `
 
 export const UnorderedList = styled.ul`
@@ -35,6 +38,9 @@ export const StyledParagraph = styled.p`
    font-weight: ${fontWeight};
    margin: 0;
    padding-left: 1rem;
+   @media (max-width: 500px) {
+      padding: 0 1rem 0 0;
+   }
 `
 
 export const Note = styled.p`

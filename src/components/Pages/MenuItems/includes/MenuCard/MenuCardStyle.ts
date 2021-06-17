@@ -14,7 +14,7 @@ export const StyledCard = styled.article`
    }
    @media (max-width: 500px) {
       flex-direction: column;
-      width: 400px;
+      width: 350px;
       height: 400px;
       justify-content: center;
       align-items: center;

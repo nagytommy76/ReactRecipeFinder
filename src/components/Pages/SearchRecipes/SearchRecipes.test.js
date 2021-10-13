@@ -3,7 +3,7 @@ import React from 'react'
 import 'regenerator-runtime'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
-import { render, screen } from '../../../test-utils'
+import { render, screen , waitForElementToBeRemoved} from '../../../test-utils'
 import SearchRecipes from './SearchRecipes'
 
 import axios from 'axios'
@@ -42,12 +42,13 @@ const mockRecipeData = [
 describe('<SearhRecipes />', () => {
     beforeEach(() => {
         render(<SearchRecipes />)
+        expect(await  waitForElementToBeRemoved(() => screen.getByText(/Loading.../)))
     })
     it('should display the Search form with 3 input fields and 1 button', async () => {
         expect(await screen.findByRole('button', { name: /Search Foods/i })).toBeInTheDocument()
-        expect(await screen.findByRole('input', { name: "Include ingredient(s)" })).toBeInTheDocument()
-        expect(await screen.findByRole('input', { name: /Number of results/i })).toBeInTheDocument()
-        expect(await screen.findByRole('input', { name: /Food name/i })).toBeInTheDocument()
+        expect(await screen.findByRole('combobox', { name: "Include ingredient(s)" })).toBeInTheDocument()
+        expect(await screen.findByRole('spinbutton', { name: /Number of results/i })).toBeInTheDocument()
+        expect(await screen.findByRole('combobox', { name: /Food name/i })).toBeInTheDocument()
     })
     it('should display the recipes after the user enters something in the input field and clicks the button', async () => {
         const searchText = 'Test pasta recipe'

@@ -5,7 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Footer: React.FC = () => {
    return (
       <footer className={classes.Footer}>
-         <p className={classes.FooterContnent}>&copy; Nagy Tamás</p>
+         <p className={classes.FooterContnent}>
+            &copy;{' '}
+            <a style={{ color: '#FFF' }} href='http://nagytamas93.hu' target='_blank' rel='noopener noreferrer'>
+               {' '}
+               Nagy Tamás
+            </a>
+         </p>
          <section>
             <a
                className={classes.FontLink}

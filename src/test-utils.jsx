@@ -4,9 +4,11 @@ import { render as rtlRender } from '@testing-library/react'
 import { createStore, applyMiddleware } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
 import thunk from 'redux-thunk'
 // Import your own reducer
 import { rootReducer } from './store/store'
+import { darkTheme } from './Theme/Themes'
 
 function render(
     ui,
@@ -19,11 +21,13 @@ function render(
     function Wrapper({ children }) {
         return (
             <Provider store={store}>
+                <ThemeProvider theme={darkTheme}>
                 <BrowserRouter>
                     <React.Suspense fallback={<h1>Loading...</h1>}>
                         {children}
                     </React.Suspense>
                 </BrowserRouter>
+                </ThemeProvider>
             </Provider>
         )
     }

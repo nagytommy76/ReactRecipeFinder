@@ -2,13 +2,13 @@ import React, { lazy } from 'react'
 import classes from './Welcome.module.css'
 
 const Header = lazy(() => import('./Header/Header'))
-const About = lazy(() => import('./About/About'))
+// const About = lazy(() => import('./About/About'))
 
 const Welcome: React.FC = () => {
    return (
       <section className={classes.Contanier}>
          <Header />
-         <About />
+         {/* <About /> */}
       </section>
    )
 }

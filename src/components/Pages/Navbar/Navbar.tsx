@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { StyledNavbar, Title, IconSpan, Header } from './NavStyle'
 import { useAppDispatch, useAppSelector } from '../../../app/hooks'
@@ -10,21 +10,26 @@ const Navbar: React.FC = () => {
    const dispatch = useAppDispatch()
    const isMobileSize = useAppSelector((state) => state.mobileReducer.isMobileSize)
    const isNavbarOpen = useAppSelector((state) => state.mobileReducer.isNavbarOpen)
-   const handleWindowSizeChange = () => {
+
+   const handleWindowSizeChange = useCallback(() => {
       if (window.innerWidth < 815) {
          dispatch(setMobileSize(true))
-         dispatch(setNavbarOpen(true))
       } else {
          dispatch(setMobileSize(false))
-         dispatch(setNavbarOpen(false))
       }
-   }
+   }, [dispatch])
+
    useEffect(() => {
       window.addEventListener('resize', handleWindowSizeChange)
       return () => {
          window.removeEventListener('resize', handleWindowSizeChange)
       }
    }, [handleWindowSizeChange])
+
+   useEffect(() => {
+      handleWindowSizeChange()
+      // eslint-disable-next-line
+   }, [])
 
    const openNavbar = () => {
       dispatch(setNavbarOpen(true))

@@ -3,7 +3,7 @@ import 'regenerator-runtime'
 import userEvent from '@testing-library/user-event'
 // .toBeInTheDocument()
 import '@testing-library/jest-dom'
-import { render, screen } from '../../../test-utils'
+import { render, screen, waitForElementToBeRemoved} from '../../../test-utils'
 import SearchVideos from './SearchVideos'
 
 import axios from 'axios'
@@ -28,17 +28,18 @@ const mockVideoData = [
 describe('test <SearchVideos />', () => {
     beforeEach(() => {
         render(<SearchVideos />)
+        expect(await  waitForElementToBeRemoved(() => screen.getByText(/Loading.../)))
     })
     it('should have a default text initially and 2 input fields and a button', async () => {              
         expect(await screen.findByRole('heading', { name: /No videos found yet/i })).toBeInTheDocument()
-        expect(await screen.findByRole('input', { name: /Video name:/i })).toBeInTheDocument()
-        expect(await screen.findByRole('input', { name: /Results per page/i })).toBeInTheDocument()
+        expect(await screen.findByRole('combobox', { name: /Video name:/i })).toBeInTheDocument()
+        expect(await screen.findByRole('spinbutton', { name: /Results per page/i })).toBeInTheDocument()
         expect(await screen.findByRole('button', { name: /Search Videos/i })).toBeInTheDocument()
     })
 
     it('should display the videos', async () => {
         const inputText = 'test pasta video'
-        const videoNameInputField = await screen.findByRole('input', { name: /Video name:/i })
+        const videoNameInputField = await screen.findByRole('combobox', { name: /Video name:/i })
         const button = await screen.findByRole('button', { name: /Search Videos/i })
         const defaultHeading = await screen.findByRole('heading', { name: /No videos found yet/i })
 

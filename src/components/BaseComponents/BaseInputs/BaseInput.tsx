@@ -7,11 +7,10 @@ const Error = React.lazy(() => import('../BaseError/BaseError'))
 const BaseInput: React.FC<Props> = ({ labelText, eventOnChange, value, inputType = 'text' }) => {
    return (
       <div className={classes.FormControll}>
-         <label role='label' className={classes.Label} htmlFor={labelText}>
+         <label className={classes.Label} htmlFor={labelText}>
             {labelText}
          </label>
          <input
-            role='input'
             placeholder={labelText}
             data-testid='input'
             className={classes.Input}

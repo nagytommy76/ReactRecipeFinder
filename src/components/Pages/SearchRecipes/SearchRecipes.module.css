@@ -1,12 +1,12 @@
-.Container{
-    min-height: 85vh;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
+.Container {
+   min-height: 85vh;
+   margin: 5rem auto;
+   display: flex;
+   flex-direction: row;
 }
 
 @media (max-width: 1900px) {
-    .Container{
-        flex-direction: column;
-    }
+   .Container {
+      flex-direction: column;
+   }
 }

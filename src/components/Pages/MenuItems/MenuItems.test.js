@@ -1,7 +1,7 @@
 import React from 'react'
 import 'regenerator-runtime'
 import '@testing-library/jest-dom'
-import { render, screen, act } from '../../../test-utils'
+import { render, screen, act, waitForElementToBeRemoved } from '../../../test-utils'
 // import { act } from 'react-dom/test-utils'
 import userEvent from '@testing-library/user-event'
 
@@ -56,11 +56,12 @@ const mockMenuItemNutrients = {
 
 
 describe('<MenuItems>', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
         render(<MenuItems />)
+        expect(await  waitForElementToBeRemoved(() => screen.getByText(/Loading.../)))
     })
     it('should display the search form with the first input', async () => {
-        await screen.findByRole('input', { name: /Menu Item/i })
+        await screen.findByRole('combobox', { name: /Menu Item/i })
     })
     it('should display the second input field with a default value of: 10', async () => {
         await screen.findByRole('input', { name: 'Number/page' })
